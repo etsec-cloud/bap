@@ -1,0 +1,26 @@
+#autoContainer{
+    height: 90vh;
+    background-image: url('../images/assurance-auto.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#autoContainer h1{
+    color: white;
+}
+
+#autoContent{
+    display: flex;
+    justify-content: space-around;
+}
+
+#autoContent .autoItem{
+    width: 30%;
+    background-color: rgba(245, 241, 241, 0.794);
+    padding: 25px;
+    border-radius: 10px;
+    font-size: 20px;
+}

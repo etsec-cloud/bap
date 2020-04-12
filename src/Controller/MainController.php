@@ -16,4 +16,15 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+    /**
+     * @Route("/assurance-auto", name="AssuranceAuto")
+     */
+    public function AssuranceAuto()
+    {
+        return $this->render('main/assurance-auto.html.twig', [
+            
+        ]);
+    }
+
 }

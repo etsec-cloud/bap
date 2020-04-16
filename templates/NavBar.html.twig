@@ -1,33 +1,47 @@
-{% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/Navbar.css') }}">{% endblock %}
-
-{% block body %}
-
-    <header>
-        <ul>
-            <li>Particuliers
-                <ul>
-                    <li>Auto</li>
-                    <li>2 roues</li>
-                    <li>Auto</li>
-                    <li>Auto</li>
-                    <li>Auto</li>
-                </ul>
-            </li>
-            <li>Entreprises</li>
-            <li>Liberaux, artisants, commerçants</li>
-            <li>Nos blogs
-                <ul>
-                    <li>Assurance</li>
-                    <li>Moto</li>
-                    <li>FAQ</li>
-                </ul>
-            </li>
-        </ul>
-        <div class="link">
-            <a href="#" class="connect"><i class="far fa-user-circle"></i>Me connecter</a>
-            <a href="#" class="devis">Demander un devis</a>
+<div id="navbar">
+    <div id="navbar-main">
+        <div class="navbar-item" id="particuliers">
+            Particuliers
+            <ul class="navbar-under" id="under-particuliers">
+                <li class="navbar-under-item">Auto</li>
+                <li class="navbar-under-item">2 roues</li>
+                <li class="navbar-under-item">Auto</li>
+                <li class="navbar-under-item">Auto</li>
+                <li class="navbar-under-item">Auto</li>
+            </ul>
         </div>
-        
-    </header>
-
-{% endblock %}
+        <div class="navbar-item" id="entreprises">
+            Entreprises
+            <ul class="navbar-under" id="under-entreprises">
+                <li class="navbar-under-item">Auto</li>
+                <li class="navbar-under-item">2 roues</li>
+                <li class="navbar-under-item">Auto</li>
+                <li class="navbar-under-item">Auto</li>
+                <li class="navbar-under-item">Auto</li>
+            </ul>
+        </div>
+        <div class="navbar-item" id="liberaux">
+            Liberaux, artisants, commerçants
+            <ul class="navbar-under" id="under-liberaux">
+                <li class="navbar-under-item">Auto</li>
+                <li class="navbar-under-item">2 roues</li>
+                <li class="navbar-under-item">Auto</li>
+                <li class="navbar-under-item">Auto</li>
+                <li class="navbar-under-item">Auto</li>
+            </ul>
+        </div>
+        <div class="navbar-item" id="blogs">
+            Nos blogs
+            <ul class="navbar-under" id="under-blogs">
+                <li class="navbar-under-item">Assurance</li>
+                <li class="navbar-under-item">Moto</li>
+                <li class="navbar-under-item">FAQ</li>
+            </ul>
+        </div>
+    </div>
+    <div id="link">
+        <a href="#" class="connect"><i class="far fa-user-circle"></i>Me connecter</a>
+        <a href="#" class="devis">Demander un devis</a>
+    </div>
+    
+</div>

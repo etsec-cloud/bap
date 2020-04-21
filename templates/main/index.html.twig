@@ -1,17 +1,110 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Accueil{% endblock %}
+
 {% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/accueil.css') }}">{% endblock %}
+
 
 {% block body %}
 
-
 <div class="accueilContainer">
-    <h1>Premier Titre</h1>
-    <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500</p>
-    <a href="#">Obtenir un devis gratuitement</a>
-    <img src=" ">
+        
+    <!--First panel -->
+    <div class="flexContainer">
 
-  
+        <div class="flexItems1">
+            <h1>Premier Titre</h1> <br/>
+            <p class="maxWidth520">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500</p>
+           <button class="center"> <a  href="#">Obtenir un devis gratuitement</a> </button>
+        </div>
+
+        <div class="flexItems">
+
+            <img  class="bigImage" src="https://developer.mozilla.org/static/img/favicon144.png">
+        </div>
+    </div>
+
+    <hr color="midnightblue" size="1">
+
+    <!--Second panel -->
+    <div class="flexCenter">
+        <h2 class="paddingBot"> Second Titre</h2>
+    </div>
+
+        <div class="flexContainerRow">
+
+            <div class="flexItemCol">
+                <img src="https://developer.mozilla.org/static/img/favicon144.png">
+                <h3>Titre</h3>
+                <p class="maxWidth200">Le Lorem Ipsum est 
+                    simplement du faux texte 
+                    employé dans la 
+                    composition et la mise 
+                    en page avant 
+                    impression.
+                </p>
+                <button><a  href="#">Nos blogs</a> </button>
+            </div>
+
+
+            <div class="flexItemCol">
+                <img src="https://developer.mozilla.org/static/img/favicon144.png">
+                <h3>Titre</h3>
+                <p class="maxWidth200" >Le Lorem Ipsum est 
+                    simplement du faux texte 
+                    employé dans la 
+                    composition et la mise 
+                    en page avant 
+                    impression.
+                </p>
+                <button><a  href="#">Nos blogs</a> </button>
+            </div>
+
+
+            <div class="flexItemCol">
+                <img src="https://developer.mozilla.org/static/img/favicon144.png">
+                <h3>Titre</h3>
+                <p class="maxWidth200">Le Lorem Ipsum est 
+                    simplement du faux texte 
+                    employé dans la 
+                    composition et la mise 
+                    en page avant 
+                    impression.
+                </p>
+                <button><a  href="#">Nos blogs</a> </button>
+            </div>
+
+        </div>
+
+
+    <hr color="midnightblue" size="1">
+
+    <!--Third panel -->
+
+    <div class="">
+
+        <h2>Des partenaires pour tous vos besoins </h2>
+
+        <div class="carousel">
+        </div>
+
+       <div class="flexContainer">
+            <div class="flexItems">
+                    <img  class="bigImage" src="https://developer.mozilla.org/static/img/favicon144.png">
+            </div>
+
+            <div class="flexItems1">
+            
+                <h3>Le mot du gérant </h3> <br/>
+                <p class="maxWidth400">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble  livre spécimen de. </p>
+            </div>
+        </div>
+
+    </div>
+
 </div>
+
+
+
+
 {% endblock %}

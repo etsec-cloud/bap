@@ -2,7 +2,10 @@
 
 {% block title %}Accueil{% endblock %}
 
-{% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/accueil.css') }}">{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href=" {{ asset('assets/css/accueil.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+{% endblock %}
 
 
 {% block body %}
@@ -81,12 +84,23 @@
 
     <!--Third panel -->
 
-    <div class="">
 
         <h2>Des partenaires pour tous vos besoins </h2>
-
-        <div class="carousel">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+                <div class="swiper-slide">Slide 10</div>
+            </div>
         </div>
+           
 
        <div class="flexContainer">
             <div class="flexItems">
@@ -101,10 +115,10 @@
         </div>
 
     </div>
-
 </div>
-
-
-
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script src="{{ asset('assets/js/accueil.js') }}"></script>
 
 {% endblock %}
+
+

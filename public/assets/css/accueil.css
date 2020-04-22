@@ -71,6 +71,19 @@
     max-width:400px;
 }
 
+
+/*slider*/
+.swiper-container {
+    width: 80%;
+    margin: 2em auto;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    background: rgb(4, 34, 117);
+  }
+  
  /*mediaqueries*/
  @media screen and (max-width: 600px) {
     .flexContainerRow{

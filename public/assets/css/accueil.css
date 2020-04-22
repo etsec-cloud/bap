@@ -11,7 +11,7 @@
 }
 
 .bigImage{
-    width: 300px;
+    width: 20em;
 }
 
 .maxWidth520{
@@ -48,11 +48,15 @@
     display:flex;
     justify-content: space-around;
 
+
+
 }
 
 .maxWidth200{
     max-width:200px;
 }
+
+   
 
 /*Third panel*/
 
@@ -67,6 +71,21 @@
     max-width:400px;
 }
 
+ /*mediaqueries*/
+ @media screen and (max-width: 600px) {
+    .flexContainerRow{
+        flex-direction: column !important;
+    }
+
+}
+
+@media screen and (max-width: 900px){
+    .flexContainer{
+        flex-direction: column !important;
+        align-items: center;
+
+    }
+}
 
 
 

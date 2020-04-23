@@ -1,0 +1,11 @@
+
+
+.flexContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    margin: 0 2em 4em;
+}

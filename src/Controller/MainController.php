@@ -22,6 +22,20 @@ class MainController extends AbstractController
     }
 
     /**
+     * @Route("/secteur-particulier" , name="SecteurParticulier")
+     */
+
+    public function SecteurParticulier()
+    {
+
+
+        return $this->render('main/secteur-particulier.html.twig', [
+        ]);
+    }
+
+
+
+    /**
      * @Route("/assurance-auto", name="AssuranceAuto")
      */
     public function AssuranceAuto(MailerInterface $mailer, Request $request)

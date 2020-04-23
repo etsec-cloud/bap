@@ -1,7 +1,14 @@
+.marginTop{
+    margin-top: 3em;
+}
+
+
 .flexCenter{
     display: flex;
     justify-content: center;
     margin-bottom: 3em;
+
+
 }
 
 .flexContainer{
@@ -11,5 +18,5 @@
 }
 
 .card{
-    margin: 0 2em 4em;
+    margin: 0 3em 4em;
 }

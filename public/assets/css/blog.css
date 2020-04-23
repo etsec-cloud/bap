@@ -1,0 +1,28 @@
+.flexItemCol{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.flexContainerRow{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+}
+
+.maxWidth300{
+    max-width:300px;
+}
+
+@media screen and (max-width: 1055px) {
+    .flexContainerRow{
+        flex-direction: column !important;
+        height: 100%;
+        margin-top:7vh;
+    }
+    .flexItemCol{
+        margin-bottom: 70px;
+
+    }
+}

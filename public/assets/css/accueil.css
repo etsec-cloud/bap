@@ -1,5 +1,9 @@
 /*First panel*/
 
+a{
+    text-decoration: none;
+}
+
 .accueilContainer{
     margin: 0;
 }
@@ -20,7 +24,6 @@
 .maxWidth520{
     max-width:520px;
     width: 100%;
-
 }
 
 .center{
@@ -101,19 +104,20 @@ p{
   }
   
  /*mediaqueries*/
- @media screen and (max-width: 600px) {
-    .flexContainerRow{
-        flex-direction: column !important;
-    }
 
-}
-
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1055px){
     .flexContainer{
         flex-direction: column !important;
         align-items: center;
 
     }
+}
+
+ @media screen and (max-width: 764px) {
+    .flexContainerRow{
+        flex-direction: column !important;
+    }
+
 }
 
 

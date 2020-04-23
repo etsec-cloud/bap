@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    width: 98vw;
     height: 5vh;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .navbar-item#liberaux{
-    width: 300%;
+    width: 200%;
 }
 
 .navbar-under{
@@ -85,11 +85,13 @@
     display: flex;
 }
 
-@media screen and (max-width:710px) {
+@media screen and (max-width:1055px) {
+
     .menu-toggle-btn{
         display: block !important;
         margin-right: 5px;
     }
+
     #navbar{
         display: none;
         position: absolute;
@@ -115,23 +117,16 @@
     #blogs:hover #under-blogs {
         display: none;
     }
-
     
-
     #link{
         display: block;
         margin-top: 25%;
         justify-content: center;
         margin-left: 30%;
     }
-
-
     #link .devis {
         margin-top: 5px;
         padding: 2px;
     }
-
-    
-
 
 }

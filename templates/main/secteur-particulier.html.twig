@@ -6,17 +6,22 @@
 
 {% block body %}
 
-<div class="flexContainer">
-   {% for i in 0..8 %} 
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-        <div class="card-body">
-            <p class="card-text">Assurance</p>
-        </div>
+    <div class="flexCenter">
+        <h1>Assurances particuliers</h1>
     </div>
-    {% endfor %}
 
-</div>
+    <div class="flexContainer">
+    {% for i in 0..8 %} 
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text">Assurance</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
 
 
 

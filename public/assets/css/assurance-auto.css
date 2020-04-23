@@ -1,6 +1,6 @@
 #autoContainer{
-    height: 95vh;
-    background-image: url('../images/assurance-auto.jpg');
+    height: 100vh;
+    background: linear-gradient(to bottom, rgb(3, 23, 80, 0.5), transparent), url('../images/assurance-auto.jpg');
     background-size: cover;
     display: flex;
     flex-direction: column;

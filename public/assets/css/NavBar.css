@@ -4,11 +4,13 @@
 }
 
 #navbar{
+    position: absolute;
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 98vw;
-    height: 5vh;
+    height: 7vh;
 }
 
 #navbar-main{
@@ -58,10 +60,17 @@
 
 #link a {
     text-decoration: none;
-    color: black;
     margin: 5px;
-    margin-right: 20px;
+    margin-right: 25px;
     padding: 2px;
+}
+
+#link a i{
+    margin-right: 5px;
+}
+
+#link .connect{
+    color: white;
 }
 
 #link .devis {
@@ -85,11 +94,21 @@
     display: flex;
 }
 
+/* Burger menu */
+
+#burger{
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    top: 10px;
+    right: 15px;
+    display: none;
+}
+
 @media screen and (max-width:1055px) {
 
-    .menu-toggle-btn{
-        display: block !important;
-        margin-right: 5px;
+    #burger{
+        display: block;
     }
 
     #navbar{

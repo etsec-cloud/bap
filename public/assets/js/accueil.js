@@ -2,7 +2,7 @@ console.log("azfe azef aze s")
 
 var swiper = new Swiper('.swiper-container', {
     direction: 'horizontal',
-    slidesPerView: 6,
+    slidesPerView: 3,
     spaceBetween: 60,
     loop: true,
     
@@ -11,5 +11,13 @@ var swiper = new Swiper('.swiper-container', {
     },
 
     speed: 3000,
+
+    breakpoints: {
+      // when window width is <= 999px
+      600: {
+          slidesPerView: 6,
+          spaceBetweenSlides: 50
+      }
+    }
     
     });

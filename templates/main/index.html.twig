@@ -1,20 +1,124 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href=" {{ asset('assets/css/accueil.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+{% endblock %}
+
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="accueilContainer">
+        
+    <!--First panel -->
+    <div class="flexContainer">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Moi/Documents/GitHub/Assurance-Cie/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Moi/Documents/GitHub/Assurance-Cie/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
+        <div class="flexItems1">
+            <h1>Premier Titre</h1> <br/>
+            <p class="maxWidth520">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500</p>
+           <button class="center"> <a  href="#">Obtenir un devis gratuitement</a> </button>
+        </div>
+
+        <div class="flexItems">
+
+            <img  class="bigImage" src="https://developer.mozilla.org/static/img/favicon144.png">
+        </div>
+    </div>
+
+    <hr color="midnightblue" size="1">
+
+    <!--Second panel -->
+    <div class="flexCenter">
+        <h2 class="paddingBot"> Second Titre</h2>
+    </div>
+
+        <div class="flexContainerRow">
+
+            <div class="flexItemCol">
+                <img src="https://developer.mozilla.org/static/img/favicon144.png">
+                <h3>Titre</h3>
+                <p class="maxWidth200">Le Lorem Ipsum est 
+                    simplement du faux texte 
+                    employé dans la 
+                    composition et la mise 
+                    en page avant 
+                    impression.
+                </p>
+                <button><a  href="#">Nos blogs</a> </button>
+            </div>
+
+
+            <div class="flexItemCol">
+                <img src="https://developer.mozilla.org/static/img/favicon144.png">
+                <h3>Titre</h3>
+                <p class="maxWidth200" >Le Lorem Ipsum est 
+                    simplement du faux texte 
+                    employé dans la 
+                    composition et la mise 
+                    en page avant 
+                    impression.
+                </p>
+                <button><a  href="#">Nos blogs</a> </button>
+            </div>
+
+
+            <div class="flexItemCol">
+                <img src="https://developer.mozilla.org/static/img/favicon144.png">
+                <h3>Titre</h3>
+                <p class="maxWidth200">Le Lorem Ipsum est 
+                    simplement du faux texte 
+                    employé dans la 
+                    composition et la mise 
+                    en page avant 
+                    impression.
+                </p>
+                <button><a  href="#">Nos blogs</a> </button>
+            </div>
+
+        </div>
+
+
+    <hr color="midnightblue" size="1">
+
+    <!--Third panel -->
+
+
+        <h2>Des partenaires pour tous vos besoins </h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+                <div class="swiper-slide">Slide 10</div>
+            </div>
+        </div>
+           
+
+       <div class="flexContainer">
+            <div class="flexItems">
+                    <img  class="bigImage" src="https://developer.mozilla.org/static/img/favicon144.png">
+            </div>
+
+            <div class="flexItems1">
+            
+                <h3>Le mot du gérant </h3> <br/>
+                <p class="maxWidth400">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble  livre spécimen de. </p>
+            </div>
+        </div>
+
+    </div>
 </div>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script src="{{ asset('assets/js/accueil.js') }}"></script>
+
 {% endblock %}
+
+

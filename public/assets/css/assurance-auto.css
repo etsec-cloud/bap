@@ -18,9 +18,46 @@
 }
 
 #autoContent .autoItem{
-    width: 30%;
+    width: 35%;
+    height: 100%;
     background-color: rgba(245, 241, 241, 0.794);
     padding: 25px;
     border-radius: 10px;
     font-size: 20px;
+}
+
+@media (max-width: 1055px) {
+
+    #autoContainer h1{
+        margin-top: 50px;
+    }
+
+    #autoContent .autoItem{
+        width: 45%;
+    }
+
+}
+
+@media (max-width: 764px) {
+
+    #autoContainer{
+        display: block;
+        height: 100%;
+    }
+
+    #autoContainer h1{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    #autoContent{
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #autoContent .autoItem{
+        width: 80%;
+        margin-bottom: 50px;
+    }
 }

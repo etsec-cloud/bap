@@ -29,6 +29,10 @@
     align-items: center;
 }
 
+.navbar-item#liberaux{
+    width: 300%;
+}
+
 .navbar-under{
     display: none;
     position: absolute;

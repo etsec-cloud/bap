@@ -29,7 +29,7 @@ class AssuranceType extends AbstractType
                 'label' => 'Email',
                 'attr' => ['class' => 'form-control']
             ])
-            ->add('phone', TelType::class, [
+            ->add('tel', TelType::class, [
                 'label' => 'Téléphone',
                 'required' => 'false',
                 'attr' => ['class' => 'form-control']

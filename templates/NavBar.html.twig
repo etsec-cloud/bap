@@ -40,7 +40,11 @@
         </div>
     </div>
     <div id="link">
-        <a href="#" class="connect"><i class="far fa-user-circle"></i>Me connecter</a>
+        {% if is_granted('ROLE_USER') %}
+            <a href="{{ path('account') }}" class="connect"><i class="far fa-user-circle"></i>Mon compte</a>
+        {% else %}
+            <a href="{{ path('app_login') }}" class="connect"><i class="far fa-user-circle"></i>Me connecter</a>
+        {% endif %}
         <a href="#" class="devis btn btn-outline-light">Demander un devis</a>
     </div>
 

@@ -13,7 +13,7 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/", name="accueil")
+     * @Route("/", name="home")
      */
     public function index()
     {

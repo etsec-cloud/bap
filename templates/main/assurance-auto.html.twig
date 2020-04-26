@@ -52,7 +52,7 @@
                             {{ form_row(assuranceForm.email) }}
                         </div>
                         <div class="form-group col-md-4">
-                            {{ form_row(assuranceForm.phone) }}
+                            {{ form_row(assuranceForm.tel) }}
                         </div>
                     </div>
                     <div class="form-group">
@@ -61,8 +61,10 @@
                     <div class="form-group">
                         {{ form_row(assuranceForm.documents) }}
                     </div>
-                    {{ form_row(assuranceForm.submit) }}
-                {{ form_start(assuranceForm) }}
+                    <div class="text-center">   
+                        {{ form_row(assuranceForm.submit) }}
+                    </div>
+                {{ form_end(assuranceForm) }}
             </div>
         </div>
     </div>

@@ -1,3 +1,8 @@
+.bigcontainer{
+    background: rgb(3, 23, 80);
+
+}
+
 .marginTop{
     margin-top: 3em;
 }
@@ -7,8 +12,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 3em;
-
-
+    color:white;
 }
 
 .flexContainer{

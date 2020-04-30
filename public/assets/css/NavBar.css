@@ -105,17 +105,23 @@
     right: 15px;
     display: none;
 }
+#burger::before{
+    color: blue;
+}
+
 
 @media screen and (max-width:1055px) {
 
     #burger{
         display: block;
+
     }
 
     #navbar{
         display: none;
         position: absolute;
         margin: 5%;
+        color: blue;
     }
 
     #navbar-main{

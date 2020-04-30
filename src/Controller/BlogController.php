@@ -5,6 +5,7 @@ use App\Entity\Article;
 use App\Form\ArticleType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -30,6 +31,23 @@ class BlogController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $fichier = $form->get('image')->getData();
+
+            if ($fichier) {
+                $newFilename = uniqid().'.'.$fichier->guessExtension();
+
+                try {
+                    $fichier->move(
+                        $this->getParameter('upload_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    $this->addFlash('error', "Impossible d'uploader le fichier");
+                }
+
+                $article->setImage($newFilename);
+            }
 
             $article->setCreatedAt(new \DateTime());
 

@@ -45,6 +45,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: black;
 }
 
 .navbar-under-item{
@@ -122,6 +123,7 @@
         justify-content: center;
         width: 90% ! important;
         margin-bottom: 5%;
+        background: white;
     }
 
     #particuliers:hover  #under-particuliers {
@@ -146,6 +148,11 @@
     #link .devis {
         margin-top: 5px;
         padding: 2px;
+    }
+    .navbar-item#liberaux{
+        text-align: center;
+        margin-right: 50%;
+        color: red;
     }
 
 }

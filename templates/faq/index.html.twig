@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/faq.css') }}">{% endblock %}
+
+{% block body %}
+    <div class="faqContainer">
+        <h1>Foire aux questions</h1>
+        <div class="faqContent">
+            <div class="createQuestion">
+                <h3>Poser votre question !</h3>
+                {{ form(questionForm) }}
+            </div>
+            <div class="questions">
+                <h3>Les dernières questions</h3>
+            </div>
+        </div>
+    </div>
+{% endblock %}

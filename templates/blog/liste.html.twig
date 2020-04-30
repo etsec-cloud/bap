@@ -6,7 +6,15 @@
 
 <ul>
     {% for article in articles %}
+    {{dump(article)}}
+
     {{article.title}}
+    {{article.content}}
+
+    {% if article.image is not null %}
+        <img  src="{{ asset('/uploads/' ~ article.image) }}">
+    {% endif %}
+
     {% endfor %}
 </ul>
 

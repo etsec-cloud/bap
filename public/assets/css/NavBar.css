@@ -123,7 +123,6 @@
         justify-content: center;
         width: 90% ! important;
         margin-bottom: 5%;
-        background: white;
     }
 
     #particuliers:hover  #under-particuliers {
@@ -151,8 +150,8 @@
     }
     .navbar-item#liberaux{
         text-align: center;
-        margin-right: 50%;
-        color: red;
+        width: 100%;
+        
     }
 
 }

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{article.title}} {% endblock %}
+{% block stylesheets %} <link rel="stylesheet" href=" {{ asset('./assets/css/article.css') }}"> {% endblock %}
+
+
+{% block body %}
+
+<div class="articleContainer">
+    <div class="flexContainer">
+        <img class="imgArticle" src="{{ asset('/uploads/' ~ article.image) }}">
+        <div class="contentArticle">
+            {{article.title}} </br>
+            {{article.content}}
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

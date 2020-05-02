@@ -22,7 +22,23 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="article_new", methods={"GET","POST"})
+     * @Route("/article/show/{id}", name="article")
+     */
+    public function article($id)
+    {
+        $article = new Article();
+        $em = $this -> getDoctrine() -> getManager();
+        $article = $em->getRepository(Article::class)->findOneById($id);
+
+        return $this->render('blog/article.html.twig', [
+            'article' => $article,
+        ]);
+
+
+    }
+
+    /**
+     * @Route("/article/new", name="article_new", methods={"GET","POST"})
      */
     public function new(Request $request)
     {
@@ -65,7 +81,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/liste", name="article_liste")
+     * @Route("/article/liste", name="article_liste")
      */
     public function liste( )
     {

@@ -1,8 +1,23 @@
-.container{
-    padding-top: 3em;
-
+.imgArticle{
+    width: 40em;
 }
-body{
+
+.contentArticle{
+    max-width: 40em;
+}
+.articleContainer{
     background: rgb(3, 23, 80);
+    height: 100vh;
+}
+
+.flexContainer{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    
+    justify-content: space-around;
     color: white;
+    padding-top: 5em;
+
+
 }

@@ -8,11 +8,37 @@
 
 <div class="articleContainer">
     <div class="flexContainer">
-        <img class="imgArticle" src="{{ asset('/uploads/' ~ article.image) }}">
-        <div class="contentArticle">
-            {{article.title}} </br>
-            {{article.content}}
+        <div class="flexCol">
+
+            <img class="imgArticle" src="{{ asset('/uploads/' ~ article.image) }}">
+            <div class="contentArticle">
+                <h1>{{article.title}} </h1>
+                <p>{{article.content}}</p>
+            </div>
+            
+
         </div>
+        
+        <div class="flexCol2">
+            <h2 class="scrollTitre">Article similaire</h2>
+            <div class="scrollArticle">
+                {% for article in articles  %} 
+                    <div class="card" style="width: 15rem;">
+                        {% if article.image is not null %}
+                            <img class="card-img-top" src="{{ asset('/uploads/' ~ article.image) }}">
+                        {% endif %}
+                            <div class="card-body">
+                                <p class="card-text">{{article.title}}</p>
+                
+                                <p class="card-text">{{article.createdAt| date('d/n/Y')}}</p>
+                                <a href="{{ path('article', {'id': article.id}) }}"> Voir l'article </a>
+                            </div>
+                    </div>   
+                {% endfor %}
+            </div>
+
+        </div>
+
     </div>
 
 </div>

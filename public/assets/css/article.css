@@ -1,23 +1,46 @@
 .imgArticle{
-    width: 40em;
+    width: 30rem;
 }
 
 .contentArticle{
-    max-width: 40em;
+    max-width: 40rem;
+    margin-top: 3rem;
+
 }
 .articleContainer{
-    background: rgb(3, 23, 80);
     height: 100vh;
 }
-
 .flexContainer{
+    display: flex;
+    background: rgb(3, 23, 80);
+}
+
+.flexCol{
     display: flex;
     flex-direction:column;
     align-items: center;
-    
-    justify-content: space-around;
+    width: 70%;
     color: white;
-    padding-top: 5em;
+    margin-top: 10rem;
+}
 
+.flexCol2{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 30%;
+    margin-top: 9rem;
+    
+}
+.scrollArticle{
+    overflow:auto;
+    height: 100vh;
+}
+.scrollTitre{
+    color: white;
+    margin-bottom: 2rem;
+}
 
+.card{
+    margin-bottom:2rem;
 }

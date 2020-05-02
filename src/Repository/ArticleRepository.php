@@ -19,6 +19,26 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    public function findLastThree() //requete personnalisé
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.id', 'ASC') 
+            ->setMaxResults(5) 
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findHome(){
+        $qb = $this->createQueryBuilder('a')
+            ->where('a.home IS NOT NULL')
+            ->orderby('a.home', 'ASC')
+            ->setMaxResults(3);
+        $articles = $qb->getQuery();
+        return $articles->execute();
+}
+
+
     // /**
     //  * @return Article[] Returns an array of Article objects
     //  */

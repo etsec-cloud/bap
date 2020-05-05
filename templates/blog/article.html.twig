@@ -13,7 +13,7 @@
             <img class="imgArticle" src="{{ asset('/uploads/' ~ article.image) }}">
             <div class="contentArticle">
                 <h1>{{article.title}} </h1>
-                <p>{{article.content}}</p>
+                {{article.content |raw }}
             </div>
             
 
@@ -43,5 +43,18 @@
 
 </div>
 
+
+{% endblock %}
+
+
+{% block javascript %}
+
+<script src="{{ asset('assets/javascript/ckeditor/adapters/jquery.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/javascript/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function() {
+        $('textarea.ckeditor').ckeditor();
+    });
+</script>
 
 {% endblock %}

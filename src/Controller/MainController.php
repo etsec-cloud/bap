@@ -52,10 +52,8 @@ class MainController extends AbstractController
             $phone = ($form->get('tel')) ? $form->get('tel')->getData() : null;
             $message = $form->get('message')->getData();
 
-            $document = $request->files->get('assurance')['documents'][0];
-
-            $documentName = md5(uniqid()).'.'.$document->guessExtension();
-            $document = $document->move($this->getParameter('upload_documents'), $documentName);
+            $documentNames = [];
+            $documents = $request->files->get('assurance')['documents'];
 
             $sendEmail = (new TemplatedEmail())
             ->from($email)
@@ -68,13 +66,21 @@ class MainController extends AbstractController
                 'lastname' => $lastname,
                 'phone' => $phone,
                 'message' => $message
-            ])
-            ->attachFromPath($document->getPathName());
-            ;
+            ]);
+
+            foreach($documents as $document) {
+                $originalName = $document->getClientOriginalName();
+                $documentName = md5(uniqid()).'.'.$document->guessExtension();
+                $documentNames[] = $documentName;
+                $document = $document->move($this->getParameter('upload_documents'), $documentName);
+                $sendEmail->attachFromPath($document->getPathName(), $originalName);
+            }
 
             $mailer->send($sendEmail);
 
-            unlink(__DIR__ . '/../../public/uploads/documents/'.$documentName);
+            foreach($documentNames as $document) {  
+                unlink(__DIR__ . '/../../public/uploads/documents/'.$document);
+            }
         }
 
         return $this->render('main/assurance-auto.html.twig', [

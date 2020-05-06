@@ -22,7 +22,7 @@
 }
 
 .pusher{
-    transform: translateY(300px);
+    transform: translateY(400px);
 }
 
 .navbar-item{
@@ -103,15 +103,13 @@
 
 #burger{
     position: absolute;
-    color: white;
+    color: grey;
     font-size: 30px;
     top: 10px;
     right: 15px;
     display: none;
 }
-#burger::before{
-    color: blue;
-}
+
 
 
 @media screen and (max-width:1055px) {
@@ -150,9 +148,12 @@
     
     #link{
         display: block;
-        margin-top: 25%;
+        margin-top: 40%;
         justify-content: center;
         margin-left: 30%;
+    }
+    #link a {
+        color: blue !important;
     }
     #link .devis {
         margin-top: 5px;

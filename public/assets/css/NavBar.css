@@ -21,6 +21,10 @@
     height: 100%;
 }
 
+.pusher{
+    transform: translateY(400px);
+}
+
 .navbar-item{
     display: flex;
     flex-direction: column;
@@ -99,23 +103,28 @@
 
 #burger{
     position: absolute;
-    color: white;
+    color: grey;
     font-size: 30px;
     top: 10px;
     right: 15px;
     display: none;
 }
 
+
+
 @media screen and (max-width:1055px) {
 
     #burger{
         display: block;
+
     }
 
     #navbar{
         display: none;
         position: absolute;
         margin: 5%;
+        color: blue;
+        flex-direction: column-reverse;
     }
 
     #navbar-main{
@@ -123,7 +132,7 @@
         justify-content: center;
         width: 90% ! important;
         margin-bottom: 5%;
-        background: white;
+        margin-top: 7%;
     }
 
     #particuliers:hover  #under-particuliers {
@@ -141,9 +150,12 @@
     
     #link{
         display: block;
-        margin-top: 25%;
+        margin-top: -20%;
         justify-content: center;
         margin-left: 30%;
+    }
+    #link a {
+        color: blue !important;
     }
     #link .devis {
         margin-top: 5px;
@@ -151,8 +163,33 @@
     }
     .navbar-item#liberaux{
         text-align: center;
-        margin-right: 50%;
-        color: red;
+        width: 100%;
+        
     }
 
+}
+
+@media screen and (max-width:470px) {
+    #navbar-main{
+        margin-top: 30%;
+        height: 60%;
+    }
+    #link{
+        margin-top: -45%;
+        margin-left: 25%;
+    }
+}
+
+@media screen and (max-width:270px){
+    #navbar-main{
+        margin-top: 50%;
+        font-size: 15px;
+        height: 50%;
+    }
+
+    #link{
+        margin-top: -50%;
+        margin-left: 20%;
+        font-size: 15px;
+    }
 }

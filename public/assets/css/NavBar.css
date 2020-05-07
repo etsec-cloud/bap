@@ -177,3 +177,13 @@
         margin-top: -40%;
     }
 }
+
+@media screen and (max-width:270){
+    #navbar-main{
+        margin-top: 20%;
+    }
+
+    #link{
+        margin-top: -45%;
+    }
+}

@@ -168,3 +168,12 @@
     }
 
 }
+
+@media screen and (max-width:470px) {
+    #navbar-main{
+        margin-top: 25%;
+    }
+    #link{
+        margin-top: -40%;
+    }
+}

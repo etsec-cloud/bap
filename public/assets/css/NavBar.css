@@ -171,19 +171,25 @@
 
 @media screen and (max-width:470px) {
     #navbar-main{
-        margin-top: 25%;
+        margin-top: 30%;
+        height: 60%;
     }
     #link{
-        margin-top: -40%;
+        margin-top: -45%;
+        margin-left: 25%;
     }
 }
 
-@media screen and (max-width:270){
+@media screen and (max-width:270px){
     #navbar-main{
-        margin-top: 20%;
+        margin-top: 50%;
+        font-size: 15px;
+        height: 50%;
     }
 
     #link{
-        margin-top: -45%;
+        margin-top: -50%;
+        margin-left: 20%;
+        font-size: 15px;
     }
 }

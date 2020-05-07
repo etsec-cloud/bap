@@ -124,6 +124,7 @@
         position: absolute;
         margin: 5%;
         color: blue;
+        flex-direction: column-reverse;
     }
 
     #navbar-main{
@@ -131,6 +132,7 @@
         justify-content: center;
         width: 90% ! important;
         margin-bottom: 5%;
+        margin-top: 7%;
     }
 
     #particuliers:hover  #under-particuliers {
@@ -148,7 +150,7 @@
     
     #link{
         display: block;
-        margin-top: 40%;
+        margin-top: -20%;
         justify-content: center;
         margin-left: 30%;
     }

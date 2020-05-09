@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/faq.css') }}">{% endblock %}
+
+{% block body %}
+    <div class="faqContainer">
+        <h1>Foire aux questions</h1>
+        <div class="faqContent">
+            <div class="createQuestion">
+                {% if is_granted('ROLE_USER') %}
+                    <h3>Posez votre question !</h3>
+                    {{ form(questionForm) }}
+                {% else %}
+                    <div class="alert alert-primary" role="alert">
+                        <h4 class="alert-heading">Connectez-vous pour poser une question !</h4>
+                        <p>Une question sur l'assurance ? Notre conseiller vous répond.</p>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="questions">
+                <h3>Les dernières questions</h3>
+                {% for question in questions %}
+                <div id="accordion">
+                    <div class="card">
+                      <div class="card-header" id="heading{{question.id}}">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link questionText" data-toggle="collapse" data-target="#response{{question.id}}" aria-expanded="true" aria-controls="response{{question.id}}">
+                            {{ question.content }}
+                          </button>
+                        </h5>
+                      </div>
+                      {% if question.response %}
+                        <div id="response{{question.id}}" class="collapse" aria-labelledby="heading{{question.id}}" data-parent="#accordion">
+                            <div class="card-body responseText">
+                            {{ question.response }}
+                            </div>
+                        </div>
+                      {% elseif is_granted('ROLE_ADMIN') %}
+                        <div id="response{{question.id}}" class="collapse" aria-labelledby="heading{{question.id}}" data-parent="#accordion">
+                            <div class="card-body">
+                                <form method="post" action="{{ path('give-response', {'id': question.id}) }}">
+                                    <input type="text" class="form-control mb-3" placeholder="Votre réponse" name="response">
+                                    <input type="submit" class="btn btn-outline-primary" value="Répondre" name="submitResponse">
+                                </form>
+                            </div>
+                        </div>
+                      {% endif %}
+
+                    </div>
+                  </div>
+                    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

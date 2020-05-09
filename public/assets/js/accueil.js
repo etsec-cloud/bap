@@ -1,4 +1,3 @@
-console.log("azfe azef aze s")
 
 var swiper = new Swiper('.swiper-container', {
     direction: 'horizontal',

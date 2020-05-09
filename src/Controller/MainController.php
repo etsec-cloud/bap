@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use App\Form\AssuranceType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
@@ -48,8 +49,11 @@ class MainController extends AbstractController
             $firstname = $form->get('firstname')->getData();
             $lastname = $form->get('lastname')->getData();
             $email = $form->get('email')->getData();
-            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $phone = ($form->get('tel')) ? $form->get('tel')->getData() : null;
             $message = $form->get('message')->getData();
+
+            $documentNames = [];
+            $documents = $request->files->get('assurance')['documents'];
 
             $sendEmail = (new TemplatedEmail())
             ->from($email)
@@ -64,7 +68,19 @@ class MainController extends AbstractController
                 'message' => $message
             ]);
 
+            foreach($documents as $document) {
+                $originalName = $document->getClientOriginalName();
+                $documentName = md5(uniqid()).'.'.$document->guessExtension();
+                $documentNames[] = $documentName;
+                $document = $document->move($this->getParameter('upload_documents'), $documentName);
+                $sendEmail->attachFromPath($document->getPathName(), $originalName);
+            }
+
             $mailer->send($sendEmail);
+
+            foreach($documentNames as $document) {  
+                unlink(__DIR__ . '/../../public/uploads/documents/'.$document);
+            }
         }
 
         return $this->render('main/assurance-auto.html.twig', [

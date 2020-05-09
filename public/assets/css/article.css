@@ -1,8 +1,46 @@
-.container{
-    padding-top: 3em;
+.imgArticle{
+    width: 30rem;
+}
+
+.contentArticle{
+    max-width: 40rem;
+    margin-top: 3rem;
 
 }
-body{
+.articleContainer{
+    height: 100vh;
+}
+.flexContainer{
+    display: flex;
     background: rgb(3, 23, 80);
+}
+
+.flexCol{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 70%;
     color: white;
+    margin-top: 10rem;
+}
+
+.flexCol2{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 30%;
+    margin-top: 9rem;
+    
+}
+.scrollArticle{
+    overflow:auto;
+    height: 100vh;
+}
+.scrollTitre{
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.card{
+    margin-bottom:2rem;
 }

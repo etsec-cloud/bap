@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Form\ArticleType;
 
+use App\Repository\ArticleRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +24,26 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="article_new", methods={"GET","POST"})
+     * @Route("/article/show/{id}", name="article")
+     */
+    public function article(ArticleRepository $articleRepository, $id)
+    {
+        $article = new Article();
+        $em = $this -> getDoctrine() -> getManager();
+        $article = $em->getRepository(Article::class)->findOneById($id);
+
+
+
+        return $this->render('blog/article.html.twig', [
+            'article' => $article,
+            'articles' => $articleRepository->findLastThree(),
+        ]);
+
+
+    }
+
+    /**
+     * @Route("/article/new", name="article_new", methods={"GET","POST"})
      */
     public function new(Request $request)
     {
@@ -65,7 +86,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/liste", name="article_liste")
+     * @Route("/article/liste", name="article_liste")
      */
     public function liste( )
     {

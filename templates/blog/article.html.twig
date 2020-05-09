@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{article.title}} {% endblock %}
+{% block stylesheets %} <link rel="stylesheet" href=" {{ asset('./assets/css/article.css') }}"> {% endblock %}
+
+
+{% block body %}
+
+{% set idBlog = article.blog %}
+
+<div class="articleContainer">
+    <div class="flexContainer">
+        <div class="flexCol">
+
+            <img class="imgArticle" src="{{ asset('/uploads/' ~ article.image) }}">
+            <div class="contentArticle">
+                <h1>{{article.title}} </h1>
+                {{article.content |raw }}
+            </div>
+
+            
+
+        </div>
+        
+        <div class="flexCol2">
+            <h2 class="scrollTitre">Article similaire</h2>
+            <div class="scrollArticle">
+                {% for article in articles  %} 
+                    {% if article.blog == idBlog %}
+                        <div class="card" style="width: 15rem;">
+                            {% if article.image is not null %}
+                                <img class="card-img-top" src="{{ asset('/uploads/' ~ article.image) }}">
+                            {% endif %}
+                                <div class="card-body">
+                                    <p class="card-text">{{article.title}}</p>
+                    
+                                    <p class="card-text">{{article.createdAt| date('d/n/Y')}}</p>
+                                    <a href="{{ path('article', {'id': article.id}) }}"> Voir l'article </a>
+                                </div>
+                        </div>   
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block javascript %}
+
+<script src="{{ asset('assets/javascript/ckeditor/adapters/jquery.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/javascript/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function() {
+        $('textarea.ckeditor').ckeditor();
+    });
+</script>
+
+{% endblock %}

@@ -18,14 +18,14 @@ class FaqController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager, QuestionRepository $questionRepository)
     {
         $newQuestion = new Question();
-        $form = $this->createForm(QuestionType::class, $newQuestion);
-        $form->handleRequest($request);
+        $questionForm = $this->createForm(QuestionType::class, $newQuestion);
+        $questionForm->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if($questionForm->isSubmitted() && $questionForm->isValid()) {
 
             $user = $this->getUser();
 
-            $newQuestion = $form->getData();
+            $newQuestion = $questionForm->getData();
             $newQuestion->setUser($user);
 
             $entityManager->persist($newQuestion);
@@ -37,8 +37,34 @@ class FaqController extends AbstractController
         $questions = $questionRepository->findAll();
 
         return $this->render('faq/index.html.twig', [
-            'questionForm' => $form->createView(),
+            'questionForm' => $questionForm->createView(),
             'questions' => $questions
         ]);
+    }
+
+    /**
+     * @Route("faq/give-response/{id}", name="give-response")
+     */
+    public function giveResponse($id, Request $request, EntityManagerInterface $entityManager, QuestionRepository $questionRepository)
+    {
+        if(isset($_POST['submitResponse']) && isset($id)) {
+
+            if(!empty($_POST['response'])) {
+
+                $question = $questionRepository->find($id);
+
+                if($question) {
+                    $response = $request->request->get('response');
+                    $question->setResponse($response);
+
+                    $entityManager->persist($question);
+                    $entityManager->flush();
+                }
+
+            }
+
+        }
+
+        return $this->redirectToRoute('faq');
     }
 }

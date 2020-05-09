@@ -28,3 +28,16 @@
 .questions{
     width: 50%;
 }
+
+.questionText{
+    color: black;
+}
+
+.questionText:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.responseText{
+    color: black;
+}

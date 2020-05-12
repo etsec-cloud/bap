@@ -29,6 +29,10 @@
     width: 50%;
 }
 
+.questionCard{
+    margin-bottom: 20px;
+}
+
 .questionText{
     color: black;
 }

@@ -88,13 +88,11 @@ class BlogController extends AbstractController
     /**
      * @Route("/article/liste", name="article_liste")
      */
-    public function liste( )
+    public function liste( ArticleRepository $articleRepository)
     {
-        $em = $this->getDoctrine()->getManager();
-        $articles = $em->getRepository(Article::class)->findAll();
 
         return $this->render('blog/liste.html.twig', [
-            'articles' => $articles
+            'articles' => $articleRepository->findBlog1(),
         ]);
 
        

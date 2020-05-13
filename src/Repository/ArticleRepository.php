@@ -23,7 +23,15 @@ class ArticleRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('c')
             ->orderBy('c.id', 'ASC') 
-            ->setMaxResults(5) 
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function findBlog1() //requete personnalisé
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.id', 'ASC') 
+            ->where('c.blog = 1')
             ->getQuery()
             ->getResult()
         ;

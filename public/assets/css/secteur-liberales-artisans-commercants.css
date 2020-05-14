@@ -1,0 +1,26 @@
+.bigcontainer{
+    background: rgb(3, 23, 80);
+
+}
+
+.marginTop{
+    margin-top: 3em;
+}
+
+
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3em;
+    color:white;
+}
+
+.flexContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    margin: 0 3em 4em;
+}

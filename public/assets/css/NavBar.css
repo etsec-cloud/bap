@@ -34,6 +34,7 @@ body::-webkit-scrollbar-thumb
     align-items: center;
     width: 98vw;
     height: 7vh;
+    z-index: 1;
 }
 
 #navbar-main{

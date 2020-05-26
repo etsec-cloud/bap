@@ -1,5 +1,4 @@
 /*First panel*/
-
 a{
     text-decoration: none;
 }
@@ -17,24 +16,23 @@ a{
     background: #4A69BD;
     position: relative;
 }
-.flexContainer::after{
+.bigImage{
+    width: 40vw;
+}
+.firstPanel::after{
     content:"";
     position: absolute;
-    top: 100%;
     left: 5vw;
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 80px 40px 0 40px;
+    border-width: 80px 30px 0 30px;
     border-color: #4A69BD transparent transparent transparent;
 
 }
 .boxShadow1{
     box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.40);
-}
-
-.bigImage{
-    width: 40vw;
+    padding: 5px 40px;
 }
 
 .maxWidth460{
@@ -56,9 +54,16 @@ a{
 
 /*Second panel*/
 
-.secondPanel{
-    height:80vh;
- 
+.secondPanel::after{
+    content:"";
+    position: absolute;
+    left: 5vw;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 80px 30px 0 30px;
+    border-color: rgb(255, 255, 255) transparent transparent transparent;
+
 }
 
 .flexCenter{
@@ -69,6 +74,7 @@ a{
 .titre2{
     margin-top: 3em;
     color:#4A69BD;
+    margin-left: calc(5vw + 30px);
 }
 
 .paddingBot{
@@ -81,18 +87,21 @@ a{
     align-items: center;
     background-color: #E58E26;
     border-radius: 10px;
-    padding:2vh 1vw 3vh 1vw;
+    padding-top: 2vh;
     box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.40);
 }
 
 .flexContainerRow{
     display:flex;
     justify-content: space-around;
-    margin-top: 3em;
+    margin: 5vh 0 10vh;
+    color: white;
 }
 
 .maxWidth200{
     max-width:200px;
+    text-align: center;
+    margin-top:20px;
 }
 p{
     margin-bottom: 2em;
@@ -105,13 +114,17 @@ p{
 
 .thirdPanel{
     height: 80vh;
-    background: rgb(3, 23, 80);
+    background: #4A69BD;
     color: white;
 
 }
+
 .titre3{
-    padding-top: 2em;
+    padding-top: 3em;
+    color:#fff;
+    margin-left: calc(5vw + 30px);
 }
+
 
 
 .maxWidth400{
@@ -122,14 +135,11 @@ p{
 /*slider*/
 .swiper-container {
     width: 80%;
-    margin: 4em auto;
-  }
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    color: rgb(4, 34, 117);
-    background: white;
-  }
+    margin: 4em auto;  
+}
+.imageSlider{
+    width: 90px;
+}
   
  /*mediaqueries*/
 

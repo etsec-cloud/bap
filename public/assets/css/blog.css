@@ -6,15 +6,24 @@
     border-radius:10px;
     padding: 10px;
 }
-
-
+.titre{
+    color:#E58E26;
+    font-weight: bold;
+    margin-top:10px;
+}
+.btn{
+    background: #4A69BD;
+    color: white;
+}
+.btn:hover {
+    background: #E58E26;
+    color: white;
+}
 .flexContainerRow{
     display:flex;
     justify-content: space-around;
     align-items: center;
     height: 100vh;
-    background: rgb(3, 23, 80);
-
 }
 
 .maxWidth300{

@@ -322,7 +322,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/provoyance-madelin", name="provoyanceMadelin")
+     * @Route("/prevoyance-madelin", name="provoyanceMadelin")
      */
     public function provoyanceMadelin(MailerInterface $mailer, Request $request)
     {
@@ -395,9 +395,9 @@ class MainController extends AbstractController
         ]);
     }
 
-            /**
+    /**
      * @Route("/retraite-madelin", name="retraiteMadelin")
-     */
+    */
     public function retraiteMadelin(MailerInterface $mailer, Request $request)
     {
         $form = $this->createForm(AssuranceType::class);
@@ -432,9 +432,9 @@ class MainController extends AbstractController
         ]);
     }
 
-               /**
+    /**
      * @Route("/sante-madelin", name="santeMadelin")
-     */
+    */
     public function santeMadelin(MailerInterface $mailer, Request $request)
     {
         $form = $this->createForm(AssuranceType::class);

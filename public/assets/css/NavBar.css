@@ -32,7 +32,6 @@ body::-webkit-scrollbar-thumb
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
     height: 9vh;
     z-index: 1;
     background: #4866B9;

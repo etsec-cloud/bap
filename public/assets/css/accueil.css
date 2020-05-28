@@ -5,6 +5,7 @@ a{
 
 .accueilContainer{
     margin: 0;
+    width: 100vw;
 }
 
 .flexContainer{
@@ -113,7 +114,6 @@ p{
 
 
 .thirdPanel{
-    height: 80vh;
     background: #4A69BD;
     color: white;
 

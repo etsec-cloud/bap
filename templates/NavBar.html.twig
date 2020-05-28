@@ -1,7 +1,10 @@
 <div id="navbar">
     <div id="navbar-main">
+
+           <a href="{{path('home')}}"> <img src="./../../assets/images/accueil/accueilLogo.png"></a>
+
         <div class="navbar-item" id="particuliers">
-            <a href="{{path('SecteurParticulier')}}">Particuliers</a>
+            <a class="lienMain" href="{{path('SecteurParticulier')}}">Particuliers </a>
             <ul class="navbar-under" id="under-particuliers">
                 <li class="navbar-under-item">Assurance auto</li>
                 <li class="navbar-under-item">Assurance 2/3 roues</li>
@@ -17,7 +20,7 @@
             </ul>
         </div>
         <div class="navbar-item" id="entreprises">
-            Entreprises
+           <a class="lienMain" href="#"> Entreprises </a>
             <ul class="navbar-under" id="under-entreprises">
                 <li class="navbar-under-item">Santé collective</li>
                 <li class="navbar-under-item">Responsabilité civique</li>
@@ -32,7 +35,7 @@
             </ul>
         </div>
         <div class="navbar-item" id="liberaux">
-            Liberaux, artisants, commerçants
+            <a  class="lienMain" href="#">  Liberaux, artisants, commerçants </a>
             <ul class="navbar-under" id="under-liberaux">
                 <li class="navbar-under-item">Assurance laveries</li>
                 <li class="navbar-under-item">Femme et homme clé</li>
@@ -47,7 +50,7 @@
             </ul>
         </div>
         <div class="navbar-item" id="blogs">
-            <a href="{{path('blog')}}">Nos blogs</a>
+            <a class="lienMain" href="{{path('blog')}}">Nos blogs</a>
             <ul class="navbar-under" id="under-blogs">
                 <li class="navbar-under-item">Assurance</li>
                 <li class="navbar-under-item">Moto</li>
@@ -57,9 +60,9 @@
     </div>
     <div id="link">
         {% if is_granted('ROLE_USER') %}
-            <a href="{{ path('account') }}" class="connect"><i class="far fa-user-circle"></i>Mon compte</a>
+            <a href="{{ path('account') }}" class="connect">Mon compte</a>
         {% else %}
-            <a href="{{ path('app_login') }}" class="connect"><i class="far fa-user-circle"></i>Me connecter</a>
+            <a href="{{ path('app_login') }}" class="connect">Me connecter</a>
         {% endif %}
         <a href="#" class="devis btn btn-outline-light">Demander un devis</a>
     </div>

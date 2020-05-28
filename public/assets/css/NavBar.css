@@ -32,10 +32,10 @@ body::-webkit-scrollbar-thumb
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 98vw;
+    width: 100vw;
     height: 7vh;
     z-index: 1;
-    background: #4A69BD;
+    background: #4866B9;
 }
 
 #navbar-main{
@@ -44,6 +44,8 @@ body::-webkit-scrollbar-thumb
     align-items: center;
     width: 50%;
     height: 100%;
+    text-decoration: underline;
+    text-decoration-color: #E58E26;
 }
 
 .pusher{
@@ -124,13 +126,14 @@ body::-webkit-scrollbar-thumb
 }
 
 #link .connect{
-    color: white;
+    color: #E58E26;
 }
 
 #link .devis {
     border: 1px solid;
     border-radius: 5px;
     padding: 5px;
+    box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.40);;
 }
 
 /* Under menus */
@@ -152,7 +155,7 @@ body::-webkit-scrollbar-thumb
 
 #burger{
     position: absolute;
-    color: grey;
+    color: #E58E26;
     font-size: 30px;
     top: 10px;
     right: 15px;
@@ -171,9 +174,9 @@ body::-webkit-scrollbar-thumb
     #navbar{
         display: none;
         position: absolute;
-        margin: 5%;
         color: blue;
         flex-direction: column-reverse;
+        background-color: #4866B9;
     }
 
     #navbar-main{

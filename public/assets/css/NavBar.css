@@ -35,6 +35,7 @@ body::-webkit-scrollbar-thumb
     height: 9vh;
     z-index: 1;
     background: #4866B9;
+    width: 100%;
 }
 .navbar-item a{
     color:white;

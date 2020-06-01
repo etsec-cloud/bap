@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\File;
 
 class BlogController extends AbstractController
 {
@@ -26,6 +27,18 @@ class BlogController extends AbstractController
     {
         return $this->render('blog-assurance/index.html.twig', [
             'controller_name' => 'BlogController',
+        ]);
+    }
+
+    /**
+     * @Route("/blog/assurance", name="assurance_articles")
+     */
+    public function liste()
+    {
+        $articles = $this->articleRepository->findBlogAssurance();
+
+        return $this->render('blog-assurance/liste.html.twig', [
+            'articles' => $articles,
         ]);
     }
 
@@ -52,56 +65,32 @@ class BlogController extends AbstractController
      */
     public function new(Request $request, EntityManagerInterface $entityManager)
     {
-        $article = new Article();
-        $form = $this->createForm(ArticleType::class, $article, ['validation_groups' => ['creation']]);
+        $newArticle = new Article();
+        $form = $this->createForm(ArticleType::class, $newArticle, ['validation_groups' => ['creation']]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $fichier = $form->get('image')->getData();
+            $newArticle = $form->getData();
 
-            if ($fichier) {
-                $newFilename = uniqid().'.'.$fichier->guessExtension();
+            $image = $form->get('image')->getData();
+            $imageName = md5(uniqid()).'.'.$image->guessExtension();
+            $image->move($this->getParameter('upload_directory'), $imageName);
+            $newArticle->setImage($imageName);
 
-                try {
-                    $fichier->move(
-                        $this->getParameter('upload_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    $this->addFlash('error', "Impossible d'uploader le fichier");
-                }
+            $newArticle->setBlog(1);
+            $newArticle->setCreatedAt(new \DateTime());
 
-                $article->setImage($newFilename);
-            }
-
-            $article->setBlog(1);
-            $article->setCreatedAt(new \DateTime());
-
-            $entityManager->persist($article);
+            $entityManager->persist($newArticle);
             $entityManager->flush();
 
             return $this->redirectToRoute('assurance_articles');
+
         }
 
         return $this->render('blog-assurance/new.html.twig', [
-            'article' => $article,
-            'articleForm' => $form->createView(),
+            'articleForm' => $form->createView()
         ]);
-    }
-
-    /**
-     * @Route("/blog/assurance", name="assurance_articles")
-     */
-    public function liste()
-    {
-        $articles = $this->articleRepository->findBlogAssurance();
-
-        return $this->render('blog-assurance/liste.html.twig', [
-            'articles' => $articles,
-        ]);
-
-       
     }
 
     /**
@@ -127,5 +116,53 @@ class BlogController extends AbstractController
         }
     }
 
+    /**
+     * @Route("/blog/update/{id}", name="updateArticle")
+     */
+    public function updateArticle($id, Request $request, EntityManagerInterface $entityManager)
+    {
+        $article = $this->articleRepository->find($id);
+
+        if($article) {
+
+            $previousImageName = $article->getImage();
+
+            $article->setImage(new File($this->getParameter('upload_directory').'/'.$article->getImage()));
+            dump($article);
+            $form = $this->createForm(ArticleType::class, $article);
+            $form->handleRequest($request);
+
+            if($form->isSubmitted() && $form->isValid()) {
+                $article = $form->getData();
+
+                if($form->get('image')->getData() !== null) {
+                    if($previousImageName) {
+                        $article->deleteFileOnUpdate($previousImageName);
+                    }
+
+                    $image = $article->getImage();
+                    $imageName = md5(uniqid()).'.'.$image->guessExtension();
+                    $image->move($this->getParameter('upload_directory'), $imageName);
+                    $article->setImage($imageName);
+                } else {
+                    $article->setImage($previousImageName);
+                }
+
+                $entityManager->persist($article);
+                $entityManager->flush();
+
+                $this->addFlash('success', "L'article a bien été modifié");
+                return $this->redirectToRoute('article', ['id', $article->getId()]);
+            }
+
+            return $this->render('blog-assurance/new.html.twig', [
+                'articleForm' => $form->createView(),
+                'article' => $article
+            ]);
+
+        } else {
+            return $this->redirectToRoute('blogs');
+        }
+    }
     
 }

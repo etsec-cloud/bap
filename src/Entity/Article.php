@@ -116,12 +116,12 @@ class Article
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(string $image)
     {
         $this->image = $image;
 
@@ -179,6 +179,15 @@ class Article
     {
         if(file_exists(__DIR__ . '/../../public/uploads/images/'.$this->image)) {
             unlink(__DIR__ . '/../../public/uploads/images/'.$this->image);
+        }
+        return true;
+    }
+
+    // Fonction créée pour supprimer l'ancienne image si l'image de l'article est changée
+    public function deleteFileOnUpdate(String $previousImage) 
+    {
+        if(file_exists(__DIR__ . '/../../public/uploads/images/'.$previousImage)) {
+            unlink(__DIR__ . '/../../public/uploads/images/'.$previousImage);
         }
         return true;
     }

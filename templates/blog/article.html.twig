@@ -17,8 +17,7 @@
                 <h1>{{article.title}} </h1>
                 {{article.content |raw }}
             </div>
-
-            
+            <a href="{{ path('updateArticle', {'id': article.id}) }}" class="btn btn-outline-light">Modifier l'article</a>
 
         </div>
         

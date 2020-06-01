@@ -21,6 +21,9 @@
                         <h5>{{article.title}}</h5>
                         <span>Le {{article.createdAt| date('d/m/Y')}}</span><br>
                         <a href="{{ path('assurance_article', {'id': article.id}) }}" class="btn btn-outline-light mt-3"> Voir l'article </a>
+                        {% if is_granted('ROLE_USER') %}
+                            <a href="{{ path('removeArticle', {'id': article.id}) }}" class="btn btn-danger mt-3">Supprimer l'article</a>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
@@ -28,6 +31,7 @@
     </div>
 </div>
 
+{% include 'footer.html.twig' %}
 
 
 {% endblock %}

@@ -105,7 +105,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/remove/{id}"), name="removeArticle")
+     * @Route("/blog/remove/{id}", name="removeArticle")
      */
     public function removeArticle($id, EntityManagerInterface $entityManager)
     {

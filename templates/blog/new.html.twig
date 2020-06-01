@@ -10,7 +10,11 @@
     <div id="newArticleContainer">
     
         <div id="newArticleContent">
-            <h1 class="mb-5 text-center">Assurance - Créer un article</h1>
+            {% if blog == "assurance" %}
+                <h1 class="mb-5 text-center">Assurance - Créer un article</h1>
+            {% else %}
+                <h1 class="mb-5 text-center">Moto - Créer un article</h1>
+            {% endif %}
 
             {{ form_start(articleForm) }}
 

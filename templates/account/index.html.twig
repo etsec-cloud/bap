@@ -10,6 +10,7 @@
             <h1>Bienvenue {{ app.user.firstname }}</h1>
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('assurance_newArticle') }}" class="btn btn-block btn-outline-light mb-3">Créer un article - Assurance</a>
+                <a href="{{path('moto_newArticle') }}" class="btn btn-block btn-outline-light mb-3">Créer un article - Moto</a>
             {% endif %}
             <a href="{{ path('app_logout') }}" class="btn btn-block btn-outline-light">Me déconnecter</a>
         </div>

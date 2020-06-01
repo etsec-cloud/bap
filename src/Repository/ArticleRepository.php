@@ -27,7 +27,7 @@ class ArticleRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    public function findBlog1() //requete personnalisé
+    public function findBlogAssurance() //requete personnalisé
     {
         return $this->createQueryBuilder('c')
             ->orderBy('c.id', 'ASC') 

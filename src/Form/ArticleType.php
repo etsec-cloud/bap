@@ -26,7 +26,7 @@ class ArticleType extends AbstractType
                 'label' => 'Contenu',
                 'attr' => ['class' => 'form-control'],
                 'config' => [
-                    'toolbar' => 'full',
+                    'toolbar' => 'basic',
                     'language' => 'fr',
                     'uiColor' => 'rgb(3, 23, 80)'
                 ]
@@ -37,7 +37,7 @@ class ArticleType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Publier',
-                'attr' => ['class' => 'btn btn-outline-light']
+                'attr' => ['class' => 'btn btn-outline-light mt-4']
             ])
         ;
     }

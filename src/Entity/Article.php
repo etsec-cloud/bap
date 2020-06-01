@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Article
 {
@@ -20,21 +22,41 @@ class Article
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $blog;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *  min = 1,
+     *  max = 255,
+     *  minMessage = "Le titre de l'article ne peut pas être vide",
+     *  maxMessage = "Le titre de l'article ne peut pas faire plus de {{limit}} caractères"
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *  min = 1,
+     *  minMessage = "L'article ne peut pas être vide"
+     * )
      */
     private $content;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\File(
+     *  mimeTypes = {"image/png", "image/jpeg", "image/jpg"},
+     *  mimeTypesMessage = "Le format de votre fichier est invalide ({{type}}). Les formats autorisés sont {{types}}",
+     *  maxSizeMessage = "Votre fichier est trop lourd ({{size}} {{suffix}}). Le poids maximum est de {{limit}} {{suffix}}"
+     * )
+     * @Assert\NotBlank(
+     *  message = "L'article doit avoir une photo de couverture",
+     *  groups = {"creation"}
+     * )
      */
     private $image;
 
@@ -147,5 +169,17 @@ class Article
         }
 
         return $this;
+    }
+
+    //Fonction pour supprimer l'image à la suppression de l'article
+    /**
+    * @ORM\PostRemove
+    */
+    public function deleteFile() 
+    {
+        if(file_exists(__DIR__ . '/../../public/uploads/images/'.$this->image)) {
+            unlink(__DIR__ . '/../../public/uploads/images/'.$this->image);
+        }
+        return true;
     }
 }

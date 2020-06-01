@@ -5,7 +5,7 @@ use App\Entity\Article;
 use App\Form\ArticleType;
 
 use App\Repository\ArticleRepository;
-
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,10 +42,10 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog/assurance/new", name="article_new", methods={"GET","POST"})
      */
-    public function new(Request $request)
+    public function new(Request $request, EntityManagerInterface $entityManager)
     {
         $article = new Article();
-        $form = $this->createForm(ArticleType::class, $article);
+        $form = $this->createForm(ArticleType::class, $article, ['validation_groups' => ['creation']]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -67,11 +67,11 @@ class BlogController extends AbstractController
                 $article->setImage($newFilename);
             }
 
+            $article->setBlog(1);
             $article->setCreatedAt(new \DateTime());
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
-            $em->flush();
+            $entityManager->persist($article);
+            $entityManager->flush();
 
             return $this->redirectToRoute('home');
         }
@@ -89,7 +89,7 @@ class BlogController extends AbstractController
     {
 
         return $this->render('blog-assurance/liste.html.twig', [
-            'articles' => $articleRepository->findBlog1(),
+            'articles' => $articleRepository->findBlogAssurance(),
         ]);
 
        

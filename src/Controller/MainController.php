@@ -266,7 +266,7 @@ class MainController extends AbstractController
             $sendEmail = (new TemplatedEmail())
             ->from($email)
             ->to('contact@agence.fr')
-            ->subject('Demande de devis: Femme-Homme-Cle')
+            ->subject('Demande de devis: Femme & Homme Clé')
             ->text('Ceci est un test')
             ->htmlTemplate('emails/assurance.html.twig')
             ->context([
@@ -303,7 +303,7 @@ class MainController extends AbstractController
             $sendEmail = (new TemplatedEmail())
             ->from($email)
             ->to('contact@agence.fr')
-            ->subject('Demande de devis: Locaux-Professionnels')
+            ->subject('Demande de devis: Locaux professionnels')
             ->text('Ceci est un test')
             ->htmlTemplate('emails/assurance.html.twig')
             ->context([
@@ -322,9 +322,9 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/provoyance-madelin", name="provoyanceMadelin")
+     * @Route("/prevoyance-madelin", name="provoyanceMadelin")
      */
-    public function provoyanceMadelin(MailerInterface $mailer, Request $request)
+    public function prevoyanceMadelin(MailerInterface $mailer, Request $request)
     {
         $form = $this->createForm(AssuranceType::class);
         $form->handleRequest($request);
@@ -340,7 +340,7 @@ class MainController extends AbstractController
             $sendEmail = (new TemplatedEmail())
             ->from($email)
             ->to('contact@agence.fr')
-            ->subject('Demande de devis: Provoyance-Madelin')
+            ->subject('Demande de devis: Prévoyance madelin')
             ->text('Ceci est un test')
             ->htmlTemplate('emails/assurance.html.twig')
             ->context([
@@ -353,12 +353,12 @@ class MainController extends AbstractController
             $mailer->send($sendEmail);
         }
 
-        return $this->render('main/liberales-artisans-commercants/provoyance-madelin.html.twig', [
+        return $this->render('main/liberales-artisans-commercants/prevoyance-madelin.html.twig', [
             'assuranceForm' => $form->createView()
         ]);
     }
 
-        /**
+    /**
      * @Route("/responsabilite-civile", name="responsabiliteCivile")
      */
     public function responsabiliteCivile(MailerInterface $mailer, Request $request)
@@ -377,7 +377,7 @@ class MainController extends AbstractController
             $sendEmail = (new TemplatedEmail())
             ->from($email)
             ->to('contact@agence.fr')
-            ->subject('Demande de devis: Responsabilite-Civile')
+            ->subject('Demande de devis: Responsabilité civile')
             ->text('Ceci est un test')
             ->htmlTemplate('emails/assurance.html.twig')
             ->context([
@@ -395,7 +395,7 @@ class MainController extends AbstractController
         ]);
     }
 
-            /**
+    /**
      * @Route("/retraite-madelin", name="retraiteMadelin")
      */
     public function retraiteMadelin(MailerInterface $mailer, Request $request)
@@ -414,7 +414,7 @@ class MainController extends AbstractController
             $sendEmail = (new TemplatedEmail())
             ->from($email)
             ->to('contact@agence.fr')
-            ->subject('Demande de devis: Retraite-Madelin')
+            ->subject('Demande de devis: Retraite madelin')
             ->text('Ceci est un test')
             ->htmlTemplate('emails/assurance.html.twig')
             ->context([
@@ -432,7 +432,7 @@ class MainController extends AbstractController
         ]);
     }
 
-               /**
+    /**
      * @Route("/sante-madelin", name="santeMadelin")
      */
     public function santeMadelin(MailerInterface $mailer, Request $request)
@@ -451,7 +451,7 @@ class MainController extends AbstractController
             $sendEmail = (new TemplatedEmail())
             ->from($email)
             ->to('contact@agence.fr')
-            ->subject('Demande de devis: Sante-Madelin')
+            ->subject('Demande de devis: Santé madelin')
             ->text('Ceci est un test')
             ->htmlTemplate('emails/assurance.html.twig')
             ->context([

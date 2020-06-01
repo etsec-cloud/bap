@@ -128,7 +128,7 @@ class BlogController extends AbstractController
             $previousImageName = $article->getImage();
 
             $article->setImage(new File($this->getParameter('upload_directory').'/'.$article->getImage()));
-            dump($article);
+            dump($article->getImage());
             $form = $this->createForm(ArticleType::class, $article);
             $form->handleRequest($request);
 
@@ -152,7 +152,7 @@ class BlogController extends AbstractController
                 $entityManager->flush();
 
                 $this->addFlash('success', "L'article a bien été modifié");
-                return $this->redirectToRoute('article', ['id', $article->getId()]);
+                return $this->redirectToRoute('blogs', ['id', $article->getId()]);
             }
 
             return $this->render('blog-assurance/new.html.twig', [

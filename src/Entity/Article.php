@@ -121,7 +121,7 @@ class Article
         return $this->image;
     }
 
-    public function setImage(string $image)
+    public function setImage($image)
     {
         $this->image = $image;
 

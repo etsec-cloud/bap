@@ -25,7 +25,7 @@ class BlogController extends AbstractController
      */
     public function index()
     {
-        return $this->render('blog-assurance/index.html.twig', [
+        return $this->render('blog/index.html.twig', [
             'controller_name' => 'BlogController',
         ]);
     }
@@ -33,17 +33,31 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog/assurance", name="assurance_articles")
      */
-    public function liste()
+    public function AssuranceList()
     {
         $articles = $this->articleRepository->findBlogAssurance();
 
-        return $this->render('blog-assurance/liste.html.twig', [
+        return $this->render('blog/liste.html.twig', [
+            'blog' => 'assurance',
             'articles' => $articles,
         ]);
     }
 
     /**
-     * @Route("/blog/assurance/article/{id}", name="assurance_article")
+     * @Route("/blog/moto", name="moto_articles")
+     */
+    public function MotoList()
+    {
+        $articles = $this->articleRepository->findBlogMoto();
+
+        return $this->render('blog/liste.html.twig', [
+            'blog' => 'moto',
+            'articles' => $articles,
+        ]);
+    }
+
+    /**
+     * @Route("/blog/article/{id}", name="article")
      */
     public function article($id)
     {
@@ -52,7 +66,7 @@ class BlogController extends AbstractController
 
         $articles = $this->articleRepository->findLastThree();
 
-        return $this->render('blog-assurance/article.html.twig', [
+        return $this->render('blog/article.html.twig', [
             'article' => $article,
             'articles' => $articles,
         ]);
@@ -63,7 +77,7 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog/assurance/new", name="assurance_newArticle", methods={"GET","POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager)
+    public function newAssurance(Request $request, EntityManagerInterface $entityManager)
     {
         $newArticle = new Article();
         $form = $this->createForm(ArticleType::class, $newArticle, ['validation_groups' => ['creation']]);
@@ -88,7 +102,42 @@ class BlogController extends AbstractController
 
         }
 
-        return $this->render('blog-assurance/new.html.twig', [
+        return $this->render('blog/new.html.twig', [
+            'blog' => 'assurance',
+            'articleForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/blog/moto/new", name="moto_newArticle", methods={"GET","POST"})
+     */
+    public function newMoto(Request $request, EntityManagerInterface $entityManager)
+    {
+        $newArticle = new Article();
+        $form = $this->createForm(ArticleType::class, $newArticle, ['validation_groups' => ['creation']]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $newArticle = $form->getData();
+
+            $image = $form->get('image')->getData();
+            $imageName = md5(uniqid()).'.'.$image->guessExtension();
+            $image->move($this->getParameter('upload_directory'), $imageName);
+            $newArticle->setImage($imageName);
+
+            $newArticle->setBlog(2);
+            $newArticle->setCreatedAt(new \DateTime());
+
+            $entityManager->persist($newArticle);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('moto_articles');
+
+        }
+
+        return $this->render('blog/new.html.twig', [
+            'blog' => 'moto',
             'articleForm' => $form->createView()
         ]);
     }
@@ -155,7 +204,7 @@ class BlogController extends AbstractController
                 return $this->redirectToRoute('blogs', ['id', $article->getId()]);
             }
 
-            return $this->render('blog-assurance/new.html.twig', [
+            return $this->render('blog/new.html.twig', [
                 'articleForm' => $form->createView(),
                 'article' => $article
             ]);

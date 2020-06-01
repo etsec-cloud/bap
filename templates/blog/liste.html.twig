@@ -8,7 +8,11 @@
 <div class="bgcontainer">
     <div class="container">
         <div class="flexCenter">
-            <h1 class="marginTop mb-5">Tout savoir sur l'assurance</h1>
+            {% if blog == "assurance" %}
+                <h1 class="marginTop mb-5">Tout savoir sur l'assurance</h1>
+            {% else %}
+                <h1 class="marginTop mb-5">Tout savoir sur la moto</h1>
+            {% endif %}
         </div>
 
         <div class="row">
@@ -20,7 +24,7 @@
                         </div>
                         <h5>{{article.title}}</h5>
                         <span>Le {{article.createdAt| date('d/m/Y')}}</span><br>
-                        <a href="{{ path('assurance_article', {'id': article.id}) }}" class="btn btn-outline-light mt-3"> Voir l'article </a>
+                        <a href="{{ path('article', {'id': article.id}) }}" class="btn btn-outline-light mt-3"> Voir l'article </a>
                         {% if is_granted('ROLE_USER') %}
                             <a href="{{ path('removeArticle', {'id': article.id}) }}" class="btn btn-danger mt-3">Supprimer l'article</a>
                         {% endif %}

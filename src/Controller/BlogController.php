@@ -14,27 +14,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/blog", name="blog")
+     * @Route("/blogs", name="blog")
      */
     public function index()
     {
-        return $this->render('blog/index.html.twig', [
+        return $this->render('blog-assurance/index.html.twig', [
             'controller_name' => 'BlogController',
         ]);
     }
 
     /**
-     * @Route("/article/show/{id}", name="article")
+     * @Route("/blog/assurance/article/{id}", name="article")
      */
     public function article(ArticleRepository $articleRepository, $id)
     {
         $article = new Article();
-        $em = $this -> getDoctrine() -> getManager();
-        $article = $em->getRepository(Article::class)->findOneById($id);
+        $article = $articleRepository->findOneById($id);
 
-
-
-        return $this->render('blog/article.html.twig', [
+        return $this->render('blog-assurance/article.html.twig', [
             'article' => $article,
             'articles' => $articleRepository->findLastThree(),
         ]);
@@ -43,7 +40,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/article/new", name="article_new", methods={"GET","POST"})
+     * @Route("/blog/assurance/new", name="article_new", methods={"GET","POST"})
      */
     public function new(Request $request)
     {
@@ -79,19 +76,19 @@ class BlogController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('blog/new.html.twig', [
+        return $this->render('blog-assurance/new.html.twig', [
             'article' => $article,
-            'form' => $form->createView(),
+            'articleForm' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/article/liste", name="article_liste")
+     * @Route("/blog/assurance", name="article_liste")
      */
     public function liste( ArticleRepository $articleRepository)
     {
 
-        return $this->render('blog/liste.html.twig', [
+        return $this->render('blog-assurance/liste.html.twig', [
             'articles' => $articleRepository->findBlog1(),
         ]);
 

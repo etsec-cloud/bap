@@ -13,8 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
+
+    public function __construct(ArticleRepository $articleRepository)
+    {
+        $this->articleRepository = $articleRepository;
+    }
+
     /**
-     * @Route("/blogs", name="blog")
+     * @Route("/blogs", name="blogs")
      */
     public function index()
     {
@@ -24,23 +30,25 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/assurance/article/{id}", name="article")
+     * @Route("/blog/assurance/article/{id}", name="assurance_article")
      */
-    public function article(ArticleRepository $articleRepository, $id)
+    public function article($id)
     {
         $article = new Article();
-        $article = $articleRepository->findOneById($id);
+        $article = $this->articleRepository->findOneById($id);
+
+        $articles = $this->articleRepository->findLastThree();
 
         return $this->render('blog-assurance/article.html.twig', [
             'article' => $article,
-            'articles' => $articleRepository->findLastThree(),
+            'articles' => $articles,
         ]);
 
 
     }
 
     /**
-     * @Route("/blog/assurance/new", name="article_new", methods={"GET","POST"})
+     * @Route("/blog/assurance/new", name="assurance_newArticle", methods={"GET","POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager)
     {
@@ -73,7 +81,7 @@ class BlogController extends AbstractController
             $entityManager->persist($article);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('assurance_articles');
         }
 
         return $this->render('blog-assurance/new.html.twig', [
@@ -83,16 +91,40 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/assurance", name="article_liste")
+     * @Route("/blog/assurance", name="assurance_articles")
      */
-    public function liste( ArticleRepository $articleRepository)
+    public function liste()
     {
+        $articles = $this->articleRepository->findBlogAssurance();
 
         return $this->render('blog-assurance/liste.html.twig', [
-            'articles' => $articleRepository->findBlogAssurance(),
+            'articles' => $articles,
         ]);
 
        
+    }
+
+    /**
+     * @Route("/blog/remove/{id}"), name="removeArticle")
+     */
+    public function removeArticle($id, EntityManagerInterface $entityManager)
+    {
+        $article = $this->articleRepository->find($id);
+
+        if($article) {
+
+            $article->deleteFile();
+
+            $entityManager->remove($article);
+            $entityManager->flush();
+
+            $this->addFlash('success', "L'article a bien été supprimé !");
+            return $this->redirectToRoute('blogs');
+
+        } else {
+            $this->addFlash('error', "L'article n'a pas été trouvé");
+            return $this->redirectToRoute('blogs');
+        }
     }
 
     

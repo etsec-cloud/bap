@@ -1,12 +1,19 @@
 .bgcontainer{
-    background: rgb(3, 23, 80);
+    background: #4866B9;
+    height: 100vh;
+}
 
+h5, span{
+    color: #fff
+}
+h5{
+    margin-top: 10px;
+    margin-bottom: 3px;
 }
 
 .marginTop{
     margin-top: 3em;
 }
-
 
 .flexCenter{
     display: flex;
@@ -21,6 +28,11 @@
     justify-content: space-around;
 }
 
-.card{
-    margin: 0 3em 4em;
+.imgContainer{
+    width: 85%;
+    height: 200px;
+}
+.imgContainer img{
+    width: 100%;
+    height: 100%;
 }

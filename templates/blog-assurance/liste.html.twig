@@ -6,25 +6,25 @@
 
 {% block body %}
 <div class="bgcontainer">
-    <div class="flexCenter">
-        <h1 class="marginTop">Tout savoir sur l'assurance</h1>
-    </div>
+    <div class="container">
+        <div class="flexCenter">
+            <h1 class="marginTop mb-5">Tout savoir sur l'assurance</h1>
+        </div>
 
-    <div class="flexContainer">
-        {% for article in articles  %}
-            {% if article.blog == 1 %} 
-                <div class="card" style="width: 18rem;">
-                    {% if article.image is not null %}
-                        <img class="card-img-top" src="{{ asset('/uploads/images/' ~ article.image) }}">
-                    {% endif %}
-                        <div class="card-body">
-                            <p class="card-text">{{article.title}}</p>
-                            <p class="card-text">{{article.createdAt| date('d/n/Y')}}</p>
-                            <a href="{{ path('article', {'id': article.id}) }}"> Voir l'article </a>
+        <div class="row">
+            {% for article in articles  %}
+                <div class="col-md-4">
+                    <div>
+                        <div class="imgContainer">
+                            <img src="{{ asset('/uploads/images/' ~ article.image) }}">
                         </div>
+                        <h5>{{article.title}}</h5>
+                        <span>Le {{article.createdAt| date('d/m/Y')}}</span><br>
+                        <a href="{{ path('assurance_article', {'id': article.id}) }}" class="btn btn-outline-light mt-3"> Voir l'article </a>
+                    </div>
                 </div>
-            {% endif %}
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 

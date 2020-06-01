@@ -5,7 +5,6 @@ a{
 
 .accueilContainer{
     margin: 0;
-    width: 100vw;
 }
 
 .flexContainer{
@@ -143,21 +142,8 @@ p{
   
  /*mediaqueries*/
 
-@media screen and (max-width: 1055px){
-    .flexContainer{
-        flex-direction: column !important;
-        align-items: center;
-        height: 100%;
-
-
-    }
-}
-
  @media screen and (max-width: 764px) {
-    .flexContainerRow{
-        flex-direction: column !important;
-        align-items: center !important;
-    }
+
     .secondPanel{
         height: 100%;
     }
@@ -165,11 +151,29 @@ p{
     .thirdPanel{
         height: 100%;
     }
+
+}
+@media screen and (max-width: 1055px){
+    .flexContainer{
+        flex-direction: column !important;
+        align-items: center;
+        height: 100%;
+        padding-top: 30px;
+
+    }
+    .flexContainerRow{
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: space-around;
+        margin:0;
+    }
     .flexItemCol{
         margin-bottom: 30px;
     }
-
+    
 }
+
+
 
 
 

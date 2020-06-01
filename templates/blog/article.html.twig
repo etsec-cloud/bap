@@ -12,13 +12,12 @@
     <div class="flexContainer">
         <div class="flexCol">
 
-            <img class="imgArticle" src="{{ asset('/uploads/' ~ article.image) }}">
+            <img class="imgArticle" src="{{ asset('/uploads/images/' ~ article.image) }}">
             <div class="contentArticle">
                 <h1>{{article.title}} </h1>
                 {{article.content |raw }}
             </div>
-
-            
+            <a href="{{ path('updateArticle', {'id': article.id}) }}" class="btn btn-outline-light">Modifier l'article</a>
 
         </div>
         
@@ -29,7 +28,7 @@
                     {% if article.blog == idBlog %}
                         <div class="card" style="width: 15rem;">
                             {% if article.image is not null %}
-                                <img class="card-img-top" src="{{ asset('/uploads/' ~ article.image) }}">
+                                <img class="card-img-top" src="{{ asset('/uploads/images/' ~ article.image) }}">
                             {% endif %}
                                 <div class="card-body">
                                     <p class="card-text">{{article.title}}</p>

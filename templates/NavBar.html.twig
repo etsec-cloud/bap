@@ -6,14 +6,14 @@
         <div class="navbar-item" id="particuliers">
             <a class="lienMain" href="{{path('SecteurParticulier')}}">Particuliers </a>
             <ul class="navbar-under" id="under-particuliers">
-                <li class="navbar-under-item">Assurance auto</li>
-                <li class="navbar-under-item">Assurance 2/3 roues</li>
-                <li class="navbar-under-item">Complémentaire santé</li>
-                <li class="navbar-under-item">Epargne retraite</li>
-                <li class="navbar-under-item">Assurance habitation</li>
-                <li class="navbar-under-item">Assurance de prêt</li>
-                <li class="navbar-under-item">Assurance prévoyance</li>
-                <li class="navbar-under-item">Produits d'exception</li>
+                <li class="navbar-under-item"><a href="{{path('AssuranceAuto')}}">Assurance auto</a></li>
+                <li class="navbar-under-item"><a href="{{path('Assurance23Roues')}}">Assurance 2/3 roues</a></li>
+                <li class="navbar-under-item"><a href="{{path('AssuranceComplementaireSante')}}">Complémentaire santé</a></li>
+                <li class="navbar-under-item"><a href="{{path('AssuranceRetraite')}}">Epargne retraite</a></li>
+                <li class="navbar-under-item"><a href="{{path('AssuranceHabitation')}}">Assurance habitation</a></li>
+                <li class="navbar-under-item"><a href="{{path('AssurancePretParticulier')}}">Assurance de prêt</a></li>
+                <li class="navbar-under-item"><a href="{{path('AssurancePrevoyance')}}">Assurance prévoyance</a></li>
+                <li class="navbar-under-item"><a href="{{path('AssuranceProduits')}}">Produits d'exception</a></li>
                 <li class="navbar-under-item">Animaux de compagnie</li>
                 <li class="navbar-under-item">Protection juridique</li>
                 <li class="navbar-under-item">Assurance voyage</li>
@@ -35,22 +35,23 @@
             </ul>
         </div>
         <div class="navbar-item" id="liberaux">
-            <a  class="lienMain" href="#">  Liberaux, artisants, commerçants </a>
+            <a  class="lienMain" href="{{path('SecteurLiberaleArtisansCommercants')}}">  Liberaux, artisants, commerçants </a>
+
             <ul class="navbar-under" id="under-liberaux">
                 <li class="navbar-under-item">Assurance laveries</li>
-                <li class="navbar-under-item">Femme et homme clé</li>
-                <li class="navbar-under-item">Santé madelin</li>
-                <li class="navbar-under-item">Responsabilité civique</li>
-                <li class="navbar-under-item">Assurance de prêt</li>
-                <li class="navbar-under-item">Locaux professionnels</li>
-                <li class="navbar-under-item">Retraite madelin</li>
-                <li class="navbar-under-item">Prévoyance madelin</li>
-                <li class="navbar-under-item">Protection juridique et financière</li>
-                <li class="navbar-under-item">Cyber-assurance</li>
+                <li class="navbar-under-item"><a href="{{path('femmeHommeCle')}}">Femme et homme clé</a></li>
+                <li class="navbar-under-item"><a href="{{path('santeMadelin')}}">Santé madelin</a></li>
+                <li class="navbar-under-item"><a href="{{path('responsabiliteCivile')}}">Responsabilité civique</a></li>
+                <li class="navbar-under-item"><a href="#">Assurance de prêt</a></li>
+                <li class="navbar-under-item"><a href="{{path('locauxProfessionnels')}}">Locaux professionnels</a></li>
+                <li class="navbar-under-item"><a href="{{path('retraiteMadelin')}}">Retraite madelin</a></li>
+                <li class="navbar-under-item"><a href="{{path('provoyanceMadelin')}}">Prévoyance madelin</a></li>
+                <li class="navbar-under-item"><a href="#">Protection juridique et financière</a></li>
+                <li class="navbar-under-item"><a href="#">Cyber-assurance</a></li>
             </ul>
         </div>
         <div class="navbar-item" id="blogs">
-            <a class="lienMain" href="{{path('blog')}}">Nos blogs</a>
+            <a class="lienMain" href="{{path('blogs')}}">Nos blogs</a>
             <ul class="navbar-under" id="under-blogs">
                 <li class="navbar-under-item">Assurance</li>
                 <li class="navbar-under-item">Moto</li>

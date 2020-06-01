@@ -32,10 +32,10 @@ body::-webkit-scrollbar-thumb
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
     height: 9vh;
     z-index: 1;
     background: #4866B9;
+    width: 100%;
 }
 .navbar-item a{
     color:white;
@@ -56,7 +56,7 @@ body::-webkit-scrollbar-thumb
 
 
 .pusher{
-    transform: translateY(400px);
+    transform: translateY(35vh);
 }
 
 .navbar-item{
@@ -116,6 +116,11 @@ body::-webkit-scrollbar-thumb
     text-align: center;
     border-bottom: 1px solid black;
 }
+.navbar-under-item a{
+    color: black;
+    text-decoration:none;
+}
+
 .navbar-under-item:last-child{
     border-bottom: none;
 }
@@ -195,19 +200,23 @@ body::-webkit-scrollbar-thumb
     }
 
     #navbar{
+        margin-top: 30px;
         display: none;
         position: absolute;
         color: blue;
         flex-direction: column-reverse;
-        background-color: #4866B9;
+        background-color: white;
     }
 
     #navbar-main{
         display: block;
         justify-content: center;
         width: 90% ! important;
-        margin-bottom: 5%;
-        margin-top: 7%;
+        margin-bottom: 10vh;
+        margin-top: 2vh;
+    }
+    .navbar-item{
+        height: 70%;
     }
     
     .navbar-item a{
@@ -230,13 +239,13 @@ body::-webkit-scrollbar-thumb
     }
     
     #link{
-        display: block;
-        margin-top: -20%;
-        justify-content: center;
-        margin-left: 30%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%,0);
     }
     #link a {
-        color: blue !important;
+        color: #4a69bd !important;
     }
     #link .devis {
         margin-top: 5px;
@@ -251,6 +260,7 @@ body::-webkit-scrollbar-thumb
 }
 
 @media screen and (max-width:470px) {
+
     #navbar-main{
         margin-top: 30%;
         height: 60%;
@@ -259,6 +269,7 @@ body::-webkit-scrollbar-thumb
         margin-top: -45%;
         margin-left: 25%;
     }
+    
 }
 
 @media screen and (max-width:270px){

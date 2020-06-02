@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Assurance laverie{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/assurance-auto.css') }}">{% endblock %}
+
+{% block body %}
+    
+    <div id="autoContainer">
+
+        <!-- Gestion des messages de succès/erreur -->
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success my-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger my-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1 class="mt-5 mb-1">Assurance laverie</h1>
+        <div id="autoContent">
+            <div class="autoItem">
+            <p><strong>Assurance & Cie vous offre un tarif exceptionnel et des couvertures étendus auprès de notre partenaire AXA, leader mondial de l’assurance professionnel.</strong></p><br>
+                <h1>A PARTIR DE 440€ TTC</h1> <br>
+                <ul>
+                    <li>Risque Incendie : Illimité</li>
+                    <li>Dégât des eaux : Illimité</li>
+                    <li>Vandalisme : sur mesure</li>
+                    <li>Bris d’enseigne et de vitrine : sur mesure</li>
+                    <li>Dégâts électrique</li>
+                    <li>Franchise modulable</li>
+                    <li>Perte d’exploitation</li>
+                </ul>
+                
+            </div>
+            <div class="autoItem">
+                <h3 class="text-center">Demandez un devis dès maintenant !</h3>
+                {{ form_start(assuranceForm) }}
+                    {{ form_row(assuranceForm._token) }}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form_row(assuranceForm.firstname) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_row(assuranceForm.lastname) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            {{ form_row(assuranceForm.email) }}
+                        </div>
+                        <div class="form-group col-md-4">
+                            {{ form_row(assuranceForm.tel) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(assuranceForm.message) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(assuranceForm.documents) }}
+                    </div>
+                    <div class="text-center">   
+                        {{ form_row(assuranceForm.submit) }}
+                    </div>
+                {{ form_end(assuranceForm) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

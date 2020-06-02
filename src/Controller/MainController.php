@@ -580,4 +580,198 @@ class MainController extends AbstractController
             'assuranceForm' => $form->createView()
         ]);
     }
+
+        /**
+     * @Route("/secteur-entreprise" , name="SecteurEntreprise")
+     */
+
+    public function SecteurEntreprise()
+    {
+        return $this->render('main/secteur-entreprise.html.twig', [
+        ]);
+    }
+
+    /**
+     * @Route("/assurance-pret", name="assurancePret")
+     */
+    public function assurancePret(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Assurance prêt')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/entreprises/assurance-pret.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
+
+        /**
+     * @Route("/flottes-auto-moto", name="flotteAutoMoto")
+     */
+    public function flotteAutoMoto(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Flotte auto/moto')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/entreprises/flottes-auto-moto.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/perco-pee", name="PercoPee")
+     */
+    public function PercoPee(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Perco & Pee')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/entreprises/perco-pee.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
+    /**
+     * @Route("/retraite-collective", name="retraiteCollective")
+     */
+    public function retraiteCollective(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Retraite collective')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/entreprises/retraite-collective.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/sante-collective", name="santeCollective")
+     */
+    public function santéCollective(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Santé collective')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/entreprises/sante-collective.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
 }

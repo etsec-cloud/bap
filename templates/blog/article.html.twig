@@ -29,8 +29,25 @@
 </div>
 
 <div class="commentaire">
-    
-    <h3 class="titreCommentaire">Espace commentaire</h3>
+    <h3 class="titreCommentaire mb-4">Espace commentaire</h3>
+    <div class="commentFormContainer">
+        {{ form_start(commentForm) }}
+            <div class="form-group">
+                {{ form_row(commentForm.content) }}
+            </div>
+            <div class="btnContainer">
+                {{ form_row(commentForm.submit) }}
+            </div>
+        {{ form_end(commentForm) }}
+    </div>
+    <div class="commentsContainer">
+        {% for comment in comments %}
+            <div class="comment">  
+                {{ comment.content }} <br>
+                <small>{{ comment.user.firstname }}, le {{ comment.createdAt| date('d/m/Y') }}</small>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 <div class="similaire">

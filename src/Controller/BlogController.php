@@ -2,12 +2,13 @@
 
 namespace App\Controller;
 use App\Entity\Article;
+use App\Entity\Comment;
 use App\Form\ArticleType;
-
+use App\Form\CommentType;
 use App\Repository\ArticleRepository;
+use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\File;
@@ -15,9 +16,10 @@ use Symfony\Component\HttpFoundation\File\File;
 class BlogController extends AbstractController
 {
 
-    public function __construct(ArticleRepository $articleRepository)
+    public function __construct(ArticleRepository $articleRepository, CommentRepository $commentRepository)
     {
         $this->articleRepository = $articleRepository;
+        $this->commentRepository = $commentRepository;
     }
 
     /**
@@ -59,16 +61,40 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog/article/{id}", name="article")
      */
-    public function article($id)
+    public function article($id, Request $request, EntityManagerInterface $entityManager)
     {
+        $user = $this->getUser();
+
         $article = new Article();
         $article = $this->articleRepository->findOneById($id);
 
         $articles = $this->articleRepository->findLastThree();
 
+        $comments = $this->commentRepository->findByArticleDesc($article);
+
+        $newComment = new Comment();
+        $form = $this->createForm(CommentType::class, $newComment);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $newComment = $form->getData();
+
+            $newComment->setArticle($article);
+            $newComment->setUser($user);
+            $newComment->setCreatedAt(new \DateTime());
+
+            $entityManager->persist($newComment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('article', ['id' => $article->getId()]);
+        }
+
         return $this->render('blog/article.html.twig', [
             'article' => $article,
             'articles' => $articles,
+            'commentForm' => $form->createView(),
+            'comments' => $comments
         ]);
 
 

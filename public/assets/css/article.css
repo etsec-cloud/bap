@@ -1,3 +1,7 @@
+label{
+    color: #fff;
+}
+
 .imgArticle{
     width: 50%;
     border-radius: 10px;
@@ -73,11 +77,11 @@
     padding: 10vh 0;
     margin: 0;
     position: relative;
+    
+    padding-left: calc(5vw + 30px);
 }
 .titreCommentaire{
-    margin-left: calc(5vw + 30px);
     color:white;
-
 }
 
 .commentaire::after{
@@ -91,6 +95,11 @@
     border-width: 80px 30px 0 30px;
     border-color: #4A69BD transparent transparent transparent;
 }
+.comment{
+    color: #fff;
+    font-size: 1.2em;
+}
+
 .similaire{
     background-color: rgb(255, 255, 255);
     padding-top: 10vh;

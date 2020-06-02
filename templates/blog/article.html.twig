@@ -9,21 +9,26 @@
 {% set idBlog = article.blog %}
 
 <div class="articleContainer">
-    <div class="flexContainer">
-        <div class="flexCol">
 
-            <img class="imgArticle" src="{{ asset('/uploads/images/' ~ article.image) }}">
+    <div class="mainImage">
+                <img class="imgArticle" src="{{ asset('/uploads/images/' ~ article.image) }}">
+    </div>
+
+    <div class="flexContainer">
+        <div class="articleContent">
             <div class="contentArticle">
                 <h1>{{article.title}} </h1>
                 {{article.content |raw }}
             </div>
-            <a href="{{ path('updateArticle', {'id': article.id}) }}" class="btn btn-outline-light">Modifier l'article</a>
-
+            <a href="{{ path('updateArticle', {'id': article.id}) }}" class="btn btn-outline-dark">Modifier l'article</a>
         </div>
-        
-        <div class="flexCol2">
-            <h2 class="scrollTitre">Article similaire</h2>
-            <div class="scrollArticle">
+    </div>
+</div>
+
+
+     <div class="similaire">
+            <h2 class="articleSiTitre">A lire aussi</h2>
+            <div class="articleSimilaire">
                 {% for article in articles  %} 
                     {% if article.blog == idBlog %}
                         <div class="card" style="width: 15rem;">
@@ -38,16 +43,10 @@
                                 </div>
                         </div>   
                     {% endif %}
-
                 {% endfor %}
-            </div>
-
-        </div>
-
-    </div>
-
 </div>
 
+{% include 'footer.html.twig' %}
 
 {% endblock %}
 

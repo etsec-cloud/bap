@@ -25,26 +25,32 @@
     </div>
 </div>
 
-
-     <div class="similaire">
-            <h2 class="articleSiTitre">A lire aussi</h2>
-            <div class="articleSimilaire">
-                {% for article in articles  %} 
-                    {% if article.blog == idBlog %}
-                        <div class="card" style="width: 15rem;">
-                            {% if article.image is not null %}
-                                <img class="card-img-top" src="{{ asset('/uploads/images/' ~ article.image) }}">
-                            {% endif %}
-                                <div class="card-body">
-                                    <p class="card-text">{{article.title}}</p>
-                    
-                                    <p class="card-text">{{article.createdAt| date('d/n/Y')}}</p>
-                                    <a href="{{ path('article', {'id': article.id}) }}"> Voir l'article </a>
-                                </div>
-                        </div>   
-                    {% endif %}
-                {% endfor %}
+<div class="commentaire">
+    
+    <h3 class="titreCommentaire">Espace commentaire</h3>
 </div>
+
+<div class="similaire">
+    <h2 class="articleSiTitre">A lire aussi</h2>
+    <div class="articleSimilaire">
+        {% for article in articles  %} 
+            {% if article.blog == idBlog %}
+                <div class="card" style="width: 15rem;">
+                    {% if article.image is not null %}
+                        <img class="card-img-top" src="{{ asset('/uploads/images/' ~ article.image) }}">
+                    {% endif %}
+                        <div class="card-body">
+                            <p class="card-text">{{article.title}}</p>
+            
+                            <p class="card-text">{{article.createdAt| date('d/n/Y')}}</p>
+                            <a href="{{ path('article', {'id': article.id}) }}"> Voir l'article </a>
+                        </div>
+                </div>   
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+    
 
 {% include 'footer.html.twig' %}
 

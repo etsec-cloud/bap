@@ -3,8 +3,6 @@
     border-radius: 10px;
 }
 
-
-
 .mainImage{
     position: relative;
     height: 90vh;
@@ -52,6 +50,7 @@
     top:100%;
     width: 0;
     height: 0;
+    z-index: 1;
     border-style: solid;
     border-width: 80px 30px 0 30px;
     border-color: rgb(255, 255, 255) transparent transparent transparent;
@@ -67,20 +66,40 @@
 	justify-content: space-around;
 	align-items: center;
     align-content: space-between;
-    margin: 0 calc(5vw + 11px ) 30px;
-    
+    margin: 0 calc(5vw + 11px ) ;
+}
+.commentaire{
+    background-color: #4A69BD;
+    padding: 10vh 0;
+    margin: 0;
+    position: relative;
+}
+.titreCommentaire{
+    margin-left: calc(5vw + 30px);
+    color:white;
+
 }
 
+.commentaire::after{
+    content:"";
+    position: absolute;
+    left: 5vw;
+    top:100%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 80px 30px 0 30px;
+    border-color: #4A69BD transparent transparent transparent;
+}
 .similaire{
-    background-color: #4A69BD;
+    background-color: rgb(255, 255, 255);
     padding-top: 10vh;
 }
 
 .articleSiTitre{
-    color: white;
+    color: #4A69BD;
     margin-bottom: 2rem;
     margin-left:calc(5vw + 30px );
-
 }
 
 .card{

@@ -28,25 +28,40 @@
     </div>
 </div>
 
-<div class="commentaire">
+<div class="commentaire" id="commentaires">
     <h3 class="titreCommentaire mb-4">Espace commentaire</h3>
-    <div class="commentFormContainer">
-        {{ form_start(commentForm) }}
-            <div class="form-group">
-                {{ form_row(commentForm.content) }}
-            </div>
-            <div class="btnContainer">
-                {{ form_row(commentForm.submit) }}
-            </div>
-        {{ form_end(commentForm) }}
-    </div>
+
+    {% if is_granted('ROLE_USER') %}
+        <div class="commentFormContainer">
+            {{ form_start(commentForm) }}
+                <div class="form-group">
+                    {{ form_row(commentForm.content) }}
+                </div>
+                <div class="btnContainer">
+                    {{ form_row(commentForm.submit) }}
+                </div>
+            {{ form_end(commentForm) }}
+        </div>
+    {% else %}
+        <div class="alert alert-light w-25" role="alert">
+            <a href="{{ path('app_login') }}" class="alert-link">Connectez vous</a> pour poster un commentaire !
+        </div>
+    {% endif %}
+
     <div class="commentsContainer">
-        {% for comment in comments %}
-            <div class="comment">  
-                {{ comment.content }} <br>
-                <small>{{ comment.user.firstname }}, le {{ comment.createdAt| date('d/m/Y') }}</small>
-            </div>
-        {% endfor %}
+        {% if comments %}
+            {% for comment in comments %}
+                <div class="comment">  
+                    {{ comment.content }} <br>
+                    <small>{{ comment.user.firstname }}, le {{ comment.createdAt| date('d/m/Y') }}</small>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <br><a href="{{ path('removeComment', {'id': comment.id}) }}" class="btn btn-sm btn-danger">Supprimer le commentaire</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Soyez le premier à réagir à propos de cet article !</p>
+        {% endif %}
     </div>
 </div>
 

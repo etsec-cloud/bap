@@ -42,5 +42,7 @@ security:
     access_control:
         - { path: ^/account, roles: ROLE_USER }
         - { path: ^/blog/assurance/new, roles: ROLE_ADMIN }
+        - { path: ^/blog/moto/new, roles: ROLE_ADMIN }
         - { path: ^/blog/remove/, roles: ROLE_ADMIN }
         - { path: ^/blog/update/, roles: ROLE_ADMIN }
+        - { path: ^/blog/comments/remove/, roles: ROLE_ADMIN }

@@ -20,7 +20,7 @@ class CommentType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Poster mon commentaire',
-                'attr' => ['class' => 'btn btn-outline-light mb-5']
+                'attr' => ['class' => 'btn btn-outline-light mb-3']
             ])
         ;
     }

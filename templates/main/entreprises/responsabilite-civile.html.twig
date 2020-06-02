@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Assurance responsabilité civile professionnelle{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/assurance-auto.css') }}">{% endblock %}
+
+{% block body %}
+    
+    <div id="autoContainer">
+
+        <!-- Gestion des messages de succès/erreur -->
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success my-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger my-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1 class="mt-5 mb-1">Votre assurance responsabilité pro</h1>
+        <div id="autoContent">
+            <div class="autoItem">
+                <p><strong>
+                    Votre activité professionnelle peut potentiellement représenter des risques et des dommages pour un tiers et ainsi engager votre responsabilité civile : ceci entraînant une obligation de réparation du préjudice subit.</strong></p> <br>
+                <p>
+                    Il est donc nécessaire de bien connaître le cadre légal de la responsabilité civile professionnelle ou RC PRO qui est potentiellement incluse dans votre contrat d’assurance multirisque professionnelle.</p><br>
+                <p>
+                    Il est important de connaitre les obligations vous incombant et les limites des garanties de votre contrat.</p><br>
+                <p>
+                    Après une étude personnalisée de votre activité nous vous proposerons une RC PRO correspondante à vos besoin via une de nos compagnie partenaire.</p>
+            </div>
+            <div class="autoItem">
+                <h3 class="text-center">Demandez un devis dès maintenant !</h3>
+                {{ form_start(assuranceForm) }}
+                    {{ form_row(assuranceForm._token) }}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form_row(assuranceForm.firstname) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_row(assuranceForm.lastname) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            {{ form_row(assuranceForm.email) }}
+                        </div>
+                        <div class="form-group col-md-4">
+                            {{ form_row(assuranceForm.tel) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(assuranceForm.message) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(assuranceForm.documents) }}
+                    </div>
+                    <div class="text-center">   
+                        {{ form_row(assuranceForm.submit) }}
+                    </div>
+                {{ form_end(assuranceForm) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

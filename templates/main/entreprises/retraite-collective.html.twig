@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Retraite collective{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/assurance-auto.css') }}">{% endblock %}
+
+{% block body %}
+    
+    <div id="autoContainer">
+
+        <!-- Gestion des messages de succès/erreur -->
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success my-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger my-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1 class="mt-5 mb-1">Retraite collective</h1>
+        <div id="autoContent">
+            <div class="autoItem">
+                <p>
+                    Les contrats de retraites collectifs en entreprise sont des contrats d'assurances de groupe souscrits par l'employeur au bénéfice de ses salariés selon les catégories objectives définies. Ce contrat a pour but d'offrir aux salariés un complément de retraite et une participation de l'entreprise à l'effort d'épargne.</p> <br>
+                <p><strong>
+                    Demandez votre devis comparatif sans engagement.
+                    </strong></p><br>
+                <p><strong>
+                   Assurance & Cie s'occupe de toutes vos démarches pour résillier votre contrat actuel.
+                    </strong></p>
+            </div>
+            <div class="autoItem">
+                <h3 class="text-center">Demandez un devis dès maintenant !</h3>
+                {{ form_start(assuranceForm) }}
+                    {{ form_row(assuranceForm._token) }}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form_row(assuranceForm.firstname) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_row(assuranceForm.lastname) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            {{ form_row(assuranceForm.email) }}
+                        </div>
+                        <div class="form-group col-md-4">
+                            {{ form_row(assuranceForm.tel) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(assuranceForm.message) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(assuranceForm.documents) }}
+                    </div>
+                    <div class="text-center">   
+                        {{ form_row(assuranceForm.submit) }}
+                    </div>
+                {{ form_end(assuranceForm) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

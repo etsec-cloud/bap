@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprises{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/secteur-particulier.css') }}">{% endblock %}
+
+{% block body %}
+<div class="bgcontainer">
+    <div class="flexCenter">
+        <h1 class="marginTop">Assurances entreprises</h1>
+    </div>
+
+    <div class="flexContainer"> 
+            <a href="{{path('AssuranceAuto')}}">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Santé collective</p>
+                </div>
+            </div>
+            </a> 
+            <a href="{{path('Assurance23Roues')}}">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Responsabilité civile</p>
+                </div>
+            </div>
+            </a> 
+            <a href="{{path('AssuranceComplementaireSante')}}">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Flotte auto/moto</p>
+                </div>
+            </div>
+            </a> 
+            <a href="{{path('AssuranceRetraite')}}">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Retraite collective</p>
+                </div>
+            </div>
+            </a> 
+            <a href="{{path('AssuranceHabitation')}}">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Assurance de prêt</p>
+                </div>
+            </div>
+            </a> 
+            <a href="{{path('AssurancePretParticulier')}}">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Locaux professionnels</p>
+                </div>
+            </div>
+            </a> 
+            <a href="{{path('AssurancePrevoyance')}}">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Femme et homme clé</p>
+                </div>
+            </div>
+            </a> 
+            <a href="{{path('AssuranceProduits')}}">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Perco & pee</p>
+                </div>
+            </div>
+            </a> 
+    </div>
+</div>
+
+
+{% endblock %}

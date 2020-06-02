@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Assurance locaux professionnels{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/assurance-auto.css') }}">{% endblock %}
+
+{% block body %}
+    
+    <div id="autoContainer">
+
+        <!-- Gestion des messages de succès/erreur -->
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success my-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger my-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1 class="mt-5 mb-1">Votre assurance locaux professionnels</h1>
+        <div id="autoContent">
+            <div class="autoItem">
+                <p>
+                   <p>
+                   Dans le cadre de votre activité professionnel, il est nécessaire, voire obligatoire dans certain cas, de protéger vos biens et vos responsabilités des risques tels que l'incendie, le vol, les dégâts des eaux ou encore les bris de glace.</p>
+            </div>
+            <div class="autoItem">
+                <h3 class="text-center">Demandez un devis dès maintenant !</h3>
+                {{ form_start(assuranceForm) }}
+                    {{ form_row(assuranceForm._token) }}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form_row(assuranceForm.firstname) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_row(assuranceForm.lastname) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            {{ form_row(assuranceForm.email) }}
+                        </div>
+                        <div class="form-group col-md-4">
+                            {{ form_row(assuranceForm.tel) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(assuranceForm.message) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(assuranceForm.documents) }}
+                    </div>
+                    <div class="text-center">   
+                        {{ form_row(assuranceForm.submit) }}
+                    </div>
+                {{ form_end(assuranceForm) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

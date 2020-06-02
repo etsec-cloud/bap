@@ -9,8 +9,17 @@
       <div class="col">
           <div class="createQuestion">
               {% if is_granted('ROLE_USER') %}
-                  <h3>Posez votre question !</h3>
-                  {{ form(questionForm) }}
+                  <h1>Posez votre question</h1>
+                  <div class="formulaire">
+                    {{form_start(questionForm)}}
+                      {{ form_row(questionForm.content) }}
+                        {{ form_row(questionForm.submit) }}
+                    {{ form_end(questionForm) }}
+                  </div>
+
+                    <img class="imgFaq" src="./../../assets/images/faq/faqillu.png">
+
+
               {% else %}
                   <div class="alert alert-primary" role="alert">
                       <h4 class="alert-heading">Connectez-vous pour poser une question !</h4>
@@ -19,7 +28,7 @@
               {% endif %}
         </div>
     </div>
-
+<span class="vertical-line"></span>
         <div class="col">
           <div class="questions">
               <h3>Une question ? Notre expert vous répond !</h3>

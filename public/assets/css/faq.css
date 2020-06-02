@@ -1,14 +1,53 @@
 .faqContainer{
-    height: 90vh;
-    padding-top: 10vh;
+    height: 100%;
+    
     display: flex;
 
 }
 .col{
     display: flex;
     flex-direction: column;
+    padding-top: 15vh;
+}
+.createQuestion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formulaire{
+    width: 100%;
+    max-width: 365px;
+    position: relative;
 }
 
-.createQuestion h3{
+.questions h3{
+    color: #E58E26;
+}
+
+.createQuestion h1{
     color:#E58E26;
 }
+.boutonFaq{
+    background-color: #4A69BD;
+    color: white;
+    padding: 5px 45px;
+    border-radius: 4px!important;
+    border: none;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+.boutonFaq:hover{
+    background-color:#E58E26;
+}
+.imgFaq{
+    width: 100%;
+    margin-top: 10vh;
+}
+.vertical-line{
+    border-left: 2px solid #000;
+    display: inline-block;
+    height: 100vh;
+    margin: 0 20px;
+  }

@@ -71,6 +71,9 @@ class BlogController extends AbstractController
         $articles = $this->articleRepository->findLastThree();
 
         $comments = $this->commentRepository->findByArticleDesc($article);
+        foreach($comments as $comment) { 
+            dump($comment->getComment());
+        }
 
         $newComment = new Comment();
         $form = $this->createForm(CommentType::class, $newComment);
@@ -255,9 +258,38 @@ class BlogController extends AbstractController
             $this->addFlash('success', "Le commentaire a bien été supprimé !");
             return $this->redirectToRoute('article', ['id' => $comment->getArticle()->getId()]);
         } else {
-            $this->addFlash('error', "Le comentaire n'a pas été trouvé");
+            $this->addFlash('error', "Le commentaire n'a pas été trouvé");
             return $this->redirectToRoute('blogs');
         }
     }
-    
+
+    /**
+     * @Route("/blog/comments/response/{id}", name="postResponse")
+     */
+    public function postResponse($id, Request $request, EntityManagerInterface $entityManager)
+    {
+        $comment = $this->commentRepository->find($id);
+
+        if($comment) {
+            
+            $article = $comment->getArticle();
+            $user = $this->getUser();
+
+            $newResponse = new Comment();
+            $newResponse->setUser($user);
+            $newResponse->setArticle($article);
+            $newResponse->setComment($comment);
+            $newResponse->setCreatedAt(new \DateTime());
+            $newResponse->setContent($request->request->get('response'));
+
+            $entityManager->persist($newResponse);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('article', ['id' => $article->getId()]);
+
+        } else {
+            $this->addFlash('error', "Le commentaire n'a pas été trouvé");
+            return $this->redirectToRoute('blogs');
+        }
+    }
 }

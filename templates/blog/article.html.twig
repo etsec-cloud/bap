@@ -57,7 +57,23 @@
                     {% if is_granted('ROLE_ADMIN') %}
                         <br><a href="{{ path('removeComment', {'id': comment.id}) }}" class="btn btn-sm btn-danger">Supprimer le commentaire</a>
                     {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        <i class="fas fa-reply" onclick="showResponse({{ comment.id }})"></i>
+                    {% endif %}
                 </div>
+                {% if is_granted('ROLE_USER') %}
+                    <div class="response ml-5 mt-3" id="response{{ comment.id }}">
+                        <form action="{{ path('postResponse', {'id': comment.id}) }}" method="POST">
+                            <div class="form-group">
+                                <label for="response">Votre réponse</label>
+                                <textarea name="response" id="response" class="form-control w-25"></textarea>
+                            </div>
+                            <div class="btnContainer">
+                                <input type="submit" class="btn btn-outline-light" value="Répondre">
+                            </div>
+                        </form>
+                    </div>
+                {% endif %}
             {% endfor %}
         {% else %}
             <p>Soyez le premier à réagir à propos de cet article !</p>
@@ -84,22 +100,10 @@
             {% endif %}
         {% endfor %}
     </div>
-</div>
-    
+</div> 
 
 {% include 'footer.html.twig' %}
 
-{% endblock %}
-
-
-{% block javascript %}
-
-<script src="{{ asset('assets/javascript/ckeditor/adapters/jquery.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/javascript/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
-<script type="text/javascript">
-    $(function() {
-        $('textarea.ckeditor').ckeditor();
-    });
-</script>
+<script src="{{ asset('assets/js/article.js') }}"></script>
 
 {% endblock %}

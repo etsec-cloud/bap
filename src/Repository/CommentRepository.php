@@ -25,8 +25,9 @@ class CommentRepository extends ServiceEntityRepository
     public function findByArticleDesc($article)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.article = :val')
-            ->setParameter('val', $article)
+            ->where('c.comment IS NULL')
+            ->andWhere('c.article = :article')
+            ->setParameter('article', $article)
             ->orderBy('c.id', 'DESC')
             ->getQuery()
             ->getResult()

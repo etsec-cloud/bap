@@ -1,6 +1,7 @@
 .bgcontainer{
     background: #4866B9;
     padding-bottom: 30px;
+    height: 100vh;
 }
 
 h5, span{

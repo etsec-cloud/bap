@@ -20,7 +20,10 @@
                 <h1>{{article.title}} </h1>
                 {{article.content |raw }}
             </div>
-            <a href="{{ path('updateArticle', {'id': article.id}) }}" class="btn btn-outline-dark">Modifier l'article</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('updateArticle', {'id': article.id}) }}" class="btn btn-outline-dark">Modifier l'article</a>
+                <a href="{{ path('removeArticle', {'id': article.id}) }}" class="btn btn-outline-danger">Supprimer l'article</a>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -42,6 +42,9 @@ body::-webkit-scrollbar-thumb
     text-decoration: underline;
     text-decoration-color: #E58E26;
 }
+.navbar-item a:hover{
+    color: #212529;
+}
 #navbar-main img{
     width: 100px;
     margin-left: 15px;
@@ -188,6 +191,7 @@ body::-webkit-scrollbar-thumb
     right: 15px;
     display: none;
     z-index: 1;
+    cursor: pointer;
 }
 
 

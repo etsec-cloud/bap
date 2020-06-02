@@ -741,7 +741,7 @@ class MainController extends AbstractController
     /**
      * @Route("/sante-collective", name="santeCollective")
      */
-    public function santéCollective(MailerInterface $mailer, Request $request)
+    public function santeCollective(MailerInterface $mailer, Request $request)
     {
         $form = $this->createForm(AssuranceType::class);
         $form->handleRequest($request);
@@ -771,6 +771,117 @@ class MainController extends AbstractController
         }
 
         return $this->render('main/entreprises/sante-collective.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/cyber-assurance", name="cyberAssurance")
+     */
+    public function cyberAssurance(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Cyber assurance')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/entreprises/cyber-assurance.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/protection-juridique-fiscale", name="protectionJuridiqueFiscale")
+     */
+    public function protectionJuridiqueFiscale(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Protection juridique et fiscale')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/entreprises/protection-juridique-fiscale.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
+
+        /**
+     * @Route("/assurance-laverie", name="assuranceLaverie")
+     */
+    public function assuranceLaverie(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Assurance laverie')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/liberales-artisans-commercants/assurance-laverie.html.twig', [
             'assuranceForm' => $form->createView()
         ]);
     }

@@ -51,11 +51,11 @@ a, a:hover{
     justify-content: space-between;
 }
 
-.imgContainer{
+.imgFooter{
     width: 35%;
 }
 
-.imgContainer img{
+.imgFooter img{
     width: 100%;
 }
 

@@ -16,11 +16,13 @@ class FaqController extends AbstractController
      /**
      * @Route("/faq", name="faq")
      */
-    public function index(Request $request, EntityManagerInterface $entityManager, QuestionRepository $questionRepository, $content=null)
+    public function index(Request $request, EntityManagerInterface $entityManager, QuestionRepository $questionRepository)
     {
         $newQuestion = new Question();
         $questionForm = $this->createForm(QuestionType::class, $newQuestion);
         $questionForm->handleRequest($request);
+        
+        $questions = $questionRepository->findAll();
 
         if($questionForm->isSubmitted() && $questionForm->isValid()) {
 
@@ -35,22 +37,27 @@ class FaqController extends AbstractController
             return $this->redirectToRoute('faq');
         }
 
-        $questions = $questionRepository->findAll();
+        if(isset($_POST['submitResearch'])) {
 
-        $questionSearch = $this->createForm(SearchType::class,);
-        $questionsFound = $questionRepository->SearchBar($content);
+            if(!empty($_POST['research'])) {
+                $research = $request->request->get('research');
+                $results = $questionRepository->searchBar($research);
+
+                return $this->render('faq/index.html.twig', [
+                    'questionForm' => $questionForm->createView(),
+                    'questions' => $questions,
+                    'results' => $results
+                ]);
+            }
+
+        }
 
         return $this->render('faq/index.html.twig', [
             'questionForm' => $questionForm->createView(),
             'questions' => $questions,
-
-            'questionSearch' => $questionSearch->createView(),
-            'questionsFound' => $questionsFound,
-            
+            'results' => null
         ]);
     }
-
-
 
     /**
      * @Route("faq/give-response/{id}", name="give-response")

@@ -32,19 +32,17 @@
         <div class="col">
           <div class="questions">
             <h3>Une question ? Notre expert vous répond !</h3>
-            <p>Cherchez si votre question a déjà été posé</p>
             <div class="scrollQuestions">
 
-            <!--form search-->
-            {{form_start(questionSearch)}}
-              {{form_row(questionSearch.keyword)}}
-              {{form_row(questionSearch.submit)}}
-            {{form_end(questionSearch)}}
+              <form method="POST">
+                <div class="form-group w-50">
+                  <label for="research">Cherchez si votre question a déjà été posé</label>
+                  <input type="search" name="research" class="form-control">
+                </div>
+                <input type="submit" name="submitResearch" value="Chercher !" class="btn btn-primary">
+              </form>
 
-            {% for questionsFounds in questionsFound %}
-                {{ question.content |capitalize }}
-            {% endfor %}
-
+              {% if results == null %}
                 {% for question in questions %}
                 <div id="accordion{{question.id}}">
                     <div class="questionCard">
@@ -75,6 +73,40 @@
                     </div>
                   </div>
                 {% endfor %}
+              {% elseif results != [] %}
+                  {% for result in results %}
+                    <div id="accordion{{result.id}}">
+                      <div class="questionCard">
+                        <div id="heading{{result.id}}">
+                          <h5 class="mb-0">
+                            <button class="btn questionText" data-toggle="collapse" data-target="#response{{result.id}}" aria-expanded="true" aria-controls="response{{result.id}}">
+                              {{ result.content |capitalize }}
+                            </button>
+                          </h5>
+                        </div>
+                        {% if result.response %}
+                          <div id="response{{result.id}}" class="collapse" aria-labelledby="heading{{result.id}}" data-parent="#accordion{{result.id}}">
+                              <div class="card-body responseText">
+                              {{ result.response }}
+                              </div>
+                          </div>
+                        {% elseif is_granted('ROLE_ADMIN') %}
+                          <div id="response{{result.id}}" class="collapse" aria-labelledby="heading{{result.id}}" data-parent="#accordion{{result.id}}">
+                              <div class="card-body">
+                                  <form method="post" action="{{ path('give-response', {'id': result.id}) }}">
+                                      <input type="text" class="form-control mb-3" placeholder="Votre réponse" name="response">
+                                      <input type="submit" class="btn btn-outline-primary" value="Répondre" name="submitResponse">
+                                  </form>
+                              </div>
+                          </div>
+                        {% endif %}
+
+                      </div>
+                    </div>
+                  {% endfor %}
+              {% else %}
+                  <p>Aucune question ne correspond à votre recherche</p>
+              {% endif %}
               </div>
           </div>
       </div>

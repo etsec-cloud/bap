@@ -11,7 +11,7 @@
 <div class="articleContainer">
 
     <div class="mainImage">
-                <img class="imgArticle" src="{{ asset('/uploads/images/' ~ article.image) }}">
+        <img class="imgArticle" src="{{ asset('/uploads/images/' ~ article.image) }}">
     </div>
 
     <div class="flexContainer">
@@ -62,8 +62,8 @@
                     {% endif %}
                 </div>
                 {% if is_granted('ROLE_USER') %}
-                    <div class="response ml-5 mt-3" id="response{{ comment.id }}">
-                        <form action="{{ path('postResponse', {'id': comment.id}) }}" method="POST">
+                    <div class="response ml-5 mt-3">
+                        <form action="{{ path('postResponse', {'id': comment.id}) }}" method="POST" id="response{{ comment.id }}" class="responseForm">
                             <div class="form-group">
                                 <label for="response">Votre réponse</label>
                                 <textarea name="response" id="response" class="form-control w-25"></textarea>
@@ -72,6 +72,19 @@
                                 <input type="submit" class="btn btn-outline-light" value="Répondre">
                             </div>
                         </form>
+                        <div class="mt-3">
+                            {% for response in responses %}
+                                {% if response.comment.id == comment.id %}
+                                <div class="responseComment"> 
+                                    {{ response.content }} <br>
+                                    <small>{{ response.user.firstname }}, le {{ response.createdAt| date('d/m/Y') }}</small>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <br><a href="{{ path('removeComment', {'id': comment.id}) }}" class="btn btn-sm btn-danger">Supprimer le commentaire</a>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div> 
                     </div>
                 {% endif %}
             {% endfor %}

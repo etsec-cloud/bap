@@ -34,6 +34,21 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @return Comment[] Returns an array of Comment objects
+     */
+    public function findResponses($article)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.comment IS NOT NULL')
+            ->andWhere('c.article = :article')
+            ->setParameter('article', $article)
+            ->orderBy('c.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Comment
     {

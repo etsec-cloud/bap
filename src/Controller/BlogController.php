@@ -71,9 +71,7 @@ class BlogController extends AbstractController
         $articles = $this->articleRepository->findLastThree();
 
         $comments = $this->commentRepository->findByArticleDesc($article);
-        foreach($comments as $comment) { 
-            dump($comment->getComment());
-        }
+        $responses = $this->commentRepository->findResponses($article);
 
         $newComment = new Comment();
         $form = $this->createForm(CommentType::class, $newComment);
@@ -97,7 +95,8 @@ class BlogController extends AbstractController
             'article' => $article,
             'articles' => $articles,
             'commentForm' => $form->createView(),
-            'comments' => $comments
+            'comments' => $comments,
+            'responses' => $responses
         ]);
 
 

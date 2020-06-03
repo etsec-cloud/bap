@@ -1,6 +1,7 @@
-#autoContainer{
+.autoContainer{
     height: 100vh;
-    background: linear-gradient(to bottom, rgb(3, 23, 80, 0.5), transparent), url('../images/assurance-auto.jpg');
+    background: linear-gradient(180deg, rgba(74,105,189,1) 50%, rgba(58,83,154,1) 67%);
+    color: white;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -8,19 +9,28 @@
     align-items: center;
 }
 
-#autoContainer h1{
+.autoContainer h1{
     color: white;
+    margin-top: 35vh;
 }
 
-#autoContent{
+.autoContent{
     display: flex;
     justify-content: space-around;
 }
 
-#autoContent .autoItem{
+.autoContent .autoItem{
     width: 35%;
     height: 100%;
-    background-color: rgba(245, 241, 241, 0.794);
+    padding: 25px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.autoContent .autoForm{
+    background: linear-gradient(180deg, rgba(74,105,189,1) 50%, rgba(58,83,154,1) 67%);
+    width: 35%;
+    height: 100%;
     padding: 25px;
     border-radius: 10px;
     font-size: 20px;
@@ -28,11 +38,11 @@
 
 @media (max-width: 1055px) {
 
-    #autoContainer h1{
+    .autoContainer h1{
         margin-top: 50px;
     }
 
-    #autoContent .autoItem{
+    .autoContent .autoItem{
         width: 45%;
     }
 
@@ -40,23 +50,23 @@
 
 @media (max-width: 764px) {
 
-    #autoContainer{
+    .autoContainer{
         display: block;
         height: 100%;
     }
 
-    #autoContainer h1{
+    .autoContainer h1{
         text-align: center;
         margin-bottom: 50px;
     }
 
-    #autoContent{
+    .autoContent{
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
     }
 
-    #autoContent .autoItem{
+    .autoContent .autoItem{
         width: 80%;
         margin-bottom: 50px;
     }

@@ -11,7 +11,7 @@
 <div class="articleContainer">
 
     <div class="mainImage">
-                <img class="imgArticle" src="{{ asset('/uploads/images/' ~ article.image) }}">
+        <img class="imgArticle" src="{{ asset('/uploads/images/' ~ article.image) }}">
     </div>
 
     <div class="flexContainer">
@@ -28,9 +28,70 @@
     </div>
 </div>
 
-<div class="commentaire">
-    
-    <h3 class="titreCommentaire">Espace commentaire</h3>
+<div class="commentaire" id="commentaires">
+    <h3 class="titreCommentaire mb-4">Espace commentaire</h3>
+
+    {% if is_granted('ROLE_USER') %}
+        <div class="commentFormContainer">
+            {{ form_start(commentForm) }}
+                <div class="form-group">
+                    {{ form_row(commentForm.content) }}
+                </div>
+                <div class="btnContainer">
+                    {{ form_row(commentForm.submit) }}
+                </div>
+            {{ form_end(commentForm) }}
+        </div>
+    {% else %}
+        <div class="alert alert-light w-25" role="alert">
+            <a href="{{ path('app_login') }}" class="alert-link">Connectez vous</a> pour poster un commentaire !
+        </div>
+    {% endif %}
+
+    <div class="commentsContainer">
+        {% if comments %}
+            {% for comment in comments %}
+                <div class="comment">  
+                    {{ comment.content }} <br>
+                    <small>{{ comment.user.firstname }}, le {{ comment.createdAt| date('d/m/Y') }}</small>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <br><a href="{{ path('removeComment', {'id': comment.id}) }}" class="btn btn-sm btn-danger">Supprimer le commentaire</a>
+                    {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        <i class="fas fa-reply" onclick="showResponse({{ comment.id }})"></i>
+                    {% endif %}
+                </div>
+                {% if is_granted('ROLE_USER') %}
+                    <div class="response ml-5 mt-3">
+                        <form action="{{ path('postResponse', {'id': comment.id}) }}" method="POST" id="response{{ comment.id }}" class="responseForm">
+                            <div class="form-group">
+                                <label for="response">Votre réponse</label>
+                                <textarea name="response" id="response" class="form-control w-25"></textarea>
+                            </div>
+                            <div class="btnContainer">
+                                <input type="submit" class="btn btn-outline-light" value="Répondre">
+                            </div>
+                        </form>
+                        <div class="mt-3">
+                            {% for response in responses %}
+                                {% if response.comment.id == comment.id %}
+                                <div class="responseComment"> 
+                                    {{ response.content }} <br>
+                                    <small>{{ response.user.firstname }}, le {{ response.createdAt| date('d/m/Y') }}</small>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <br><a href="{{ path('removeComment', {'id': comment.id}) }}" class="btn btn-sm btn-danger">Supprimer le commentaire</a>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div> 
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>Soyez le premier à réagir à propos de cet article !</p>
+        {% endif %}
+    </div>
 </div>
 
 <div class="similaire">
@@ -52,22 +113,10 @@
             {% endif %}
         {% endfor %}
     </div>
-</div>
-    
+</div> 
 
 {% include 'footer.html.twig' %}
 
-{% endblock %}
-
-
-{% block javascript %}
-
-<script src="{{ asset('assets/javascript/ckeditor/adapters/jquery.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/javascript/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
-<script type="text/javascript">
-    $(function() {
-        $('textarea.ckeditor').ckeditor();
-    });
-</script>
+<script src="{{ asset('assets/js/article.js') }}"></script>
 
 {% endblock %}

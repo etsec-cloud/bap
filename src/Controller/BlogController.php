@@ -2,12 +2,13 @@
 
 namespace App\Controller;
 use App\Entity\Article;
+use App\Entity\Comment;
 use App\Form\ArticleType;
-
+use App\Form\CommentType;
 use App\Repository\ArticleRepository;
+use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\File;
@@ -15,9 +16,10 @@ use Symfony\Component\HttpFoundation\File\File;
 class BlogController extends AbstractController
 {
 
-    public function __construct(ArticleRepository $articleRepository)
+    public function __construct(ArticleRepository $articleRepository, CommentRepository $commentRepository)
     {
         $this->articleRepository = $articleRepository;
+        $this->commentRepository = $commentRepository;
     }
 
     /**
@@ -59,16 +61,42 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog/article/{id}", name="article")
      */
-    public function article($id)
+    public function article($id, Request $request, EntityManagerInterface $entityManager)
     {
+        $user = $this->getUser();
+
         $article = new Article();
         $article = $this->articleRepository->findOneById($id);
 
         $articles = $this->articleRepository->findLastThree();
 
+        $comments = $this->commentRepository->findByArticleDesc($article);
+        $responses = $this->commentRepository->findResponses($article);
+
+        $newComment = new Comment();
+        $form = $this->createForm(CommentType::class, $newComment);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $newComment = $form->getData();
+
+            $newComment->setArticle($article);
+            $newComment->setUser($user);
+            $newComment->setCreatedAt(new \DateTime());
+
+            $entityManager->persist($newComment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('article', ['id' => $article->getId()]);
+        }
+
         return $this->render('blog/article.html.twig', [
             'article' => $article,
             'articles' => $articles,
+            'commentForm' => $form->createView(),
+            'comments' => $comments,
+            'responses' => $responses
         ]);
 
 
@@ -143,29 +171,6 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/remove/{id}", name="removeArticle")
-     */
-    public function removeArticle($id, EntityManagerInterface $entityManager)
-    {
-        $article = $this->articleRepository->find($id);
-
-        if($article) {
-
-            $article->deleteFile();
-
-            $entityManager->remove($article);
-            $entityManager->flush();
-
-            $this->addFlash('success', "L'article a bien été supprimé !");
-            return $this->redirectToRoute('blogs');
-
-        } else {
-            $this->addFlash('error', "L'article n'a pas été trouvé");
-            return $this->redirectToRoute('blogs');
-        }
-    }
-
-    /**
      * @Route("/blog/update/{id}", name="updateArticle")
      */
     public function updateArticle($id, Request $request, EntityManagerInterface $entityManager)
@@ -214,5 +219,76 @@ class BlogController extends AbstractController
             return $this->redirectToRoute('blogs');
         }
     }
-    
+
+    /**
+     * @Route("/blog/remove/{id}", name="removeArticle")
+     */
+    public function removeArticle($id, EntityManagerInterface $entityManager)
+    {
+        $article = $this->articleRepository->find($id);
+
+        if($article) {
+
+            $article->deleteFile();
+
+            $entityManager->remove($article);
+            $entityManager->flush();
+
+            $this->addFlash('success', "L'article a bien été supprimé !");
+            return $this->redirectToRoute('blogs');
+
+        } else {
+            $this->addFlash('error', "L'article n'a pas été trouvé");
+            return $this->redirectToRoute('blogs');
+        }
+    }
+
+    /**
+     * @Route("/blog/comments/remove/{id}", name="removeComment")
+     */
+    public function removeComment($id, EntityManagerInterface $entityManager)
+    {
+        $comment = $this->commentRepository->find($id);
+
+        if($comment) {
+            $entityManager->remove($comment);
+            $entityManager->flush();
+
+            $this->addFlash('success', "Le commentaire a bien été supprimé !");
+            return $this->redirectToRoute('article', ['id' => $comment->getArticle()->getId()]);
+        } else {
+            $this->addFlash('error', "Le commentaire n'a pas été trouvé");
+            return $this->redirectToRoute('blogs');
+        }
+    }
+
+    /**
+     * @Route("/blog/comments/response/{id}", name="postResponse")
+     */
+    public function postResponse($id, Request $request, EntityManagerInterface $entityManager)
+    {
+        $comment = $this->commentRepository->find($id);
+
+        if($comment) {
+            
+            $article = $comment->getArticle();
+            $user = $this->getUser();
+
+            $newResponse = new Comment();
+            $newResponse->setUser($user);
+            $newResponse->setArticle($article);
+            $newResponse->setComment($comment);
+            $newResponse->setCreatedAt(new \DateTime());
+            $newResponse->setContent($request->request->get('response'));
+
+            $entityManager->persist($newResponse);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('article', ['id' => $article->getId()]);
+
+        } else {
+            $this->addFlash('error', "Le commentaire n'a pas été trouvé");
+            return $this->redirectToRoute('blogs');
+        }
+    }
 }

@@ -25,7 +25,7 @@
                         <h5>{{article.title}}</h5>
                         <span>Le {{article.createdAt| date('d/m/Y')}}</span><br>
                         <a href="{{ path('article', {'id': article.id}) }}" class="btn btn-outline-light mt-3"> Voir l'article </a>
-                        {% if is_granted('ROLE_USER') %}
+                        {% if is_granted('ROLE_ADMIN') %}
                             <a href="{{ path('removeArticle', {'id': article.id}) }}" class="btn btn-danger mt-3">Supprimer l'article</a>
                         {% endif %}
                     </div>

@@ -19,22 +19,35 @@ class CommentRepository extends ServiceEntityRepository
         parent::__construct($registry, Comment::class);
     }
 
-    // /**
-    //  * @return Comment[] Returns an array of Comment objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Comment[] Returns an array of Comment objects
+     */
+    public function findByArticleDesc($article)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('c.comment IS NULL')
+            ->andWhere('c.article = :article')
+            ->setParameter('article', $article)
+            ->orderBy('c.id', 'DESC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+    /**
+     * @return Comment[] Returns an array of Comment objects
+     */
+    public function findResponses($article)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.comment IS NOT NULL')
+            ->andWhere('c.article = :article')
+            ->setParameter('article', $article)
+            ->orderBy('c.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     /*
     public function findOneBySomeField($value): ?Comment

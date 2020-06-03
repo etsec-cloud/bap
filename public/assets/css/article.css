@@ -1,3 +1,7 @@
+label{
+    color: #fff;
+}
+
 .imgArticle{
     width: 50%;
     border-radius: 10px;
@@ -25,6 +29,11 @@
     border-width: 80px 30px 0 30px;
     border-color: #4A69BD transparent transparent transparent;
 }
+.mainImage img{
+    max-height: 65vh;
+    max-width: 75vw;
+}
+
 .flexContainer{
     margin-left: calc(5vw + 30px);
     width: 90%;
@@ -73,11 +82,11 @@
     padding: 10vh 0;
     margin: 0;
     position: relative;
+    
+    padding-left: calc(5vw + 30px);
 }
 .titreCommentaire{
-    margin-left: calc(5vw + 30px);
     color:white;
-
 }
 
 .commentaire::after{
@@ -91,6 +100,24 @@
     border-width: 80px 30px 0 30px;
     border-color: #4A69BD transparent transparent transparent;
 }
+.commentsContainer{
+    color: #fff;
+}
+.comment{
+    font-size: 1.2em;
+    margin-top: 30px;
+}
+.responseComment{
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+.fa-reply{
+    cursor: pointer;
+}
+.responseForm{
+    display: none;
+}
+
 .similaire{
     background-color: rgb(255, 255, 255);
     padding-top: 10vh;

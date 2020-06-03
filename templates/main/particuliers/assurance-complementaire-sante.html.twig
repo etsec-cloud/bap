@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Complémentaire Santé {% endblock %}
+{% block title %}Assurance complémentaire santé{% endblock %}
 
 {% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/assurance-auto.css') }}">{% endblock %}
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,15 +20,17 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Votre assurance complémentaire santé</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Votre assurance complémentaire santé</h1>
+
+        <div class="autoContent">
             <div class="autoItem">
                 <p>
-                    Votre assurance santé est VOTRE priorité et celle de votre famille, c'est pour cela que Assurance & Cie vous accompagne dans votre démarche de comparaison et de recherche pour trouver la garantie qui vous convient. 
-                </p>
+                 En tant que professionnels indépendants, nous vous proposons notre expertise pour l'étude de votre contrat de santé dans le cadre de la Loi Madelin. Cette loi vous permet de déduire de votre revenu imposable les cotisations versées au titre de votre protection social (santé, prévoyance et retraite).
+                </p><br>
+                <img src="{{ asset('assets/images/assurances/complemantaire-sante.png') }}" alt="Assurance-complementaire-sante" width="140%"/>
             </div>
-            <div class="autoItem">
-                <h3 class="text-center">Demandez un devis dès maintenant !</h3>
+            <div class="autoForm">
+                <h3 class="text-center">Demandez un devis dès maintenant&nbsp!</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}
                     <div class="form-row">

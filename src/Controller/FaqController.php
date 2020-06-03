@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Question;
 use App\Form\QuestionType;
+use App\Form\SearchType;
 use App\Repository\QuestionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,6 +21,8 @@ class FaqController extends AbstractController
         $newQuestion = new Question();
         $questionForm = $this->createForm(QuestionType::class, $newQuestion);
         $questionForm->handleRequest($request);
+        
+        $questions = $questionRepository->findAll();
 
         if($questionForm->isSubmitted() && $questionForm->isValid()) {
 
@@ -34,11 +37,25 @@ class FaqController extends AbstractController
             return $this->redirectToRoute('faq');
         }
 
-        $questions = $questionRepository->findAll();
+        if(isset($_POST['submitResearch'])) {
+
+            if(!empty($_POST['research'])) {
+                $research = $request->request->get('research');
+                $results = $questionRepository->searchBar($research);
+
+                return $this->render('faq/index.html.twig', [
+                    'questionForm' => $questionForm->createView(),
+                    'questions' => $questions,
+                    'results' => $results
+                ]);
+            }
+
+        }
 
         return $this->render('faq/index.html.twig', [
             'questionForm' => $questionForm->createView(),
-            'questions' => $questions
+            'questions' => $questions,
+            'results' => null
         ]);
     }
 
@@ -67,4 +84,8 @@ class FaqController extends AbstractController
 
         return $this->redirectToRoute('faq');
     }
+
+
+     
+
 }

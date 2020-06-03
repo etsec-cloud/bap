@@ -34,7 +34,7 @@ body::-webkit-scrollbar-thumb
     align-items: center;
     height: 9vh;
     z-index: 1;
-    background: #4866B9;
+    background: #4a69bd;
     width: 100%;
 }
 .navbar-item a{
@@ -250,6 +250,7 @@ body::-webkit-scrollbar-thumb
     }
     #link a {
         color: #4a69bd !important;
+
     }
     #link .devis {
         margin-top: 5px;

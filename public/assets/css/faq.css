@@ -41,6 +41,7 @@
     left: 50%;
     transform: translate(-50%,0);
 }
+.ctaFaq:hover,
 .boutonFaq:hover{
     background-color:#E58E26;
 }
@@ -50,14 +51,14 @@
     margin-top: 10vh;
 }
 .vertical-line{
-    border-left: 2px solid #000;
+    border-left: 1px solid #707070;
     display: inline-block;
     height: 100vh;
     margin: 0 20px;
 }
 .scrollQuestions{
     overflow-y: scroll;
-    max-height: 600px;
+    max-height: 500px;
     margin-top: 20px;
 }
 .questionCard{
@@ -77,4 +78,34 @@ button:focus{
 }
 .questionText:hover{
     color: #E58E26;
+}
+
+.maxWidth300{
+    max-width: 307px;
+    width: 100%;
+    border-color:#4A69BD;    
+}
+label{
+    color:#4A69BD;
+}
+.ctaFaq{
+    background-color: #4A69BD;
+    color: white;
+    padding: 5px 45px;
+    border-radius: 4px!important;
+    border: none;
+}
+
+@media screen and (max-width:680px){
+    .faqContainer{
+        flex-direction: column;
+    }
+    .vertical-line{
+        display: none;
+    }
+    .questions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

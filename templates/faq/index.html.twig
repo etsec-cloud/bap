@@ -32,16 +32,14 @@
         <div class="col">
           <div class="questions">
             <h3>Une question ? Notre expert vous répond !</h3>
-            <div class="scrollQuestions">
-
-              <form method="POST">
-                <div class="form-group w-50">
+            <form method="POST">
+                <div class="form-group">
                   <label for="research">Cherchez si votre question a déjà été posé</label>
-                  <input type="search" name="research" class="form-control">
+                  <input type="search" name="research" class="form-control maxWidth300">
                 </div>
-                <input type="submit" name="submitResearch" value="Chercher !" class="btn btn-primary">
+                <input type="submit" name="submitResearch" value="Chercher !" class="ctaFaq">
               </form>
-
+            <div class="scrollQuestions">
               {% if results == null %}
                 {% for question in questions %}
                 <div id="accordion{{question.id}}">

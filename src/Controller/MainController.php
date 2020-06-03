@@ -347,6 +347,117 @@ class MainController extends AbstractController
             'assuranceForm' => $form->createView()
         ]);
     }
+    
+    /**
+     * @Route("/assurance-animaux-compagnie", name="AssuranceAnimauxCompagnie")
+     */
+    public function AssuranceAnimauxCompagnie(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Assurance pour les animaux de compagnie')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/particuliers/animaux-compagnie.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/assurance-protection-juridique", name="AssuranceProtectionJuridique")
+     */
+    public function AssuranceProtectionJuriqique(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Assurance pour la protection juridique')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/particuliers/protection-juridique.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/assurance-voyage", name="AssuranceVoyage")
+     */
+    public function AssuranceVoyage(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Assurance pour vos voyages')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/particuliers/assurance-voyage.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
 
     /**
      * @Route("/secteur-liberales-artisans-commercants" , name="SecteurLiberaleArtisansCommercants")

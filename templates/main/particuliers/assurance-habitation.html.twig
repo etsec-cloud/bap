@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Assurance Habitation{% endblock %}
+{% block title %}Assurance habitation{% endblock %}
 
 {% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/assurance-auto.css') }}">{% endblock %}
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,15 +20,16 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Votre assurance habitation</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Votre assurance habitation</h1>
+
+        <div class="autoContent">
             <div class="autoItem">
-                <p>
-                    A partir de 8€/ mois - Tous types d'habitation - Contrat en 10 minutes<br><br>
-                    Que vous soyez propriétaires ou locataires, Assurance & Cie vous assure pour tous vos biens.  
-                </p>
+                <p>A partir de 8€/mois - Tous type d'habitation - Contrat en 10 minutes.</p>
+                <p>Que vous soyez propriétaire ou locataire, Assurance&Cie vous assure tout vos bien.</p>
+                <br>
+                <img src="{{ asset('assets/images/assurances/undraw_at_home_octe.png') }}" alt="Assurance-auto" width="140%"/>
             </div>
-            <div class="autoItem">
+            <div class="autoForm">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}

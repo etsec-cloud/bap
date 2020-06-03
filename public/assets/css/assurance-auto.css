@@ -1,5 +1,5 @@
 .autoContainer{
-    height: 100vh;
+    height: 100%;
     background: linear-gradient(180deg, rgba(74,105,189,1) 50%, rgba(58,83,154,1) 67%);
     color: white;
     background-size: cover;

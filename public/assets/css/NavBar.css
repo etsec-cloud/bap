@@ -42,7 +42,7 @@ body::-webkit-scrollbar-thumb
     text-decoration: underline;
     text-decoration-color: #E58E26;
 }
-.navbar-item a:hover{
+.navbar-under a:hover{
     color: #212529;
 }
 #navbar-main img{

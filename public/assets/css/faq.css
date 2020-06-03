@@ -1,8 +1,7 @@
 .faqContainer{
     height: 100%;
-    
     display: flex;
-
+    overflow: hidden;
 }
 .col{
     display: flex;
@@ -18,12 +17,16 @@
     width: 100%;
     max-width: 365px;
     position: relative;
+    color:#4A69BD;
 }
-
+.formulaire textarea{
+    border-color:#4A69BD;    
+    height: 15vh;
+}
 .questions h3{
     color: #E58E26;
+    font-weight: 250;
 }
-
 .createQuestion h1{
     color:#E58E26;
 }
@@ -42,6 +45,7 @@
     background-color:#E58E26;
 }
 .imgFaq{
+    max-width: 380px;
     width: 100%;
     margin-top: 10vh;
 }
@@ -50,4 +54,27 @@
     display: inline-block;
     height: 100vh;
     margin: 0 20px;
-  }
+}
+.scrollQuestions{
+    overflow-y: scroll;
+    max-height: 600px;
+    margin-top: 20px;
+}
+.questionCard{
+    margin: 10px 0;
+}
+.questionText{
+    color:#4A69BD;
+    text-decoration: none;
+    font-size:1.5rem;
+    background-color: transparent;
+    border:transparent;
+    box-shadow: none;
+}
+.btn:focus,
+button:focus{
+    box-shadow: none;
+}
+.questionText:hover{
+    color: #E58E26;
+}

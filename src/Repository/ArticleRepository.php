@@ -47,6 +47,7 @@ class ArticleRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    
 
     public function findHome(){
         $qb = $this->createQueryBuilder('a')

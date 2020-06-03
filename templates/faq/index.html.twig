@@ -31,38 +31,51 @@
 <span class="vertical-line"></span>
         <div class="col">
           <div class="questions">
-              <h3>Une question ? Notre expert vous répond !</h3>
-              {% for question in questions %}
-              <div id="accordion{{question.id}}">
-                  <div class="card questionCard">
-                    <div class="card-header" id="heading{{question.id}}">
-                      <h5 class="mb-0">
-                        <button class="btn btn-link questionText" data-toggle="collapse" data-target="#response{{question.id}}" aria-expanded="true" aria-controls="response{{question.id}}">
-                          {{ question.content }}
-                        </button>
-                      </h5>
-                    </div>
-                    {% if question.response %}
-                      <div id="response{{question.id}}" class="collapse" aria-labelledby="heading{{question.id}}" data-parent="#accordion{{question.id}}">
-                          <div class="card-body responseText">
-                          {{ question.response }}
-                          </div>
-                      </div>
-                    {% elseif is_granted('ROLE_ADMIN') %}
-                      <div id="response{{question.id}}" class="collapse" aria-labelledby="heading{{question.id}}" data-parent="#accordion{{question.id}}">
-                          <div class="card-body">
-                              <form method="post" action="{{ path('give-response', {'id': question.id}) }}">
-                                  <input type="text" class="form-control mb-3" placeholder="Votre réponse" name="response">
-                                  <input type="submit" class="btn btn-outline-primary" value="Répondre" name="submitResponse">
-                              </form>
-                          </div>
-                      </div>
-                    {% endif %}
+            <h3>Une question ? Notre expert vous répond !</h3>
+            <p>Cherchez si votre question a déjà été posé</p>
+            <div class="scrollQuestions">
 
+            <!--form search-->
+            {{form_start(questionSearch)}}
+              {{form_row(questionSearch.keyword)}}
+              {{form_row(questionSearch.submit)}}
+            {{form_end(questionSearch)}}
+
+            {% for questionsFounds in questionsFound %}
+                {{ question.content |capitalize }}
+            {% endfor %}
+
+                {% for question in questions %}
+                <div id="accordion{{question.id}}">
+                    <div class="questionCard">
+                      <div id="heading{{question.id}}">
+                        <h5 class="mb-0">
+                          <button class="btn questionText" data-toggle="collapse" data-target="#response{{question.id}}" aria-expanded="true" aria-controls="response{{question.id}}">
+                            {{ question.content |capitalize }}
+                          </button>
+                        </h5>
+                      </div>
+                      {% if question.response %}
+                        <div id="response{{question.id}}" class="collapse" aria-labelledby="heading{{question.id}}" data-parent="#accordion{{question.id}}">
+                            <div class="card-body responseText">
+                            {{ question.response }}
+                            </div>
+                        </div>
+                      {% elseif is_granted('ROLE_ADMIN') %}
+                        <div id="response{{question.id}}" class="collapse" aria-labelledby="heading{{question.id}}" data-parent="#accordion{{question.id}}">
+                            <div class="card-body">
+                                <form method="post" action="{{ path('give-response', {'id': question.id}) }}">
+                                    <input type="text" class="form-control mb-3" placeholder="Votre réponse" name="response">
+                                    <input type="submit" class="btn btn-outline-primary" value="Répondre" name="submitResponse">
+                                </form>
+                            </div>
+                        </div>
+                      {% endif %}
+
+                    </div>
                   </div>
-                </div>
-                  
-              {% endfor %}
+                {% endfor %}
+              </div>
           </div>
       </div>
   </div>

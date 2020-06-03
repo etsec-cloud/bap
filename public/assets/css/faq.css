@@ -1,8 +1,7 @@
 .faqContainer{
     height: 100%;
-    
     display: flex;
-
+    overflow: hidden;
 }
 .col{
     display: flex;
@@ -18,12 +17,16 @@
     width: 100%;
     max-width: 365px;
     position: relative;
+    color:#4A69BD;
 }
-
+.formulaire textarea{
+    border-color:#4A69BD;    
+    height: 15vh;
+}
 .questions h3{
     color: #E58E26;
+    font-weight: 250;
 }
-
 .createQuestion h1{
     color:#E58E26;
 }
@@ -38,16 +41,71 @@
     left: 50%;
     transform: translate(-50%,0);
 }
+.ctaFaq:hover,
 .boutonFaq:hover{
     background-color:#E58E26;
 }
 .imgFaq{
+    max-width: 380px;
     width: 100%;
     margin-top: 10vh;
 }
 .vertical-line{
-    border-left: 2px solid #000;
+    border-left: 1px solid #707070;
     display: inline-block;
     height: 100vh;
     margin: 0 20px;
-  }
+}
+.scrollQuestions{
+    overflow-y: scroll;
+    max-height: 500px;
+    margin-top: 20px;
+}
+.questionCard{
+    margin: 10px 0;
+}
+.questionText{
+    color:#4A69BD;
+    text-decoration: none;
+    font-size:1.5rem;
+    background-color: transparent;
+    border:transparent;
+    box-shadow: none;
+}
+.btn:focus,
+button:focus{
+    box-shadow: none;
+}
+.questionText:hover{
+    color: #E58E26;
+}
+
+.maxWidth300{
+    max-width: 307px;
+    width: 100%;
+    border-color:#4A69BD;    
+}
+label{
+    color:#4A69BD;
+}
+.ctaFaq{
+    background-color: #4A69BD;
+    color: white;
+    padding: 5px 45px;
+    border-radius: 4px!important;
+    border: none;
+}
+
+@media screen and (max-width:680px){
+    .faqContainer{
+        flex-direction: column;
+    }
+    .vertical-line{
+        display: none;
+    }
+    .questions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

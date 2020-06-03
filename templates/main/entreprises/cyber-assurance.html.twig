@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,15 +20,18 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">La cyber assurance</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">La cyber assurance</h1>
+
+        <div class="autoContent">
             <div class="autoItem">
                 <p><strong>
                 Assurance & Cie vous apporte les solutions  aux conséquences des risques numériques sur l’activité des TPE et PME.</strong></p> <br>
                 <p>
                 Le contrat garantit les dommages subis ou causés par l’entreprise suite à une <strong>atteinte à son système informatique ou à ses données,</strong> mais également et en option les dommages subis suite à une <strong>fraude.</strong></p><br>
+
+                <img src="{{ asset('assets/images/assurances/cyber.png') }}" alt="Cyber assurance" width="140%"/>
             </div>
-            <div class="autoItem">
+            <div class="autoForm">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}

@@ -960,7 +960,7 @@ class MainController extends AbstractController
         ]);
     }
 
-        /**
+    /**
      * @Route("/assurance-laverie", name="assuranceLaverie")
      */
     public function assuranceLaverie(MailerInterface $mailer, Request $request)
@@ -996,4 +996,42 @@ class MainController extends AbstractController
             'assuranceForm' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/assurance-pret", name="assurancePret")
+     */
+    public function assurancePretLiberaux(MailerInterface $mailer, Request $request)
+    {
+        $form = $this->createForm(AssuranceType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $firstname = $form->get('firstname')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phone = ($form->get('phone')) ? $form->get('phone')->getData() : null;
+            $message = $form->get('message')->getData();
+
+            $sendEmail = (new TemplatedEmail())
+            ->from($email)
+            ->to('contact@agence.fr')
+            ->subject('Demande de devis: Assurance laverie')
+            ->text('Ceci est un test')
+            ->htmlTemplate('emails/assurance.html.twig')
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+
+            $mailer->send($sendEmail);
+        }
+
+        return $this->render('main/liberales-artisans-commercants/assurance-pret.html.twig', [
+            'assuranceForm' => $form->createView()
+        ]);
+    }
+
 }

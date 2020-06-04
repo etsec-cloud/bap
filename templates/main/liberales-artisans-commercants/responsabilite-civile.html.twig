@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -21,7 +21,7 @@
         {% endfor %}
 
         <h1 class="mt-5 mb-1">Votre assurance responsabilité pro</h1>
-        <div id="autoContent">
+        <div class="autoContent">
             <div class="autoItem">
                 <p><strong>
                     Votre activité professionnelle peut potentiellement représenter des risques et des dommages pour un tiers et ainsi engager votre responsabilité civile : ceci entraînant une obligation de réparation du préjudice subit.</strong></p> <br>
@@ -31,6 +31,7 @@
                     Il est important de connaitre les obligations vous incombant et les limites des garanties de votre contrat.</p><br>
                 <p>
                     Après une étude personnalisée de votre activité nous vous proposerons une RC PRO correspondante à vos besoin via une de nos compagnie partenaire.</p>
+                <img src="{{ asset('assets/images/assurances/random1.png') }}" alt="Assurance-auto" class="image"/>
             </div>
             <div class="autoItem">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>

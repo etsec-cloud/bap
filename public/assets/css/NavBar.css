@@ -27,20 +27,37 @@ body::-webkit-scrollbar-thumb
 
 /* NAVBAR */
 #navbar{
+    position: sticky;
+    top:0;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 9vh;
-    z-index: 1;
+    z-index: 2;
     background: #4866B9;
     width: 100%;
 }
 .navbar-item a{
     color:white;
-    text-decoration: underline;
-    text-decoration-color: #E58E26;
 }
+
+.underline::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: #E58E26;
+    transform: scaleX(1);
+    transform-origin: 0 0;
+    transition: 0.2s ease-in-out;
+}
+.underline:hover::after{
+    transform: scaleX(0.1)
+}
+
 .navbar-under a:hover{
     color: #212529;
 }
@@ -146,9 +163,18 @@ body::-webkit-scrollbar-thumb
 #link .devis {
     border: 1px solid;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px 15px;
     box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.40);;
+    background-color: #E58E26;
+    transition: 300ms;
 }
+#link .devis:hover{
+    background-color: #fff;
+    color:#E58E26;
+
+
+}
+
 .lienMain{
     position: relative;
 }
@@ -201,13 +227,13 @@ body::-webkit-scrollbar-thumb
     #burger{
         display: block;
     }
-
     #navbar{
         margin-top: 30px;
         display: none;
         color: blue;
         flex-direction: column-reverse;
         background-color: white;
+        position: static;
     }
 
     #navbar-main{

@@ -4,7 +4,7 @@
            <a href="{{path('home')}}"> <img src="./../../assets/images/accueil/accueilLogo.png"></a>
 
         <div class="navbar-item" id="particuliers">
-            <a class="lienMain" href="{{path('SecteurParticulier')}}">Particuliers </a>
+            <a class="lienMain" href="{{path('SecteurParticulier')}}"> <span class="underline"> Particuliers </span> </a>
             <ul class="navbar-under" id="under-particuliers">
                 <li class="navbar-under-item"><a href="{{path('AssuranceAuto')}}">Assurance auto</a></li>
                 <li class="navbar-under-item"><a href="{{path('Assurance23Roues')}}">Assurance 2/3 roues</a></li>
@@ -20,7 +20,7 @@
             </ul>
         </div>
         <div class="navbar-item" id="entreprises">
-           <a class="lienMain" href="#"> Entreprises </a>
+           <a class="lienMain" href="#"> <span class="underline"> Entreprises </span> </a>
             <ul class="navbar-under" id="under-entreprises">
                 <li class="navbar-under-item"><a href="{{path('santeCollective')}}">Santé collective</a></li>
                 <li class="navbar-under-item"><a href="{{path('responsabiliteCivile')}}">Responsabilité civique</a></li>
@@ -35,7 +35,7 @@
             </ul>
         </div>
         <div class="navbar-item" id="liberaux">
-            <a  class="lienMain" href="{{path('SecteurLiberaleArtisansCommercants')}}">  Liberaux, artisants, commerçants </a>
+            <a  class="lienMain" href="{{path('SecteurLiberaleArtisansCommercants')}}"><span class="underline">   Liberaux, artisants, commerçants</span> </a>
 
             <ul class="navbar-under" id="under-liberaux">
                 <li class="navbar-under-item"><a href="{{path('assuranceLaverie')}}">Assurance laveries</a></li>
@@ -51,7 +51,7 @@
             </ul>
         </div>
         <div class="navbar-item" id="blogs">
-            <a class="lienMain" href="{{path('blogs')}}">Nos blogs</a>
+            <a class="lienMain" href="{{path('blogs')}}"> <span class="underline"> Nos blogs </span></a>
             <ul class="navbar-under" id="under-blogs">
                 <li class="navbar-under-item"><a href="{{path('assurance_articles')}}">Assurance</a></li>
                 <li class="navbar-under-item"><a href="{{path('moto_articles')}}">Moto</a></li>
@@ -65,7 +65,7 @@
         {% else %}
             <a href="{{ path('app_login') }}" class="connect">Me connecter</a>
         {% endif %}
-        <a href="#" class="devis btn btn-outline-light">Demander un devis</a>
+        <a href="#" class="devis">Demander un devis</a>
     </div>
 
 </div>

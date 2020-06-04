@@ -3,6 +3,10 @@ a{
     text-decoration: none;
 }
 
+p{
+    font-size: 1.2em;
+}
+
 .accueilContainer{
     margin: 0;
 }
@@ -17,7 +21,7 @@ a{
     position: relative;
 }
 .bigImage{
-    width: 40vw;
+    width: 35vw;
 }
 .firstPanel::after{
     content:"";

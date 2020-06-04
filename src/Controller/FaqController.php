@@ -85,7 +85,25 @@ class FaqController extends AbstractController
         return $this->redirectToRoute('faq');
     }
 
+    /**
+     * @Route("faq/remove/{id}", name="faq-remove")
+     */
+    public function removeFaq($id, EntityManagerInterface $entityManager, QuestionRepository $questionRepository)
+    {
+        $question = $questionRepository->find($id);
 
-     
+        if($question) {
+
+            $entityManager->remove($question);
+            $entityManager->flush();
+
+            $this->addFlash('success', "La question a bien été supprimé !");
+            return $this->redirectToRoute('faq');
+
+        } else {
+            $this->addFlash('error', "La question n'a pas été trouvé");
+            return $this->redirectToRoute('blogs');
+        }
+    }
 
 }

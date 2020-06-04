@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,19 +20,17 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Votre assurance de prêt</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Assurance de prêt</h1>
+
+        <div class="autoContent">
             <div class="autoItem">
                 <p>
-                    L'assurance de prêt est obligatoire dans le cadre de vos investissements immobiliers et pour certain de vos prêts.<br>
-                    Elle protège l'organisme prêteur et vos proches des aléas de la vie qui empêcheraient le remboursement de votre emprunt.
-                    Demandez votre devis comparatif sans engagement.<br><br>
-
-                    <strong>Assurance & Cie s'occupe de toutes vos démarches pour changer votre contrat actuel.</strong>
-                </p>
+                    L'assurance de prêt est obligatoire dans le cadre de vos investissements immobiliers et pour certain de vos prêts.<br> Elle protège l'organisme prêteur et vos proches des aléas de la vie qui empêcheraient le remboursement de vos emprunt.    
+                </p><br>
+                <img src="{{ asset('assets/images/assurances/pret.png') }}" alt="Assurance-auto" width="140%"/>
             </div>
-            <div class="autoItem">
-                <h3 class="text-center">Demandez un devis dès maintenant !</h3>
+            <div class="autoForm">
+                <h3 class="text-center">Demandez un devis dès maintenant&nbsp!</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}
                     <div class="form-row">

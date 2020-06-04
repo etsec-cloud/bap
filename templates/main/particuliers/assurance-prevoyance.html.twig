@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Assurance prévoyance{% endblock %}
+{% block title %}Prévoyance familiale{% endblock %}
 
 {% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/assurance-auto.css') }}">{% endblock %}
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,23 +20,21 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Votre assurance prévoyance</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Votre prévoyance</h1>
+
+        <div class="autoContent">
             <div class="autoItem">
+                <p>A partir de 10€/mois - Toutes situtation - Contrat dans l'heure.</p>
                 <p>
-                    Le cabinet Assurance&Cie protège tous les automobilistes. Quelque soit votre profil, nous aurons une solutions pour vous : 
-                    <ul>
-                        <li>Débutant / Jeune permis</li>
-                        <li>Expérimenté / Bonussé</li>
-                        <li>Malussé / Risque grave</li>
-                        <li>Sinistralité élevée</li>
-                        <li>Société tous conducteurs</li>
-                    </ul>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, veniam. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, distinctio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, exercitationem.
+                    Protéger vos proches s'il vous arrive quelque chose, compléter vos revenus si vous ne pouvez plus travailler ou encore assurer la pérennité de votre entreprise...<br>
+                    Nous vous accompagonons pour protéger ce qui compte le plus.<br>
+                    Nous analysons votre situation familiale et professionnelle, vos assurance, pour mieux les compléter ou les optimiser et ainsi vous protéger au mieux.
                 </p>
+                <br>
+                <img src="{{ asset('assets/images/assurances/prevoyance.png') }}" alt="Assurance-auto" width="140%"/>
             </div>
-            <div class="autoItem">
-                <h3 class="text-center">Demandez un devis dès maintenant !</h3>
+            <div class="autoForm">
+                <h3 class="text-center">Demandez un devis dès maintenant&nbsp!</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}
                     <div class="form-row">

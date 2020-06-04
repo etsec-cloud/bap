@@ -1,6 +1,6 @@
 .autoContainer{
     height: 100%;
-    background: linear-gradient(180deg, rgba(74,105,189,1) 50%, rgba(58,83,154,1) 67%);
+    background: linear-gradient(180deg, #4A69BD 50%, #3A539A 67%);
     color: white;
     background-size: cover;
     display: flex;
@@ -11,7 +11,12 @@
 
 .autoContainer h1{
     color: white;
-    margin-top: 6vh;
+    margin-top: 40px;
+    margin-bottom: 30px !important;
+}
+
+.image{
+    width: 140%;
 }
 
 .autoContent{
@@ -28,22 +33,35 @@
 }
 
 .autoContent .autoForm{
-    background: linear-gradient(180deg, rgba(74,105,189,1) 50%, rgba(58,83,154,1) 67%);
+    background: #4A69BD;
     width: 35%;
     height: 100%;
     padding: 25px;
     border-radius: 10px;
     font-size: 20px;
+    box-shadow: -1em 0 .4em black, -1em 0 .4em black;
+    -webkit-box-shadow: 0px 1px 8px -3px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0px 1px 8px -3px rgba(0,0,0,0.7);
+    box-shadow: 0px 0px 8px -3px rgba(0,0,0,0.7);
 }
 
 @media (max-width: 1055px) {
 
+    .autoContainer{
+        height: 100vh;
+    }
+
     .autoContainer h1{
-        margin-top: 50px;
+        margin-top: 0;
+        padding-top: 50px;
     }
 
     .autoContent .autoItem{
         width: 45%;
+    }
+
+    .image{
+        width: 95%;
     }
 
 }
@@ -66,7 +84,7 @@
         align-items: center;
     }
 
-    .autoContent .autoItem{
+    .autoContent .autoItem, .autoContent .autoForm{
         width: 80%;
         margin-bottom: 50px;
     }

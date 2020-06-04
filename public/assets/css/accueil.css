@@ -12,23 +12,12 @@ a{
     justify-content: space-around;
     align-items: center;
     color: white;
-    height: 90vh;
+    height: 91vh;
     background: #4A69BD;
     position: relative;
 }
 .bigImage{
     width: 40vw;
-}
-.firstPanel::after{
-    content:"";
-    position: absolute;
-    left: 5vw;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 80px 30px 0 30px;
-    border-color: #4A69BD transparent transparent transparent;
-
 }
 .boxShadow1{
     box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.40);

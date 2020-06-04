@@ -27,7 +27,6 @@ body::-webkit-scrollbar-thumb
 
 /* NAVBAR */
 #navbar{
-    position: absolute;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -78,6 +77,7 @@ body::-webkit-scrollbar-thumb
 
 .navbar-under{
     display: none;
+    z-index: 1 ;
     position: absolute;
     top: 100%;
     width: 100%;

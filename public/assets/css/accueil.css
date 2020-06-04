@@ -6,6 +6,10 @@ a{
 .accueilContainer{
     margin: 0;
 }
+.firstPanel{
+    position: relative;
+
+}
 
 .flexContainer{
     display: flex;
@@ -14,8 +18,24 @@ a{
     color: white;
     height: 91vh;
     background: #4A69BD;
-    position: relative;
 }
+/* .firstPanel::before{
+    content:"";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    height: 100%;
+    background:no-repeat url( ./../../assets/images/accueil/tache1.png);
+} */
+.posiAbso{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 12vw;
+}
+
 .bigImage{
     width: 40vw;
 }
@@ -104,13 +124,40 @@ p{
 .thirdPanel{
     background: #4A69BD;
     color: white;
+    position: relative;
+    padding-bottom: 6%;
 
 }
-
 .titre3{
     padding-top: 3em;
     color:#fff;
     margin-left: calc(5vw + 30px);
+}
+.trait{
+    border-top: 2px solid rgb(255, 255, 255);
+    max-width : 250px;
+    width: 100%;
+}
+.posiAbso2{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 12vw;
+}
+
+.posiAbso3{
+    position: absolute;
+    right:0;
+    bottom: 35vh;
+    width: 8vw;
+
+}
+.margin{
+    margin: auto 8%;
+}
+.imgGerant{
+    max-width: 300px;
+    width: 100%;
 }
 
 
@@ -150,6 +197,12 @@ p{
         padding-top: 30px;
         padding-bottom: 30px;
 
+    }
+    .trait{
+        display: none;
+    }
+    .flexItems{
+        margin-bottom: 30px;
     }
     .flexContainerRow{
         flex-direction: column !important;

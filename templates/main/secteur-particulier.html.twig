@@ -2,110 +2,170 @@
 
 {% block title %}Particulier{% endblock %}
 
-{% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/secteur-particulier.css') }}">{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href=" {{ asset('assets/css/secteur-particulier.css') }}">
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+
+{% endblock %}
 
 {% block body %}
 <div class="bgcontainer">
+
     <div class="flexCenter">
         <h1 class="marginTop">Assurances particuliers</h1>
     </div>
 
-    <div class="flexContainer"> 
-            <a href="{{path('AssuranceAuto')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Assurance Auto</p>
+    <div class="main">
+        <div class="left">
+            <div class="swiper-container-secteur">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"> 
+                        <div class="oui">
+                            <h3 class="titleSlide">Yonathan</h3> 
+                            <p class="txtSlide">"Il existe une multitude d'offre mais une seule est pour vous."</p> 
+                            <img class="imgSlide" src="./../../../assets/images/accueil/slideY.png">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide"> 
+                        <div class="oui">
+                                <h3 class="titleSlide">Benjamin</h3> 
+                                <p class="txtSlide">""Les contrats n'ont pas de secret pour moi.""</p> 
+                                <img class="imgbenj imgSlide" src="./../../../assets/images/accueil/slideB.png">
+                            </div>
+                     </div>
+
+                    <div class="swiper-slide"> 
+                        <div class="oui">
+                                <h3 class="titleSlide">Melissa</h3> 
+                                <p class="txtSlide">"En cas de sinistre, vous n'avez pas le temps d'attendre."</p> 
+                                <img class="imgbenj imgSlide" src="./../../../assets/images/accueil/slideM.png">
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            </a> 
-            <a href="{{path('Assurance23Roues')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Assurance 2/3 roues</p>
-                </div>
-            </div>
-            </a> 
-            <a href="{{path('AssuranceComplementaireSante')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Complémentaire santé</p>
-                </div>
-            </div>
-            </a> 
-            <a href="{{path('AssuranceRetraite')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Epargne retraite</p>
-                </div>
-            </div>
-            </a> 
-            <a href="{{path('AssuranceHabitation')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Assurance habitation</p>
-                </div>
-            </div>
-            </a> 
-            <a href="{{path('AssurancePretParticulier')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Assurance de prêt</p>
-                </div>
-            </div>
-            </a> 
-            <a href="{{path('AssurancePrevoyance')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Assurance prévoyance</p>
-                </div>
-            </div>
-            </a> 
-            <a href="{{path('AssuranceProduits')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Assurance produits d'exception</p>
-                </div>
-            </div>
-            </a> 
-            <a href="{{path('AssuranceAnimauxCompagnie')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Animaux de compagnie</p>
-                </div>
-            </div>
-            </a> 
-            <a href="{{path('AssuranceProtectionJuridique')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Protection juridique</p>
-                </div>
-            </div>
-            </a> 
-            <a href="{{path('AssuranceVoyage')}}">
-                <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://developer.mozilla.org/static/img/favicon144.png" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Assurance voyage</p>
-                </div>
-            </div>
-            </a> 
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+        </div>
         
         
+
+
+        <div class="flexContainer">
+            <div class="ligne">
+
+                <div class="bdyAssu">
+                    <a href="{{path('AssuranceAuto')}}">
+                            <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                            <div class="assu">
+                                <p class="txtAssu">Assurance Auto</p>
+                            </div>
+                        
+                    </a> 
+                </div>
+                <div class="bdyAssu" >
+                    <a href="{{path('Assurance23Roues')}}">
+                            <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                            <div class="assu">
+                                <p class="txtAssu">Assurance 2/3 roues</p>
+                            </div>
+                    </a> 
+                </div>
+
+                <div class="bdyAssu">
+                    <a href="{{path('AssuranceComplementaireSante')}}">
+                            <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                            <div class="assu">
+                                <p class="txtAssu">Complémentaire santé</p>
+                            </div>
+                    </a> 
+                 </div>
+
+                <div class="bdyAssu" >
+                    <a href="{{path('AssuranceRetraite')}}">
+                            <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                            <div class="assu">
+                                <p class="txtAssu">Epargne retraite</p>
+                            </div>
+                    </a>
+                </div> 
+
+                <div class="bdyAssu">  
+                    <a href="{{path('AssuranceHabitation')}}">
+                            <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                            <div class="assu">
+                                <p class="txtAssu">Assurance habitation</p>
+                            </div>
+                    </a> 
+                </div>
+            </div>
+
+            <div class="ligne">
+                <div class="bdyAssu">
+                    <a href="{{path('AssurancePretParticulier')}}">
+                        <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                        <div class="assu">
+                            <p class="txtAssu">Assurance de prêt</p>
+                        </div>
+                    </a> 
+                </div>
+                <div class="bdyAssu">
+                    <a href="{{path('AssurancePrevoyance')}}">
+                        <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                        <div class="assu">
+                            <p class="txtAssu">Assurance prévoyance</p>
+                        </div>
+                    </a> 
+                </div>
+                <div class="bdyAssu">
+                    <a href="{{path('AssuranceProduits')}}">
+                        <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                        <div class="assu">
+                            <p class="txtAssu">Assurance produits d'exception</p>
+                        </div>
+                    </a> 
+                </div>
+                <div class="bdyAssu">
+                    <a href="{{path('AssuranceAnimauxCompagnie')}}">
+                            <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                            <div class="assu">
+                                <p class="txtAssu">Animaux de compagnie</p>
+                            </div>
+                    </a> 
+                 </div>
+                 <div class="bdyAssu">
+                    <a href="{{path('AssuranceProtectionJuridique')}}">
+                            <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                            <div class="assu">
+                                <p class="txtAssu">Protection juridique</p>
+                            </div>
+                    </a> 
+                 </div>
+
+                 <div class="bdyAssu" >
+                    <a href="{{path('AssuranceVoyage')}}">
+                            <img class="imgAssu" src="https://developer.mozilla.org/static/img/favicon144.png" alt=" image cap">
+                            <div class="assu">
+                                <p class="txtAssu">Assurance voyage</p>
+                        </div>
+                    </a> 
+                </div>
+            </div>
+
+        </div>
 
     </div>
+
 </div>
 
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.js"></script>
 
+<script src="{{ asset('assets/js/secteur.js') }}"></script>
 
 
 

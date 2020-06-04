@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -21,7 +21,7 @@
         {% endfor %}
 
         <h1 class="mt-5 mb-1">Assurance laverie</h1>
-        <div id="autoContent">
+        <div class="autoContent">
             <div class="autoItem">
             <p><strong>Assurance & Cie vous offre un tarif exceptionnel et des couvertures étendus auprès de notre partenaire AXA, leader mondial de l’assurance professionnel.</strong></p><br>
                 <h1>A PARTIR DE 440€ TTC</h1> <br>
@@ -34,7 +34,7 @@
                     <li>Franchise modulable</li>
                     <li>Perte d’exploitation</li>
                 </ul>
-                
+                <img src="{{ asset('assets/images/assurances/laverie.png') }}" alt="Assurance laverie" class="image"/>
             </div>
             <div class="autoItem">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>

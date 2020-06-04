@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -21,10 +21,11 @@
         {% endfor %}
 
         <h1 class="mt-5 mb-1">Votre assurance prévoyance madelin</h1>
-        <div id="autoContent">
+        <div class="autoContent">
             <div class="autoItem">
                 <p>
                    En tant que professionnels indépendants, nous vous proposons notre expertise pour l'étude de votre contrat retraite dans le cadre de la Loi Madelin. Cette loi vous permet de déduire de votre revenu imposable les cotisations versées au titre de votre protection sociale (santé, prévoyance et retraite).</p>
+                <img src="{{ asset('assets/images/assurances/prevoyance-madelin.png') }}" alt="Assurance-auto" class="image"/>
             </div>
             <div class="autoItem">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>

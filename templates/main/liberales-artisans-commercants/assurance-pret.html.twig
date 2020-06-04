@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Assurance responsabilité civile professionnelle{% endblock %}
+{% block title %}Assurance de prêt{% endblock %}
 
 {% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/assurance-auto.css') }}">{% endblock %}
 
@@ -20,21 +20,17 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Votre assurance responsabilité pro</h1>
+        <h1 class="mb-1">Assurance de prêt</h1>
+
         <div class="autoContent">
             <div class="autoItem">
-                <p><strong>
-                    Votre activité professionnelle peut potentiellement représenter des risques et des dommages pour un tiers et ainsi engager votre responsabilité civile : ceci entraînant une obligation de réparation du préjudice subit.</strong></p> <br>
                 <p>
-                    Il est donc nécessaire de bien connaître le cadre légal de la responsabilité civile professionnelle ou RC PRO qui est potentiellement incluse dans votre contrat d’assurance multirisque professionnelle.</p><br>
-                <p>
-                    Il est important de connaitre les obligations vous incombant et les limites des garanties de votre contrat.</p><br>
-                <p>
-                    Après une étude personnalisée de votre activité nous vous proposerons une RC PRO correspondante à vos besoin via une de nos compagnie partenaire.</p>
-                <img src="{{ asset('assets/images/assurances/random1.png') }}" alt="Assurance-auto" class="image"/>
+                    L'assurance de prêt est obligatoire dans le cadre de vos investissements immobiliers et pour certain de vos prêts.<br> Elle protège l'organisme prêteur et vos proches des aléas de la vie qui empêcheraient le remboursement de vos emprunt.    
+                </p><br>
+                <img src="{{ asset('assets/images/assurances/pret.png') }}" alt="Assurance-auto" width="140%"/>
             </div>
-            <div class="autoItem">
-                <h3 class="text-center">Demandez un devis dès maintenant !</h3>
+            <div class="autoForm">
+                <h3 class="text-center">Demandez un devis dès maintenant&nbsp!</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}
                     <div class="form-row">

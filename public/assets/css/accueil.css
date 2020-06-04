@@ -3,6 +3,10 @@ a{
     text-decoration: none;
 }
 
+p{
+    font-size: 1.2em;
+}
+
 .accueilContainer{
     margin: 0;
 }
@@ -37,7 +41,7 @@ a{
 }
 
 .bigImage{
-    width: 40vw;
+    width: 35vw;
 }
 .boxShadow1{
     box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.40);

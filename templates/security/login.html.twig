@@ -7,11 +7,12 @@
 {% block body %}
 <div id="loginContainer">
 
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
     <div id="loginContent">
+    
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
         <h1>Je me connecte</h1>
 
         <form method="post">

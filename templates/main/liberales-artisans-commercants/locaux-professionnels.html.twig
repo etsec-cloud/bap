@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,14 +20,16 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Votre assurance locaux professionnels</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Votre assurance locaux professionnels</h1>
+        <div class="autoContent">
             <div class="autoItem">
                 <p>
                    <p>
-                   Dans le cadre de votre activité professionnel, il est nécessaire, voire obligatoire dans certain cas, de protéger vos biens et vos responsabilités des risques tels que l'incendie, le vol, les dégâts des eaux ou encore les bris de glace.</p>
+                   Dans le cadre de votre activité professionnel, il est nécessaire, voire obligatoire dans certain cas, de protéger vos biens et vos responsabilités des risques tels que l'incendie, le vol, les dégâts des eaux ou encore les bris de glace.</p><br>
+                <img src="{{ asset('assets/images/assurances/local.png') }}" alt="Locaux professionnels" width="100%"/>
             </div>
-            <div class="autoItem">
+
+            <div class="autoForm">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}

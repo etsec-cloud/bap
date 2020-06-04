@@ -42,11 +42,11 @@ class AssuranceType extends AbstractType
                 'label' => 'Documents complémentaires',
                 'required' => false,
                 'multiple' => true,
-                'attr' => ['class', 'form-control-file']
+                'attr' => ['class' => 'form-control-file',]
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',
-                'attr' => ['class' => 'btn btn-primary']
+                'attr' => ['class' => 'btn btn-warning']
             ])
         ;
     }

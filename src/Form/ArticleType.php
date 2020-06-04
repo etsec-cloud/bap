@@ -25,7 +25,7 @@ class ArticleType extends AbstractType
                 'label' => 'Contenu',
                 'attr' => ['class' => 'form-control'],
                 'config' => [
-                    'toolbar' => 'basic',
+                    'toolbar' => 'full',
                     'language' => 'fr',
                     'uiColor' => 'rgb(3, 23, 80)'
                 ]

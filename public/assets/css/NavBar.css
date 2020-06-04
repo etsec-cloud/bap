@@ -33,7 +33,7 @@ body::-webkit-scrollbar-thumb
     align-items: center;
     height: 9vh;
     z-index: 1;
-    background: #4a69bd;
+    background: #4866B9;
     width: 100%;
 }
 .navbar-item a{
@@ -200,13 +200,11 @@ body::-webkit-scrollbar-thumb
 
     #burger{
         display: block;
-
     }
 
     #navbar{
         margin-top: 30px;
         display: none;
-        position: absolute;
         color: blue;
         flex-direction: column-reverse;
         background-color: white;

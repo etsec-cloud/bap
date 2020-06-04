@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Assurance voyage{% endblock %}
+{% block title %}Voyage, Expatriation{% endblock %}
 
 {% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/assurance-auto.css') }}">{% endblock %}
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,23 +20,17 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Votre assurance voyage</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Voyage, Expatriation</h1>
+
+        <div class="autoContent">
             <div class="autoItem">
                 <p>
-                    Le cabinet Assurance&Cie protège tous les automobilistes. Quelque soit votre profil, nous aurons une solutions pour vous : 
-                    <ul>
-                        <li>Débutant / Jeune permis</li>
-                        <li>Expérimenté / Bonussé</li>
-                        <li>Malussé / Risque grave</li>
-                        <li>Sinistralité élevée</li>
-                        <li>Société tous conducteurs</li>
-                    </ul>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, veniam. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, distinctio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, exercitationem.
-                </p>
+                    Vous partez à l'étranger pour affaire ou en familles pour vos vacances, partez bien assurés. Assurance&Cie vous propose complète vous couvrant avant, pendant et après votre voyage. Vous aurez accès à une couverture médicale optimale, une garentie bagage, une assistance et une responsabilité civile. Assurez-vous un bon séjour, demander un devis.   
+                </p><br>
+                <img src="{{ asset('assets/images/assurances/travel.png') }}" alt="Assurance-auto" width="140%"/>
             </div>
-            <div class="autoItem">
-                <h3 class="text-center">Demandez un devis dès maintenant !</h3>
+            <div class="autoForm">
+                <h3 class="text-center">Demandez un devis dès maintenant&nbsp!</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}
                     <div class="form-row">

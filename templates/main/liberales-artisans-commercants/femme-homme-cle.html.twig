@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,8 +20,8 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Votre assurance femme et homme clé</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Votre assurance femme et homme clé</h1>
+        <div class="autoContent">
             <div class="autoItem">
                 <p>
                     Parce que votre activité repose sur vos épaules ou celles d'un collaborateur, il est souvent nécessaire d'assurer votre capacité de travail et vos talents particuliers.</p> <br>
@@ -29,8 +29,9 @@
                     L'assurance Homme/Femme Clé protège votre entreprise des aléas de la vie.</p><br>
                 <p>
                     Les primes de ce contrat peuvent être déductibles de vos revenus imposables.</p>
+                    <img src="{{ asset('assets/images/assurances/random5.png') }}" alt="Femme et homme clé" width="120%"/>
             </div>
-            <div class="autoItem">
+            <div class="autoForm">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}

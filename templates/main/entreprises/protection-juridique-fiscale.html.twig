@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,19 +20,20 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Protection juridique et fiscale</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Protection juridique et fiscale</h1>
+        <div class="autoContent">
             <div class="autoItem">
-                <p><strong>
-                    Accompagner et défendre les professionnels et les entreprises face aux conflits qui peuvent les opposer à leurs fournisseurs/clients/salariés et administration.</strong></p> <br>
-                <h1>Domaines d'interventions</h1>
+                <p>
+                    Accompagner et défendre les professionnels et les entreprises face aux conflits qui peuvent les opposer à leurs fournisseurs/clients/salariés et administration.</p> <br>
+                <h2><strong>Domaines d'interventions</strong></h2><br>
                 <p>
                     L’entreprise est garantie dans le cadre de son activité professionnelle et de sa gestion sociale.</p><br>
+                    <img src="{{ asset('assets/images/assurances/juge.png') }}" alt="juridique" width="100%"/>
             </div>
-            <div class="autoItem">
+            <div class="autoForm">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>
                 {{ form_start(assuranceForm) }}
-                    {{ form_row(assuranceForm._token) }}
+                    {{ form_row(assuranceForm._token) }}    
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             {{ form_row(assuranceForm.firstname) }}

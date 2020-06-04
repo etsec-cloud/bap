@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,24 +20,23 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Votre assurance flotte véhicules</h1>
-        <div id="autoContent">
+        <h1 class="b-1">Votre assurance flotte véhicules</h1>
+        <div class="autoContent">
             <div class="autoItem">
-            <h1><strong>PEE</strong></h1><br>
+            <P><strong>PEE & PERCO</strong></P><br>
                 <p>
-                   Le Plan d'épargne entreprise (PEE) permet aux salariés de se constituer une épargne dont l'effort repose en partie sur un abondement de l'entreprise.</p> <br>
-            <h1><strong>PERCO</strong></h1><br>
-            <p>
+                   Le Plan d'épargne entreprise (PEE) permet aux salariés de se constituer une épargne dont l'effort repose en partie sur un abondement de l'entreprise.
                    Le plan d'épargne pour la retraite collectif (Perco) vise pour sa part à permettre aux salariés d'épargner pour préparer leur retraite.<br>
-                   Le Perco fonctionne sur le même principe que le PEE, l'épargne est constituée par un effort commun du salarié et de l'entreprise souscriptrice. La mise en place d'un PERCO est forcément postérieur à la mise en place d'un PEE.</p> <br>
+                   Le Perco fonctionne sur le même principe que le PEE, l'épargne est constituée par un effort commun du salarié et de l'entreprise souscriptrice. La mise en place d'un PERCO est forcément postérieur à la mise en place d'un PEE.</p>
                 <p><strong>
                     Demandez votre devis comparatif sans engagement.
-                    </strong></p><br>
+                    </strong></p>
                 <p><strong>
                    Assurance & Cie s'occupe de toutes vos démarches pour résillier votre contrat actuel.
                     </strong></p>
+                    <img src="{{ asset('assets/images/assurances/percopee.png') }}" alt="percopee" width="100%"/>
             </div>
-            <div class="autoItem">
+            <div class="autoForm">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}

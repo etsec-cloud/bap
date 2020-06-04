@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,8 +20,8 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Retraite collective</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Retraite collective</h1>
+        <div class="autoContent">
             <div class="autoItem">
                 <p>
                     Les contrats de retraites collectifs en entreprise sont des contrats d'assurances de groupe souscrits par l'employeur au bénéfice de ses salariés selon les catégories objectives définies. Ce contrat a pour but d'offrir aux salariés un complément de retraite et une participation de l'entreprise à l'effort d'épargne.</p> <br>
@@ -30,9 +30,10 @@
                     </strong></p><br>
                 <p><strong>
                    Assurance & Cie s'occupe de toutes vos démarches pour résillier votre contrat actuel.
-                    </strong></p>
+                    </strong></p><br>
+                    <img src="{{ asset('assets/images/assurances/retraite.png') }}" alt="retraite" width="100%"/>
             </div>
-            <div class="autoItem">
+            <div class="autoForm">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}

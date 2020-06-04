@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,22 +20,20 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Votre assurance prêt</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Votre assurance prêt</h1>
+
+        <div class="autoContent">
             <div class="autoItem">
+                <br><p>
+                    Dans le cadre de votre développement, emprunter est une nécessité. L'organisme financier peut vous demander de vous assurer contre les aléas de la vie et ainsi protéger votre emprunt.</p><br>
                 <p>
-                    Dans le cadre de votre développement, emprunter est une nécessité. L'organisme financier peut vous demander de vous assurer contre les aléas de la vie et ainsi protéger votre emprunt.</p> <br>
-                <p>
-                    
                     Assurance & Cie vous accompagne dans vos démarches comparatives afin de trouver la garantie qui vous convient au meilleur prix.</p><br>
-                <p><strong>
-                    Demandez votre devis comparatif sans engagement.
-                    </strong></p><br>
-                <p><strong>
-                   Assurance & Cie s'occupe de toutes vos démarches pour résillier votre contrat actuel.
-                    </strong></p>
+                <p>
+                    Demandez votre devis comparatif sans engagement.</p><br>
+
+                <img src="{{ asset('assets/images/assurances/pret1.png') }}" alt="Assurance de prêt" width="70%"/>
             </div>
-            <div class="autoItem">
+            <div class="autoForm">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}

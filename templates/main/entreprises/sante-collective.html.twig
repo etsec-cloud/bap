@@ -6,7 +6,7 @@
 
 {% block body %}
     
-    <div id="autoContainer">
+    <div class="autoContainer">
 
         <!-- Gestion des messages de succès/erreur -->
         {% for message in app.flashes('success') %}
@@ -20,19 +20,20 @@
             </div>
         {% endfor %}
 
-        <h1 class="mt-5 mb-1">Santé collective</h1>
-        <div id="autoContent">
+        <h1 class="mb-1">Santé collective</h1>
+        <div class="autoContent">
             <div class="autoItem">
                 <p>
-                    Assurance & cie, vous accompagne dans la mise en place de vos projets conformément aux règles établis par le législateur et vous propose des solutions innovantes pour protéger votre liberté de choix de vos praticiens et établissements de santé relevant du CAS et du NON CAS. Nous offrons les mêmes couverture pour les chefs d'entreprises et les indépendants.</p> <br>
+                    Assurance & cie, vous accompagne dans la mise en place de vos projets conformément aux règles établis par le législateur et vous propose des solutions innovantes pour protéger votre liberté de choix de vos praticiens et établissements de santé relevant du CAS et du NON CAS. Nous offrons les mêmes couverture pour les chefs d'entreprises et les indépendants.</p>
                 <p><strong>
                     Pour Rappel :
-                    </strong></p><br>
+                    </strong></p>
                 <p>
                    À partir du 1<sup>er</sup> janvier 2016, une couverture complémentaire santé collective obligatoire doit être proposée par l’employeur du secteur privé à tous les salariés, <strong>n’en disposant pas déjà</strong>, en complément des garanties de base d’assurance maladie de la Sécurité sociale. Tous les employeurs, y compris les associations, quelle que soit la taille de l'entreprise, sont concernés (seuls les particuliers employeurs sont exclus).
                 </p>
+                <img src="{{ asset('assets/images/assurances/random6.png') }}" alt="santé collective" width="100%"/>
             </div>
-            <div class="autoItem">
+            <div class="autoForm">
                 <h3 class="text-center">Demandez un devis dès maintenant !</h3>
                 {{ form_start(assuranceForm) }}
                     {{ form_row(assuranceForm._token) }}

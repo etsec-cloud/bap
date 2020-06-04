@@ -142,7 +142,7 @@ class BlogController extends AbstractController
     public function newMoto(Request $request, EntityManagerInterface $entityManager)
     {
         $newArticle = new Article();
-        $form = $this->createForm(ArticleType::class, $newArticle, ['validation_groups' => ['creation']]);
+        $form = $this->createForm(ArticleType::class, $newArticle, ['validation_groups' => ['Default', 'creation']]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -182,7 +182,6 @@ class BlogController extends AbstractController
             $previousImageName = $article->getImage();
 
             $article->setImage(new File($this->getParameter('upload_directory').'/'.$article->getImage()));
-            dump($article->getImage());
             $form = $this->createForm(ArticleType::class, $article);
             $form->handleRequest($request);
 

@@ -54,7 +54,8 @@ class RegistrationFormType extends AbstractType
                 'required' => false,
                 'empty_data' => '',
                 'attr' => ['class' => 'form-control-file'],
-                'data_class' => null
+                'data_class' => null,
+                'mapped' => false
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,

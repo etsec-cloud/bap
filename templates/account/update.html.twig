@@ -5,8 +5,8 @@
 {% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/register.css') }}">{% endblock %}
 
 {% block body %}
-    <div id="registerContainer">
-        <div id="registerContent">
+    <div class="registerContainer">
+        <div class="registerContent">
 
             {% for message in app.flashes('error') %}
                 <div class="alert alert-danger my-3">

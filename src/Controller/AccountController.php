@@ -52,11 +52,12 @@ class AccountController extends AbstractController
                 }
 
                 if($form->get('image')->getData() !== null) {
+
                     if($previousImageName) {
                         $user->deleteFileOnUpdate($previousImageName);
                     }
 
-                    $image = $user->getImage();
+                    $image = $form->get('image')->getData();
                     $imageName = md5(uniqid()).'.'.$image->guessExtension();
                     $image->move($this->getParameter('upload_directory'), $imageName);
                     $user->setImage($imageName);

@@ -6,13 +6,21 @@
 
 {% block body %}
     <div id="accountContainer">
-        <div id="accountContent">  
+        <div id="accountContent"> 
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success my-3">
+                    {{ message }}
+                </div>
+            {% endfor %}    
+            
             <h1>Bienvenue {{ app.user.firstname }}</h1>
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('assurance_newArticle') }}" class="btn btn-block btn-outline-light mb-3">Créer un article - Assurance</a>
                 <a href="{{path('moto_newArticle') }}" class="btn btn-block btn-outline-light mb-3">Créer un article - Moto</a>
             {% endif %}
-            <a href="{{ path('app_logout') }}" class="btn btn-block btn-outline-light">Me déconnecter</a>
+            <a href="{{ path('update-account') }}" class="btn btn-block btn-warning">Modifier mes informations</a>
+            <a href="{{ path('app_logout') }}" class="btn btn-block btn-danger">Me déconnecter</a>
         </div>
     </div>
 {% endblock %}

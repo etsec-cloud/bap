@@ -1038,13 +1038,15 @@ class MainController extends AbstractController
 
 
     /**
-     * @Route("/devis", name="devis")
+     * @Route("/devis/{secteur}", name="devis")
      */
-    public function devis( MailerInterface $mailer, Request $request)
+    public function devis($secteur, MailerInterface $mailer, Request $request)
     {
         $form = $this->createForm(AssuranceType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
+
+            $choice = $request->request->get('choice');
 
             $firstname = $form->get('firstname')->getData();
             $lastname = $form->get('lastname')->getData();
@@ -1057,24 +1059,26 @@ class MainController extends AbstractController
             ->to('contact@agence.fr')
             ->subject('Demande de devis:')
             ->text('Ceci est un test')
-            ->htmlTemplate('emails/assurance.html.twig')
+            ->htmlTemplate('emails/devis.html.twig')
             ->context([
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'phone' => $phone,
-                'message' => $message
+                'message' => $message,
+                'choice' => $choice
             ]);
 
             $mailer->send($sendEmail);
         }
 
         return $this->render('main/devis/devis.html.twig', [
-            'assuranceForm' => $form->createView()
+            'assuranceForm' => $form->createView(),
+            'secteur' => $secteur
         ]);
     }
 
      /**
-     * @Route("/devis/index", name="devisChoix")
+     * @Route("/choice", name="devisChoix")
      */
     public function devisAssur()
     {

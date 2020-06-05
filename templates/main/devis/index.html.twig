@@ -8,27 +8,27 @@
 {% block body %}
 <div class="bgcontainer">
     <div class="flexCenter">
-        <h1 >Vous etes ?</h1>
+        <h1 >Vous êtes ?</h1>
     </div>
     <div class="flexContainer">
-        <a href="{{path('devis')}}">
+        <a href="{{ path('devis', {secteur: 1})}}">
             <div class="flexItem">
                 <img src="{{ asset('assets/images/devis/undraw_people_tax5.png') }}">
                 <h4>Particulier</h4>
             </div>
         </a>
         
-        <a href="{{path('devis')}}">
+        <a href="{{path('devis', {secteur: 2})}}">
             <div class="flexItem">
                 <img src="{{ asset('assets/images/devis/undraw_product_iteration_kjok.png') }}">
                 <h4>Entreprise</h4>
             </div>
         </a>
 
-        <a href="{{path('devis')}}">
+        <a href="{{path('devis', {secteur: 3})}}">
             <div class="flexItem">
                 <img src="{{ asset('assets/images/devis/undraw_factory_dy0a.png') }}">
-                <h4>Libéreaux, Artisans, Commerçants</h4>
+                <h4>Libéraux, Artisans, Commerçants</h4>
             </div>
         </a>
 

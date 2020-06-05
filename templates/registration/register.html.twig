@@ -5,8 +5,8 @@
 {% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/register.css') }}">{% endblock %}
 
 {% block body %}
-    <div id="registerContainer">
-        <div id="registerContent">
+    <div class="registerContainer">
+        <div class="registerContent">
             <h1>Inscrivez-vous</h1>
 
             {{ form_start(registrationForm) }}
@@ -35,7 +35,7 @@
                     <div class="form-group col-md-6">   
                         {{ form_row(registrationForm.plainPassword.second) }}
                     </div>
-                </div>
+                </div> 
                 <div class="form-row" id="agreeTerms">
                     {{ form_label(registrationForm.agreeTerms) }}
                     {{ form_widget(registrationForm.agreeTerms) }}
@@ -47,6 +47,6 @@
             {{ form_end(registrationForm, {'render_rest': false}) }}
         </div>
 
-        <div id="haveAccount">Vous avez déjà un compte? <a href="{{ path('app_login') }}">Connectez-vous !</a></div>
+        <div class="haveAccount">Vous avez déjà un compte? <a href="{{ path('app_login') }}">Connectez-vous !</a></div>
     </div>
 {% endblock %}

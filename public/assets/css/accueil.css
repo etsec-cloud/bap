@@ -201,9 +201,7 @@ p{
         flex-direction: column !important;
         align-items: center;
         height: 100%;
-        padding-top: 30px;
-        padding-bottom: 30px;
-
+        padding: 30px;
     }
     .trait{
         display: none;

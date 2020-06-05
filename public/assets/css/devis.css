@@ -1,0 +1,29 @@
+.formulage{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5vh;
+    color: white;
+}
+.autoForm{
+    max-width: 900px;
+    width: 100%;
+}
+.bigContainer{
+    background-color:#4A69BD;
+    height: 100vh;
+}
+.boutonSubmit{
+    background-color: #fff;
+    padding: 6px 50px;
+    border-radius: 5px;
+    border: none;
+    color: #E58E26;
+    font-size: 1.2rem;
+    transition: 300ms;
+}
+.boutonSubmit:hover{
+    color: #fff;
+    transition: ease-out 800ms;
+    box-shadow: inset -400px 0 0 0 #E58E26
+}

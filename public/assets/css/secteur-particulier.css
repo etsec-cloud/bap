@@ -27,6 +27,9 @@
     width: 50vw;
     overflow-x: scroll;
 }
+.flexContainer::-webkit-scrollbar {
+    display: none;
+  }
 .ligne{
     display: flex;
     flex-direction: row;

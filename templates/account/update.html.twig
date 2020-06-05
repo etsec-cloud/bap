@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}S'inscrire{% endblock %}
+{% block title %}Modifier vos informations{% endblock %}
 
 {% block stylesheets %}<link rel="stylesheet" href=" {{ asset('assets/css/register.css') }}">{% endblock %}
 
 {% block body %}
     <div id="registerContainer">
         <div id="registerContent">
-            <h1>Inscrivez-vous</h1>
+
+            {% for message in app.flashes('error') %}
+                <div class="alert alert-danger my-3">
+                    {{ message }}
+                </div>
+            {% endfor %}  
+
+            <h1>Modifiez vos informations</h1>
 
             {{ form_start(registrationForm) }}
                 {{ form_row(registrationForm._token) }}
@@ -30,23 +37,31 @@
                 </div>
                 <div class="form-row" id="passwords">
                     <div class="form-group col-md-6">   
-                        {{ form_row(registrationForm.plainPassword.first) }}
+                        {{ form_label(registrationForm.plainPassword.first, 'Nouveau mot de passe') }}
+                        {{ form_widget(registrationForm.plainPassword.first) }}
                     </div>
                     <div class="form-group col-md-6">   
-                        {{ form_row(registrationForm.plainPassword.second) }}
+                        {{ form_label(registrationForm.plainPassword.second, 'Répétez le mot de passe') }}
+                        {{ form_widget(registrationForm.plainPassword.second) }}
                     </div>
+                </div>
+                <div class="form-group">
+                    {{ form_row(registrationForm.image) }}
                 </div>
                 <div class="form-row" id="agreeTerms">
                     {{ form_label(registrationForm.agreeTerms) }}
                     {{ form_widget(registrationForm.agreeTerms) }}
                 </div>
-                <div class="text-center">   
-                    {{ form_row(registrationForm.submit) }}
+                <div class="form-group my-5">
+                    <label for="verifypassword">Entrez votre mot de passe :</label>
+                    <input type="password" name="verifypassword" id="verifypassword" class="form-control">
+                </div>
+                <div class="text-center">
+                    {{ form_widget(registrationForm.submit, {'label': 'Modifier'}) }}
                 </div>
 
             {{ form_end(registrationForm, {'render_rest': false}) }}
         </div>
 
-        <div id="haveAccount">Vous avez déjà un compte? <a href="{{ path('app_login') }}">Connectez-vous !</a></div>
     </div>
 {% endblock %}

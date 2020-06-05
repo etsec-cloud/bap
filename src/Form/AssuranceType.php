@@ -45,13 +45,6 @@ class AssuranceType extends AbstractType
                 'multiple' => true,
                 'attr' => ['class' => 'form-control-file',]
             ])
-            ->add('isAttending', ChoiceType::class, [
-                'choices'  => [
-                    'Maybe' => null,
-                    'Yes' => true,
-                    'No' => false,
-                ]
-            ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',
                 'attr' => ['class' => 'boutonSubmit']

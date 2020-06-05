@@ -4,14 +4,35 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-
-    
-
-}
-
-.flexContainer{
     color: #fff;
+}
+.flexContainer{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+.flexItem{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}    
+
+.flexItem img{
+    height: 150px;
+    margin-bottom: 30px;
+}
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+@media screen and (max-width: 1055px){
+    .flexContainer{
+        flex-direction: column !important;
+        
+    }
+    .bgcontainer{
+        height: 100vh;
+    }
 }

@@ -1040,11 +1040,10 @@ class MainController extends AbstractController
     /**
      * @Route("/devis", name="devis")
      */
-    public function devis(MailerInterface $mailer, Request $request)
+    public function devis( MailerInterface $mailer, Request $request)
     {
         $form = $this->createForm(AssuranceType::class);
         $form->handleRequest($request);
-
         if($form->isSubmitted() && $form->isValid()) {
 
             $firstname = $form->get('firstname')->getData();

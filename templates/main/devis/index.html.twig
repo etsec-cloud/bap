@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block title %}Choix du devis{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href=" {{ asset('assets/css/choixDevis.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="bgcontainer">
+    <div class="flexContainer">
+        <a href="{{path('devis')}}">
+            <div class="flexItem">
+                <img src="">
+                <p>Particulier</p>
+            </div>
+        </a>
+        
+        <a href="#">
+            <div class="flexItem">
+                <img src="">
+                <p>Entreprise</p>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="flexItem">
+                <img src="">
+                <p>Libéreaux, Artisans, Commerçants</p>
+            </div>
+        </a>
+
+    </div>
+</div>
+{% endblock %}

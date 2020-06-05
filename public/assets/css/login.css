@@ -59,4 +59,7 @@ a:hover{
     #noAccount{
         bottom: 50px;
     }
+    #loginContainer{
+        height: 100vh;
+    }
 }

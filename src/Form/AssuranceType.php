@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -43,6 +44,13 @@ class AssuranceType extends AbstractType
                 'required' => false,
                 'multiple' => true,
                 'attr' => ['class' => 'form-control-file',]
+            ])
+            ->add('isAttending', ChoiceType::class, [
+                'choices'  => [
+                    'Maybe' => null,
+                    'Yes' => true,
+                    'No' => false,
+                ]
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',

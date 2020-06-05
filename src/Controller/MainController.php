@@ -1069,8 +1069,17 @@ class MainController extends AbstractController
             $mailer->send($sendEmail);
         }
 
-        return $this->render('main/devis.html.twig', [
+        return $this->render('main/devis/devis.html.twig', [
             'assuranceForm' => $form->createView()
+        ]);
+    }
+
+     /**
+     * @Route("/devis/index", name="devisChoix")
+     */
+    public function devisAssur()
+    {
+        return $this->render('main/devis/index.html.twig', [
         ]);
     }
 

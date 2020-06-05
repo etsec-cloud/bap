@@ -1,0 +1,17 @@
+.bgcontainer{
+    background-color: #4A69BD;
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    
+
+}
+
+.flexContainer{
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

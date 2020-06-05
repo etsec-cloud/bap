@@ -66,7 +66,7 @@ class RegistrationFormType extends AbstractType
                     'required' => false
                 ],
                 'second_options' => [
-                    'label' => 'Répétez votre mot de passe',
+                    'label' => 'Répétez le mot de passe',
                     'attr' => ['class' => 'form-control mb-4'],
                     'required' => false
                 ]

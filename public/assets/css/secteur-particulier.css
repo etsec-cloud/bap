@@ -12,6 +12,10 @@
     display: flex;
 
 }
+.imgAssu{
+    width: 144px;
+    height: 144px;
+}
 
 .flexCenter{
     margin-bottom: 1em;

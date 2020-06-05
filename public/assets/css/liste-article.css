@@ -4,9 +4,7 @@
     height: 100%;
     text-align: center;
 }
-h5, span{
-    color: #fff
-}
+
 h5{
     margin-top: 10px;
     margin-bottom: 3px;
@@ -27,7 +25,6 @@ h5{
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
 .imgContainer{
     height: 200px;
 }
@@ -70,4 +67,11 @@ h5{
 .swiper-button-prev,
 .swiper-button-next{
     color: #fff!important;
+    top: 35%!important;
+}
+
+@media  screen and (max-width:1200px) {
+    .bgcontainer{
+        height: 100vh;
+    }
 }

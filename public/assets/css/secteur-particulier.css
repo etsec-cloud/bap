@@ -1,6 +1,6 @@
 .bgcontainer{
     background: #4A69BD;
-    height: 91vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,8 +46,8 @@
     align-items: center;
     justify-content: center;
     background-color: #F1F9FF;
+    border-radius: 5px;
 }
-
 
 /*slider*/
 .left{
@@ -57,6 +57,7 @@
     flex-direction: column;
     align-items: center;
     max-width: 250px;
+    border-radius: 5px;
 }
 
 .swiper-container-secteur {
@@ -68,6 +69,7 @@
 .swiper-button-prev,
 .swiper-button-next{
     top: 10%!important;
+    z-index: 1!important;
 }
 .oui{
     padding:0 5px;
@@ -92,4 +94,23 @@
     position: absolute;
     bottom: 50px;
     left: 11%;
+}
+
+@media screen and (max-width: 900px){
+    .flexContainer{
+        display: flex;
+        flex-direction: column;
+        height: 68vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        width: 100%;
+    }
+    .bdyAssu{
+        width: inherit;
+        margin-bottom: 20px;
+    }
+    .ligne{
+        flex-direction: column;
+    }
 }

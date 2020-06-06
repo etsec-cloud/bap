@@ -302,8 +302,8 @@ body::-webkit-scrollbar-thumb
         height: 60%;
     }
     #link{
-        margin-top: -45%;
-        margin-left: 25%;
+       left:56%;
+       font-size: 13px;
     }
     
 }

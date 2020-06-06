@@ -23,17 +23,20 @@
     height: 25vh;
     margin-bottom: 30px;
 }
+.flexItem h4{
+   text-align: center;
+}
 .flexCenter{
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
 }
-@media screen and (max-width: 1055px){
+@media screen and (min-width:300px) and (max-width: 1055px){
     .flexContainer{
         flex-direction: column !important;
-        
     }
     .bgcontainer{
-        height: 100vh;
+        height: 100%;
     }
 }
+
